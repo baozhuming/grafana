@@ -68,7 +68,7 @@ func checkSameHost(r *http.Request) error {
 
 // Defaults.
 const (
-	DefaultWebsocketPingInterval     = 5 * time.Second
+	DefaultWebsocketPingInterval     = 25 * time.Second
 	DefaultWebsocketMessageSizeLimit = 1024 * 1024 // 1MB
 )
 
@@ -87,7 +87,7 @@ func setupWSConn(ctx context.Context, conn *websocket.Conn, config Config) {
 	}
 	if pingInterval > 0 {
 		pongWait := pingInterval * 10 / 9
-		// _ = conn.SetReadDeadline(time.Now().Add(pongWait))
+		_ = conn.SetReadDeadline(time.Now().Add(pongWait))
 		conn.SetPongHandler(func(v string) error {
 			fmt.Printf("PONG %s\n", v)
 			_ = conn.SetReadDeadline(time.Now().Add(pongWait))
