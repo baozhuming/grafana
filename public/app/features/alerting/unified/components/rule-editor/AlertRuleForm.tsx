@@ -4,8 +4,8 @@ import { DeepMap, FieldError, FormProvider, useForm, useFormContext, UseFormWatc
 import { Link } from 'react-router-dom';
 
 import { GrafanaTheme2 } from '@grafana/data';
-import { logInfo, config } from '@grafana/runtime';
-import { Button, ConfirmModal, CustomScrollbar, Spinner, useStyles2, HorizontalGroup, Field, Input } from '@grafana/ui';
+import { config, logInfo } from '@grafana/runtime';
+import { Button, ConfirmModal, CustomScrollbar, Field, HorizontalGroup, Input, Spinner, useStyles2 } from '@grafana/ui';
 import { useAppNotification } from 'app/core/copy/appNotification';
 import { contextSrv } from 'app/core/core';
 import { useCleanup } from 'app/core/hooks/useCleanup';
@@ -197,52 +197,6 @@ export const AlertRuleForm = ({ existing, prefill }: Props) => {
   return (
     <FormProvider {...formAPI}>
       <form onSubmit={(e) => e.preventDefault()} className={styles.form}>
-        <HorizontalGroup height="auto" justify="flex-end">
-          <Link to={returnTo}>
-            <Button
-              variant="secondary"
-              disabled={submitState.loading}
-              type="button"
-              fill="outline"
-              onClick={cancelRuleCreation}
-            >
-              Cancel
-            </Button>
-          </Link>
-          {existing ? (
-            <Button variant="destructive" type="button" onClick={() => setShowDeleteModal(true)}>
-              Delete
-            </Button>
-          ) : null}
-          {isCortexLokiOrRecordingRule(watch) && (
-            <Button
-              variant="secondary"
-              type="button"
-              onClick={() => setShowEditYaml(true)}
-              disabled={submitState.loading}
-            >
-              Edit yaml
-            </Button>
-          )}
-          <Button
-            variant="primary"
-            type="button"
-            onClick={handleSubmit((values) => submit(values, false), onInvalid)}
-            disabled={submitState.loading}
-          >
-            {submitState.loading && <Spinner className={styles.buttonSpinner} inline={true} />}
-            Save
-          </Button>
-          <Button
-            variant="primary"
-            type="button"
-            onClick={handleSubmit((values) => submit(values, true), onInvalid)}
-            disabled={submitState.loading}
-          >
-            {submitState.loading && <Spinner className={styles.buttonSpinner} inline={true} />}
-            Save and exit
-          </Button>
-        </HorizontalGroup>
         <div className={styles.contentOuter}>
           <CustomScrollbar autoHeightMin="100%" hideHorizontalTrack={true}>
             <div className={styles.contentInner}>
@@ -267,6 +221,52 @@ export const AlertRuleForm = ({ existing, prefill }: Props) => {
             </div>
           </CustomScrollbar>
         </div>
+        <HorizontalGroup height="auto" justify="flex-end">
+          {existing ? (
+            <Button variant="destructive" type="button" onClick={() => setShowDeleteModal(true)}>
+              Delete
+            </Button>
+          ) : null}
+          {isCortexLokiOrRecordingRule(watch) && (
+            <Button
+              variant="secondary"
+              type="button"
+              onClick={() => setShowEditYaml(true)}
+              disabled={submitState.loading}
+            >
+              Edit yaml
+            </Button>
+          )}
+          <Button
+            variant="primary"
+            type="button"
+            onClick={handleSubmit((values) => submit(values, false), onInvalid)}
+            disabled={submitState.loading}
+          >
+            {submitState.loading && <Spinner className={styles.buttonSpinner} inline={true} />}
+            Save rule
+          </Button>
+          <Button
+            variant="primary"
+            type="button"
+            onClick={handleSubmit((values) => submit(values, true), onInvalid)}
+            disabled={submitState.loading}
+          >
+            {submitState.loading && <Spinner className={styles.buttonSpinner} inline={true} />}
+            Save rule and exit
+          </Button>
+          <Link to={returnTo}>
+            <Button
+              variant="secondary"
+              disabled={submitState.loading}
+              type="button"
+              fill="outline"
+              onClick={cancelRuleCreation}
+            >
+              Cancel
+            </Button>
+          </Link>
+        </HorizontalGroup>
       </form>
       {showDeleteModal ? (
         <ConfirmModal
@@ -311,7 +311,7 @@ const getStyles = (theme: GrafanaTheme2) => {
       border-radius: ${theme.shape.borderRadius()};
       overflow: hidden;
       flex: 1;
-      margin-top: ${theme.spacing(1)};
+      margin-bottom: ${theme.spacing(1)};
     `,
     flexRow: css`
       display: flex;
