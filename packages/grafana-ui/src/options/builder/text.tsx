@@ -15,7 +15,7 @@ export function addTextSizeOptions<T extends OptionsWithTextFormatting>(
     builder.addNumberInput({
       path: 'text.titleSize',
       category: ['Text size'],
-      name: 'Title',
+      name: '标题',
       settings: {
         placeholder: 'Auto',
         integer: false,
@@ -29,7 +29,7 @@ export function addTextSizeOptions<T extends OptionsWithTextFormatting>(
   builder.addNumberInput({
     path: 'text.valueSize',
     category: ['Text size'],
-    name: 'Value',
+    name: '值',
     settings: {
       placeholder: 'Auto',
       integer: false,

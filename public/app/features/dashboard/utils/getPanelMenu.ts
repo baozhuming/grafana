@@ -112,7 +112,7 @@ export function getPanelMenu(
 
   if (dashboard.canEditPanel(panel) && !panel.isEditing) {
     menu.push({
-      text: 'Edit',
+      text: '编辑',
       iconClassName: 'edit',
       onClick: onEditPanel,
       shortcut: 'e',
@@ -130,7 +130,7 @@ export function getPanelMenu(
 
   if (contextSrv.hasAccessToExplore() && !(panel.plugin && panel.plugin.meta.skipDataQuery)) {
     menu.push({
-      text: 'Explore',
+      text: '探查',
       iconClassName: 'compass',
       onClick: onNavigateToExplore,
       shortcut: 'x',
@@ -179,24 +179,24 @@ export function getPanelMenu(
 
   if (canEdit && !(panel.isViewing || panel.isEditing)) {
     subMenu.push({
-      text: 'Duplicate',
+      text: '副本',
       onClick: onDuplicatePanel,
       shortcut: 'p d',
     });
 
     subMenu.push({
-      text: 'Copy',
+      text: '复制',
       onClick: onCopyPanel,
     });
 
     if (isPanelModelLibraryPanel(panel)) {
       subMenu.push({
-        text: 'Unlink library panel',
+        text: '取消面板库链接',
         onClick: onUnlinkLibraryPanel,
       });
     } else {
       subMenu.push({
-        text: 'Create library panel',
+        text: '创建面板库',
         onClick: onAddLibraryPanel,
       });
     }
@@ -242,7 +242,7 @@ export function getPanelMenu(
 
   if (canEdit && panel.plugin && !panel.plugin.meta.skipDataQuery) {
     subMenu.push({
-      text: 'Get help',
+      text: '获取帮助',
       onClick: (e: React.MouseEvent) => onInspectPanel(InspectTab.Help),
     });
   }
@@ -262,7 +262,7 @@ export function getPanelMenu(
     menu.push({ type: 'divider', text: '' });
 
     menu.push({
-      text: 'Remove',
+      text: '删除',
       iconClassName: 'trash-alt',
       onClick: onRemovePanel,
       shortcut: 'p r',

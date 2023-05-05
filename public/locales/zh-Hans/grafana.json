@@ -2,7 +2,7 @@
   "_comment": "Do not manually edit this file. Translations must be made in Crowdin which will sync them back into this file",
   "clipboard-button": {
     "inline-toast": {
-      "success": ""
+      "success": "复制"
     }
   },
   "common": {
@@ -105,13 +105,13 @@
       "title": "服务器管理员"
     },
     "admin-access": {
-      "title": ""
+      "title": "用户和访问"
     },
     "admin-general": {
-      "title": ""
+      "title": "通用"
     },
     "admin-plugins": {
-      "title": ""
+      "title": "插件和数据"
     },
     "alerting": {
       "subtitle": "在系统发生问题后立即获悉",
@@ -198,7 +198,7 @@
     },
     "global-users": {
       "subtitle": "在整个 Grafana 服务器上管理和创建用户",
-      "title": "",
+      "title": "用户(所有机构)",
       "titleBeforeTopnav": "用户"
     },
     "help": {
@@ -270,7 +270,7 @@
       "placeholder": "搜索 Grafana"
     },
     "search-dashboards": {
-      "title": ""
+      "title": "搜索仪表盘"
     },
     "server-settings": {
       "subtitle": "查看 Grafana 配置中定义的设置",
@@ -319,36 +319,36 @@
     "title": "最新博客"
   },
   "notifications": {
-    "starred-dashboard": "",
-    "unstarred-dashboard": ""
+    "starred-dashboard": "仪表盘加星标",
+    "unstarred-dashboard": "仪表盘取消星标"
   },
   "panel": {
     "header-menu": {
-      "hide-legend": "",
+      "hide-legend": "隐藏图例",
       "inspect": "检查",
       "inspect-data": "数据",
       "inspect-json": "面板 JSON",
       "more": "更多...",
       "share": "分享",
-      "show-legend": "",
+      "show-legend": "显示图例",
       "view": "查看"
     }
   },
   "refresh-picker": {
     "aria-label": {
       "choose-interval": "自动刷新已关闭。选择刷新时间间隔",
-      "duration-selected": ""
+      "duration-selected": "选择刷新时间间隔，选择当前间隔{{durationAriaLabel}}"
     },
     "live-option": {
-      "aria-label": "",
-      "label": ""
+      "aria-label": "打开直播",
+      "label": "直播"
     },
     "off-option": {
       "aria-label": "关闭自动刷新",
       "label": "关"
     },
     "select-button": {
-      "auto-refresh": ""
+      "auto-refresh": "设置自动刷新间隔"
     }
   },
   "share-modal": {
@@ -372,7 +372,7 @@
       "view-button": "查看 JSON"
     },
     "library": {
-      "info": "创建库面板。"
+      "info": "创建库面板"
     },
     "link": {
       "copy-link-button": "复制",
@@ -407,7 +407,7 @@
       "name": "快照名称",
       "timeout": "超时（秒）",
       "timeout-description": "如果需要很长时间才能收集仪表板指标，则可能需要配置超时值。",
-      "url-label": ""
+      "url-label": "快照URL"
     },
     "tab-title": {
       "embed": "嵌入",
@@ -423,7 +423,7 @@
       "light": "浅色"
     },
     "view-json": {
-      "copy-button": ""
+      "copy-button": "复制到剪贴板"
     }
   },
   "shared-dashboard": {
@@ -453,46 +453,46 @@
       "title": "绝对时间范围"
     },
     "calendar": {
-      "apply-button": "",
+      "apply-button": "应用时间范围",
       "cancel-button": "取消",
-      "select-time": ""
+      "select-time": "选择时间"
     },
     "content": {
-      "empty-recent-list": "",
-      "filter-placeholder": ""
+      "empty-recent-list": "<0><0>看起来您以前没有使用过这个时间选择器，只要输入一些时间间隔，这里就会显示最近使用的时间间隔，<0><0><1><0>请参阅文档<0><1>以了解更多关于如何输入自定义时间段的信息",
+      "filter-placeholder": "快速搜索范围"
     },
     "footer": {
-      "change-settings-button": "",
-      "fiscal-year-option": "",
-      "fiscal-year-start": "",
-      "time-zone-option": "",
-      "time-zone-selection": ""
+      "change-settings-button": "更改时间设置",
+      "fiscal-year-option": "财政年度",
+      "fiscal-year-start": "财政年度开始月份",
+      "time-zone-option": "时区",
+      "time-zone-selection": "时区选择"
     },
     "range-content": {
-      "apply-button": "",
-      "default-error": "",
-      "fiscal-year": "",
-      "from-input": "",
-      "range-error": "",
-      "to-input": ""
+      "apply-button": "应用时间范围",
+      "default-error": "请输入过去的日期或\"now\"",
+      "fiscal-year": "财政年度",
+      "from-input": "从",
+      "range-error": "开始时间不能晚于结束时间",
+      "to-input": "至"
     },
     "range-picker": {
-      "backwards-time-aria-label": "",
-      "current-time-selected": "",
-      "forwards-time-aria-label": "",
-      "to": "",
-      "zoom-out-button": "",
-      "zoom-out-tooltip": ""
+      "backwards-time-aria-label": "向后移动时间范围",
+      "current-time-selected": "选择的时间范围:{{currentTimeRange}}",
+      "forwards-time-aria-label": "向前移动时间范围",
+      "to": "至",
+      "zoom-out-button": "缩小时间范围",
+      "zoom-out-tooltip": "缩小时间范围<1></1> CTRL+Z"
     },
     "time-range": {
-      "aria-role": "",
-      "default-title": "",
-      "example-title": "",
-      "specify": ""
+      "aria-role": "时间范围选择",
+      "default-title": "时间范围",
+      "example-title": "示例时间范围",
+      "specify": "指定时间范围<1><1>"
     },
     "zone": {
-      "select-aria-label": "",
-      "select-search-input": ""
+      "select-aria-label": "时区选择器",
+      "select-search-input": "要搜索的类型(国家、城市、缩写)"
     }
   },
   "user-orgs": {
@@ -524,11 +524,11 @@
   },
   "variable": {
     "picker": {
-      "input": "",
-      "link-all": "",
-      "option-all": "",
-      "option-selected-values": "",
-      "option-tooltip": ""
+      "input": "输入变量值",
+      "link-all": "所有",
+      "option-all": "所有",
+      "option-selected-values": "选择",
+      "option-tooltip": "清除选择"
     }
   }
 }

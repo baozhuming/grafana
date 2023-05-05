@@ -40,10 +40,10 @@ export const graphFieldOptions = {
   ] as Array<SelectableValue<VisibilityMode>>,
 
   axisPlacement: [
-    { label: 'Auto', value: AxisPlacement.Auto, description: 'First field on the left, everything else on the right' },
-    { label: 'Left', value: AxisPlacement.Left },
-    { label: 'Right', value: AxisPlacement.Right },
-    { label: 'Hidden', value: AxisPlacement.Hidden },
+    { label: '自动', value: AxisPlacement.Auto, description: '第一块在左边，其他的在右边' },
+    { label: '左侧', value: AxisPlacement.Left },
+    { label: '右侧', value: AxisPlacement.Right },
+    { label: '隐藏', value: AxisPlacement.Hidden },
   ] as Array<SelectableValue<AxisPlacement>>,
 
   fillGradient: [

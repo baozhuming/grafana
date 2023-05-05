@@ -76,7 +76,7 @@ export const SearchView = ({ showManage, folderDTO, hidePseudoFolders, keyboardE
 
       return (
         <div className={styles.noResults}>
-          <div>No results found for your query.</div>
+          <div>暂无数据</div>
           <br />
           <Button
             variant="secondary"
@@ -92,7 +92,7 @@ export const SearchView = ({ showManage, folderDTO, hidePseudoFolders, keyboardE
               }
             }}
           >
-            Clear search and filters
+            清除搜索和过滤条件
           </Button>
         </div>
       );

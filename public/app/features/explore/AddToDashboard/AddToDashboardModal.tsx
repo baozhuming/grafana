@@ -78,13 +78,13 @@ export const AddToDashboardModal = ({ onClose, exploreId }: Props) => {
   const saveTargets: Array<SelectableValue<SaveTarget>> = [];
   if (canCreateDashboard) {
     saveTargets.push({
-      label: 'New dashboard',
+      label: '添加仪表盘',
       value: SaveTarget.NewDashboard,
     });
   }
   if (canWriteDashboard) {
     saveTargets.push({
-      label: 'Existing dashboard',
+      label: '现有仪表盘',
       value: SaveTarget.ExistingDashboard,
     });
   }

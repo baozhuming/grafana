@@ -155,14 +155,14 @@ export const ImportDashboardForm: FC<Props> = ({
         })}
       <ImportDashboardLibraryPanelsList
         inputs={newLibraryPanels}
-        label="New library panels"
-        description="List of new library panels that will get imported."
+        label="添加面板库"
+        description="将要导入的新库面板列表"
         folderName={watchFolder.title}
       />
       <ImportDashboardLibraryPanelsList
         inputs={existingLibraryPanels}
-        label="Existing library panels"
-        description="List of existing library panels. These panels are not affected by the import."
+        label="现有面板库"
+        description="现有库面板列表，这些面板不受导入的影响"
         folderName={watchFolder.title}
       />
       <HorizontalGroup>
@@ -177,7 +177,7 @@ export const ImportDashboardForm: FC<Props> = ({
           {getButtonText(errors)}
         </Button>
         <Button type="reset" variant="secondary" onClick={onCancel}>
-          Cancel
+          取消
         </Button>
       </HorizontalGroup>
     </>

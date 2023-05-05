@@ -79,7 +79,7 @@ export const PageToolbar: FC<Props> = React.memo(
             <div className={styles.pageIcon}>
               <IconButton
                 name="arrow-left"
-                tooltip="Go back (Esc)"
+                tooltip="返回(Esc)"
                 tooltipPlacement="bottom"
                 size="xxl"
                 aria-label={selectors.components.BackButton.backArrow}
@@ -91,7 +91,7 @@ export const PageToolbar: FC<Props> = React.memo(
             {parent && parentHref && (
               <>
                 <Link
-                  aria-label={`Search dashboard in the ${parent} folder`}
+                  aria-label={`搜索${parent}下的仪表盘`}
                   className={cx(styles.titleText, styles.parentLink, styles.titleLink, styles.truncateText)}
                   href={parentHref}
                 >
@@ -111,7 +111,7 @@ export const PageToolbar: FC<Props> = React.memo(
                   <h1 className={styles.h1Styles}>
                     {titleHref ? (
                       <Link
-                        aria-label="Search dashboard by name"
+                        aria-label="按名称搜索仪表盘"
                         className={cx(styles.titleText, styles.titleLink)}
                         href={titleHref}
                       >

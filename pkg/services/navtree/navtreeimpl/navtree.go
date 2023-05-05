@@ -96,9 +96,9 @@ func (s *ServiceImpl) GetNavTree(c *models.ReqContext, hasEditPerm bool, prefs *
 		dashboardChildLinks := s.buildDashboardNavLinks(c, hasEditPerm)
 
 		dashboardLink := &navtree.NavLink{
-			Text:       "Dashboards",
+			Text:       "仪表盘",
 			Id:         navtree.NavIDDashboards,
-			SubTitle:   "Create and manage dashboards to visualize your data",
+			SubTitle:   "创建和管理可视化仪表盘",
 			Icon:       "apps",
 			Url:        s.cfg.AppSubURL + "/dashboards",
 			SortWeight: navtree.WeightDashboard,

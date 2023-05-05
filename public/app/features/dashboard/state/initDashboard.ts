@@ -265,7 +265,7 @@ export function getNewDashboardModelData(urlFolderId?: string, panelType?: strin
       folderId: 0,
     },
     dashboard: {
-      title: 'New dashboard',
+      title: '添加仪表盘',
       panels: [
         {
           type: panelType ?? 'add-panel',

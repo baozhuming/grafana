@@ -10,8 +10,8 @@ import (
 var (
 	SortAlphaAsc = models.SortOption{
 		Name:        "alpha-asc",
-		DisplayName: "Alphabetically (A–Z)",
-		Description: "Sort results in an alphabetically ascending order",
+		DisplayName: "按字母顺序（A–Z）",
+		Description: "排序结果按字母升序排列",
 		Index:       0,
 		Filter: []models.SortOptionFilter{
 			searchstore.TitleSorter{},
@@ -19,8 +19,8 @@ var (
 	}
 	SortAlphaDesc = models.SortOption{
 		Name:        "alpha-desc",
-		DisplayName: "Alphabetically (Z–A)",
-		Description: "Sort results in an alphabetically descending order",
+		DisplayName: "按字母顺序（Z–A）",
+		Description: "按字母降序排序结果",
 		Index:       0,
 		Filter: []models.SortOptionFilter{
 			searchstore.TitleSorter{Descending: true},

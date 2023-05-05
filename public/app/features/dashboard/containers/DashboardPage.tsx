@@ -210,7 +210,7 @@ export class UnthemedDashboardPage extends PureComponent<Props, State> {
     }
 
     if (this.state.panelNotFound) {
-      this.props.notifyApp(createErrorNotification(`Panel not found`));
+      this.props.notifyApp(createErrorNotification(`未找到面板`));
       locationService.partial({ editPanel: null, viewPanel: null });
     }
   }

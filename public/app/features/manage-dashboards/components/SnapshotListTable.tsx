@@ -47,10 +47,10 @@ export const SnapshotListTable = () => {
         <thead>
           <tr>
             <th>
-              <strong>Name</strong>
+              <strong>名称</strong>
             </th>
             <th>
-              <strong>Snapshot url</strong>
+              <strong>快照url</strong>
             </th>
             <th style={{ width: '70px' }}></th>
             <th style={{ width: '30px' }}></th>
@@ -72,7 +72,7 @@ export const SnapshotListTable = () => {
                 <td>{snapshot.external && <span className="query-keyword">External</span>}</td>
                 <td className="text-center">
                   <LinkButton href={url} variant="secondary" size="sm" icon="eye">
-                    View
+                    查看
                   </LinkButton>
                 </td>
                 <td className="text-right">
@@ -87,9 +87,9 @@ export const SnapshotListTable = () => {
       <ConfirmModal
         isOpen={!!removeSnapshot}
         icon="trash-alt"
-        title="Delete"
-        body={`Are you sure you want to delete '${removeSnapshot?.name}'?`}
-        confirmText="Delete"
+        title="删除"
+        body={`确定删除'${removeSnapshot?.name}'?`}
+        confirmText="删除后"
         onDismiss={() => setRemoveSnapshot(undefined)}
         onConfirm={() => {
           doRemoveSnapshot(removeSnapshot!);

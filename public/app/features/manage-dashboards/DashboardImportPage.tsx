@@ -84,10 +84,7 @@ class UnthemedDashboardImport extends PureComponent<Props> {
             dashboard = JSON.parse(e.target.result);
           } catch (error) {
             if (error instanceof Error) {
-              appEvents.emit(AppEvents.alertError, [
-                'Import failed',
-                'JSON -> JS Serialization failed: ' + error.message,
-              ]);
+              appEvents.emit(AppEvents.alertError, ['导入失败', 'JSON -> JS序列化失败：' + error.message]);
             }
             return;
           }
@@ -132,26 +129,26 @@ class UnthemedDashboardImport extends PureComponent<Props> {
       <>
         <div className={styles.option}>
           <FileUpload accept="application/json" onFileUpload={this.onFileUpload}>
-            Upload JSON file
+            上传JSON文件
           </FileUpload>
         </div>
         <div className={styles.option}>
           <Form onSubmit={this.getGcomDashboard} defaultValues={{ gcomDashboard: '' }}>
             {({ register, errors }) => (
               <Field
-                label="Import via grafana.com"
+                label="通过grafana.com导入"
                 invalid={!!errors.gcomDashboard}
                 error={errors.gcomDashboard && errors.gcomDashboard.message}
               >
                 <Input
                   id="url-input"
-                  placeholder="Grafana.com dashboard URL or ID"
+                  placeholder="Grafana.com 仪表盘URL或ID"
                   type="text"
                   {...register('gcomDashboard', {
-                    required: 'A Grafana dashboard URL or ID is required',
+                    required: '需要一个Grafana仪表板URL或ID',
                     validate: validateGcomDashboard,
                   })}
-                  addonAfter={<Button type="submit">Load</Button>}
+                  addonAfter={<Button type="submit">加载</Button>}
                 />
               </Field>
             )}
@@ -162,13 +159,13 @@ class UnthemedDashboardImport extends PureComponent<Props> {
             {({ register, errors }) => (
               <>
                 <Field
-                  label="Import via panel json"
+                  label="通过面板JSON导入"
                   invalid={!!errors.dashboardJson}
                   error={errors.dashboardJson && errors.dashboardJson.message}
                 >
                   <TextArea
                     {...register('dashboardJson', {
-                      required: 'Need a dashboard JSON model',
+                      required: '需要一个仪表盘JSON模型',
                       validate: validateDashboardJson,
                     })}
                     data-testid={selectors.components.DashboardImportPage.textarea}
@@ -177,7 +174,7 @@ class UnthemedDashboardImport extends PureComponent<Props> {
                   />
                 </Field>
                 <Button type="submit" data-testid={selectors.components.DashboardImportPage.submit}>
-                  Load
+                  载入
                 </Button>
               </>
             )}
@@ -188,9 +185,9 @@ class UnthemedDashboardImport extends PureComponent<Props> {
   }
 
   pageNav: NavModelItem = {
-    text: 'Import dashboard',
-    subTitle: 'Import dashboard from file or Grafana.com"',
-    breadcrumbs: [{ title: 'Dashboards', url: 'dashboards' }],
+    text: '导入仪表盘',
+    subTitle: '从文件或Grafana.com导入仪表板"',
+    breadcrumbs: [{ title: '仪表盘', url: 'dashboards' }],
   };
 
   render() {

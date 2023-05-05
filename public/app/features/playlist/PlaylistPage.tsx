@@ -36,14 +36,14 @@ export const PlaylistPage = () => {
 
   const emptyListBanner = (
     <EmptyListCTA
-      title="There are no playlists created yet"
+      title="目前还没有创建播放列表"
       buttonIcon="plus"
       buttonLink="playlists/new"
-      buttonTitle="Create Playlist"
+      buttonTitle="创建播放列表"
       buttonDisabled={!contextSrv.isEditor}
-      proTip="You can use playlists to cycle dashboards on TVs without user control"
+      proTip="你可以在没有用户控制的情况下使用播放列表来循环电视上的仪表盘"
       proTipLink="http://docs.grafana.org/reference/playlist/"
-      proTipLinkTitle="Learn more"
+      proTipLinkTitle="了解更多"
       proTipTarget="_blank"
     />
   );

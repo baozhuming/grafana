@@ -68,9 +68,9 @@ export const LibraryPanelsView: React.FC<LibraryPanelViewProps> = ({
     <div className={cx(styles.container, className)}>
       <div className={styles.libraryPanelList}>
         {loadingState === LoadingState.Loading ? (
-          <p>Loading library panels...</p>
+          <p>面板库加载中...</p>
         ) : libraryPanels.length < 1 ? (
-          <p className={styles.noPanelsFound}>No library panels found.</p>
+          <p className={styles.noPanelsFound}>暂无数据</p>
         ) : (
           libraryPanels?.map((item, i) => (
             <LibraryPanelCard

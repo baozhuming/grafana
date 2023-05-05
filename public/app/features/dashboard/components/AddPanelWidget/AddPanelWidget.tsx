@@ -140,7 +140,7 @@ export const AddPanelWidgetUnconnected = ({ panel, dashboard }: Props) => {
     <div className={styles.wrapper}>
       <div className={cx('panel-container', styles.callToAction)}>
         <AddPanelWidgetHandle onCancel={onCancelAddPanel} onBack={addPanelView ? onBack : undefined} styles={styles}>
-          {addPanelView ? 'Add panel from panel library' : 'Add panel'}
+          {addPanelView ? '从面板库中添加面板' : '添加面板'}
         </AddPanelWidgetHandle>
         {addPanelView ? (
           <LibraryPanelsSearch onClick={onAddLibraryPanel} variant={LibraryPanelsSearchVariant.Tight} showPanelFilter />
@@ -154,7 +154,7 @@ export const AddPanelWidgetUnconnected = ({ panel, dashboard }: Props) => {
                 onCreateNewPanel();
               }}
             >
-              Add a new panel
+              添加新面板
             </CardButton>
             <CardButton
               icon="wrap-text"
@@ -164,7 +164,7 @@ export const AddPanelWidgetUnconnected = ({ panel, dashboard }: Props) => {
                 onCreateNewRow();
               }}
             >
-              Add a new row
+              添加新行
             </CardButton>
             <CardButton
               icon="book-open"
@@ -174,7 +174,7 @@ export const AddPanelWidgetUnconnected = ({ panel, dashboard }: Props) => {
                 setAddPanelView(true);
               }}
             >
-              Add a panel from the panel library
+              从面板库中添加面板
             </CardButton>
             {copiedPanelPlugins.length === 1 && (
               <CardButton
@@ -185,7 +185,7 @@ export const AddPanelWidgetUnconnected = ({ panel, dashboard }: Props) => {
                   onPasteCopiedPanel(copiedPanelPlugins[0]);
                 }}
               >
-                Paste panel from clipboard
+                从剪贴板粘贴面板
               </CardButton>
             )}
           </div>

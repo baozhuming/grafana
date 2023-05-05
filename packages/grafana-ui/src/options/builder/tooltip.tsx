@@ -8,25 +8,25 @@ export function addTooltipOptions<T extends OptionsWithTooltip>(
   const category = ['Tooltip'];
   const modeOptions = singleOnly
     ? [
-        { value: TooltipDisplayMode.Single, label: 'Single' },
-        { value: TooltipDisplayMode.None, label: 'Hidden' },
+        { value: TooltipDisplayMode.Single, label: '单个' },
+        { value: TooltipDisplayMode.None, label: '隐藏' },
       ]
     : [
-        { value: TooltipDisplayMode.Single, label: 'Single' },
-        { value: TooltipDisplayMode.Multi, label: 'All' },
-        { value: TooltipDisplayMode.None, label: 'Hidden' },
+        { value: TooltipDisplayMode.Single, label: '单个' },
+        { value: TooltipDisplayMode.Multi, label: '全部' },
+        { value: TooltipDisplayMode.None, label: '隐藏' },
       ];
 
   const sortOptions = [
-    { value: SortOrder.None, label: 'None' },
-    { value: SortOrder.Ascending, label: 'Ascending' },
-    { value: SortOrder.Descending, label: 'Descending' },
+    { value: SortOrder.None, label: '无' },
+    { value: SortOrder.Ascending, label: '升序' },
+    { value: SortOrder.Descending, label: '降序' },
   ];
 
   builder
     .addRadio({
       path: 'tooltip.mode',
-      name: 'Tooltip mode',
+      name: '工具提示模式',
       category,
       defaultValue: 'single',
       settings: {
@@ -35,7 +35,7 @@ export function addTooltipOptions<T extends OptionsWithTooltip>(
     })
     .addRadio({
       path: 'tooltip.sort',
-      name: 'Values sort order',
+      name: '值排序顺序',
       category,
       defaultValue: SortOrder.None,
       showIf: (options: T) => options.tooltip.mode === TooltipDisplayMode.Multi,

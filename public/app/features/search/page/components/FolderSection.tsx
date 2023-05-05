@@ -121,7 +121,7 @@ export const FolderSection = ({
     } else if (results.value.length === 0 && !results.loading) {
       return (
         <Card>
-          <Card.Heading>No results found</Card.Heading>
+          <Card.Heading>暂无数据</Card.Heading>
         </Card>
       );
     }

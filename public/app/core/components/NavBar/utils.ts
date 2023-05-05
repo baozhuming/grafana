@@ -30,7 +30,7 @@ export const enrichConfigItems = (items: NavModelItem[], location: Location<unkn
     const profileNode = items.find((bottomNavItem) => bottomNavItem.id === 'profile');
     if (profileNode) {
       profileNode.showOrgSwitcher = true;
-      profileNode.subTitle = `Organization: ${user?.orgName}`;
+      profileNode.subTitle = `机构: ${user?.orgName}`;
     }
   }
 

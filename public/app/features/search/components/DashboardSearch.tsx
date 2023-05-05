@@ -26,7 +26,7 @@ export function DashboardSearch({}: Props) {
           <div>
             <input
               type="text"
-              placeholder={state.includePanels ? 'Search dashboards and panels by name' : 'Search dashboards by name'}
+              placeholder={state.includePanels ? '按名称搜索仪表盘和面板' : '按名称搜索仪表盘'}
               value={state.query ?? ''}
               onChange={(e) => stateManager.onQueryChange(e.currentTarget.value)}
               onKeyDown={onKeyDown}

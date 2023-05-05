@@ -292,7 +292,7 @@ export class PanelEditorUnconnected extends PureComponent<Props> {
           {this.renderTemplateVariables(styles)}
           <Stack gap={1}>
             <InlineSwitch
-              label="Table view"
+              label="表格视图"
               showLabel={true}
               id="table-view"
               value={tableViewEnabled}
@@ -313,44 +313,38 @@ export class PanelEditorUnconnected extends PureComponent<Props> {
     let editorActions = [
       <Button
         onClick={this.onDiscard}
-        title="Undo all changes"
+        title="取消所有更改"
         key="discard"
         size={size}
         variant="destructive"
         fill="outline"
       >
-        Discard
+        取消
       </Button>,
       this.props.panel.libraryPanel ? (
         <Button
           onClick={this.onSaveLibraryPanel}
           variant="primary"
           size={size}
-          title="Apply changes and save library panel"
+          title="应用更改并保存面板库"
           key="save-panel"
         >
-          Save library panel
+          保存面板库
         </Button>
       ) : (
-        <Button
-          onClick={this.onSaveDashboard}
-          title="Apply changes and save dashboard"
-          key="save"
-          size={size}
-          variant="secondary"
-        >
-          Save
+        <Button onClick={this.onSaveDashboard} title="应用更改并保存仪表盘" key="save" size={size} variant="secondary">
+          保存
         </Button>
       ),
       <Button
         onClick={this.onBack}
         variant="primary"
-        title="Apply changes and go back to dashboard"
+        title="应用更改并返回到指示板"
         data-testid={selectors.components.PanelEditor.applyButton}
         key="apply"
         size={size}
       >
-        Apply
+        应用
       </Button>,
     ];
 
@@ -372,10 +366,10 @@ export class PanelEditorUnconnected extends PureComponent<Props> {
                     isOpen: true,
                   });
                 }}
-                title="Disconnects this panel from the library panel so that you can edit it regularly."
+                title="断开此面板与库面库的连接，以便您可以定期编辑它"
                 key="unlink"
               >
-                Unlink
+                删除链接
               </ToolbarButton>
             );
           }}
@@ -427,7 +421,7 @@ export class PanelEditorUnconnected extends PureComponent<Props> {
     }
 
     return (
-      <PageToolbar title={this.props.dashboard.title} section="Edit Panel" onGoBack={this.onGoBackToDashboard}>
+      <PageToolbar title={this.props.dashboard.title} section="编辑面板" onGoBack={this.onGoBackToDashboard}>
         {this.renderEditorActions()}
       </PageToolbar>
     );

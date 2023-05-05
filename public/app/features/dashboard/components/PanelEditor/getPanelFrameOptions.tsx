@@ -12,7 +12,7 @@ import { OptionPaneRenderProps } from './types';
 export function getPanelFrameCategory(props: OptionPaneRenderProps): OptionsPaneCategoryDescriptor {
   const { panel, onPanelConfigChange } = props;
   const descriptor = new OptionsPaneCategoryDescriptor({
-    title: 'Panel options',
+    title: '面板选项',
     id: 'Panel options',
     isOpenDefault: true,
   });
@@ -20,7 +20,7 @@ export function getPanelFrameCategory(props: OptionPaneRenderProps): OptionsPane
   return descriptor
     .addItem(
       new OptionsPaneItemDescriptor({
-        title: 'Title',
+        title: '主题',
         value: panel.title,
         popularRank: 1,
         render: function renderTitle() {
@@ -36,7 +36,7 @@ export function getPanelFrameCategory(props: OptionPaneRenderProps): OptionsPane
     )
     .addItem(
       new OptionsPaneItemDescriptor({
-        title: 'Description',
+        title: '描述',
         description: panel.description,
         value: panel.description,
         render: function renderDescription() {
@@ -52,7 +52,7 @@ export function getPanelFrameCategory(props: OptionPaneRenderProps): OptionsPane
     )
     .addItem(
       new OptionsPaneItemDescriptor({
-        title: 'Transparent background',
+        title: '透明背景',
         render: function renderTransparent() {
           return (
             <Switch
@@ -66,13 +66,13 @@ export function getPanelFrameCategory(props: OptionPaneRenderProps): OptionsPane
     )
     .addCategory(
       new OptionsPaneCategoryDescriptor({
-        title: 'Panel links',
+        title: '面板链接',
         id: 'Panel links',
         isOpenDefault: false,
         itemsCount: panel.links?.length,
       }).addItem(
         new OptionsPaneItemDescriptor({
-          title: 'Panel links',
+          title: '面板链接',
           render: function renderLinks() {
             return (
               <DataLinksInlineEditor
@@ -88,15 +88,15 @@ export function getPanelFrameCategory(props: OptionPaneRenderProps): OptionsPane
     )
     .addCategory(
       new OptionsPaneCategoryDescriptor({
-        title: 'Repeat options',
+        title: '重复选项',
         id: 'Repeat options',
         isOpenDefault: false,
       })
         .addItem(
           new OptionsPaneItemDescriptor({
-            title: 'Repeat by variable',
+            title: '按变量重复',
             description:
-              'Repeat this panel for each value in the selected variable. This is not visible while in edit mode. You need to go back to dashboard and then update the variable or reload the dashboard.',
+              '对所选变量中的每个值重复此面板，这在编辑模式下是不可见的，您需要回到仪表板，然后更新变量或重新加载仪表板',
             render: function renderRepeatOptions() {
               return (
                 <RepeatRowSelect
@@ -112,12 +112,12 @@ export function getPanelFrameCategory(props: OptionPaneRenderProps): OptionsPane
         )
         .addItem(
           new OptionsPaneItemDescriptor({
-            title: 'Repeat direction',
+            title: '重复方向',
             showIf: () => !!panel.repeat,
             render: function renderRepeatOptions() {
               const directionOptions = [
-                { label: 'Horizontal', value: 'h' },
-                { label: 'Vertical', value: 'v' },
+                { label: '水平', value: 'h' },
+                { label: '垂直', value: 'v' },
               ];
 
               return (
@@ -132,7 +132,7 @@ export function getPanelFrameCategory(props: OptionPaneRenderProps): OptionsPane
         )
         .addItem(
           new OptionsPaneItemDescriptor({
-            title: 'Max per row',
+            title: '每行最大',
             showIf: () => Boolean(panel.repeat && panel.repeatDirection === 'h'),
             render: function renderOption() {
               const maxPerRowOptions = [2, 3, 4, 6, 8, 12].map((value) => ({ label: value.toString(), value }));

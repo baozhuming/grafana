@@ -25,7 +25,7 @@ export function addAxisConfig(
   builder
     .addRadio({
       path: 'axisPlacement',
-      name: 'Placement',
+      name: '摆放',
       category,
       defaultValue: graphFieldOptions.axisPlacement[0].value,
       settings: {
@@ -34,11 +34,11 @@ export function addAxisConfig(
     })
     .addTextInput({
       path: 'axisLabel',
-      name: 'Label',
+      name: '标签',
       category,
       defaultValue: '',
       settings: {
-        placeholder: 'Optional text',
+        placeholder: '可选的文本',
       },
       showIf: (c) => c.axisPlacement !== AxisPlacement.Hidden,
       // Do not apply default settings to time and string fields which are used as x-axis fields in Time series and Bar chart panels
@@ -46,7 +46,7 @@ export function addAxisConfig(
     })
     .addNumberInput({
       path: 'axisWidth',
-      name: 'Width',
+      name: '宽',
       category,
       settings: {
         placeholder: 'Auto',
@@ -55,26 +55,26 @@ export function addAxisConfig(
     })
     .addRadio({
       path: 'axisGridShow',
-      name: 'Show grid lines',
+      name: '显示网格线',
       category,
       defaultValue: undefined,
       settings: {
         options: [
-          { value: undefined, label: 'Auto' },
-          { value: true, label: 'On' },
-          { value: false, label: 'Off' },
+          { value: undefined, label: '自动' },
+          { value: true, label: '打开' },
+          { value: false, label: '关闭' },
         ],
       },
     })
     .addRadio({
       path: 'axisColorMode',
-      name: 'Color',
+      name: '颜色',
       category,
       defaultValue: AxisColorMode.Text,
       settings: {
         options: [
-          { value: AxisColorMode.Text, label: 'Text' },
-          { value: AxisColorMode.Series, label: 'Series' },
+          { value: AxisColorMode.Text, label: '文本' },
+          { value: AxisColorMode.Series, label: '元素' },
         ],
       },
     });
@@ -84,7 +84,7 @@ export function addAxisConfig(
     .addCustomEditor<void, ScaleDistributionConfig>({
       id: 'scaleDistribution',
       path: 'scaleDistribution',
-      name: 'Scale',
+      name: '刻度',
       category,
       editor: ScaleDistributionEditor as any,
       override: ScaleDistributionEditor as any,
@@ -94,38 +94,38 @@ export function addAxisConfig(
     })
     .addBooleanSwitch({
       path: 'axisCenteredZero',
-      name: 'Centered zero',
+      name: '以零为标线',
       category,
       defaultValue: false,
       showIf: (c) => c.scaleDistribution?.type !== ScaleDistribution.Log,
     })
     .addNumberInput({
       path: 'axisSoftMin',
-      name: 'Soft min',
+      name: '软最小值',
       defaultValue: defaultConfig.axisSoftMin,
       category,
       settings: {
-        placeholder: 'See: Standard options > Min',
+        placeholder: '参见:标准选项> Min',
       },
     })
     .addNumberInput({
       path: 'axisSoftMax',
-      name: 'Soft max',
+      name: '软最大值',
       defaultValue: defaultConfig.axisSoftMax,
       category,
       settings: {
-        placeholder: 'See: Standard options > Max',
+        placeholder: '参见:标准选项> Max',
       },
     });
 }
 
 const DISTRIBUTION_OPTIONS: Array<SelectableValue<ScaleDistribution>> = [
   {
-    label: 'Linear',
+    label: '线性',
     value: ScaleDistribution.Linear,
   },
   {
-    label: 'Logarithmic',
+    label: '对数曲线',
     value: ScaleDistribution.Log,
   },
   {
@@ -166,7 +166,7 @@ export const ScaleDistributionEditor = ({ value, onChange }: StandardEditorProps
         />
       </div>
       {(type === ScaleDistribution.Log || type === ScaleDistribution.Symlog) && (
-        <Field label="Log base">
+        <Field label="Log底数">
           <Select
             options={LOG_DISTRIBUTION_OPTIONS}
             value={value.log ?? 2}
@@ -180,7 +180,7 @@ export const ScaleDistributionEditor = ({ value, onChange }: StandardEditorProps
         </Field>
       )}
       {type === ScaleDistribution.Symlog && (
-        <Field label="Linear threshold">
+        <Field label="线性阈值">
           <Input
             placeholder="1"
             value={value.linearThreshold}

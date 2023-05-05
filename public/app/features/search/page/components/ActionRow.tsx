@@ -80,13 +80,13 @@ export const ActionRow: FC<Props> = ({
             disabled={layout === SearchLayout.Folders}
             value={state.includePanels}
             onChange={() => onSetIncludePanels(!state.includePanels)}
-            label="Include panels"
+            label="包括面板"
           />
         )}
 
         {showStarredFilter && (
           <div className={styles.checkboxWrapper}>
-            <Checkbox label="Starred" onChange={onStarredFilterChange} value={state.starred} />
+            <Checkbox label="已星标" onChange={onStarredFilterChange} value={state.starred} />
           </div>
         )}
         {state.datasource && (

@@ -86,7 +86,7 @@ export const TimePickerContentWithScreenSize: React.FC<PropsWithScreenSize> = (p
                 autoFocus={true}
                 value={searchTerm}
                 onChange={setSearchQuery}
-                placeholder={t('time-picker.content.filter-placeholder', 'Search quick ranges')}
+                placeholder={t('time-picker.content.filter-placeholder', '快速搜索范围')}
               />
             </div>
             <CustomScrollbar>
@@ -221,10 +221,7 @@ const EmptyRecentList = memo(() => {
     <div className={styles.container}>
       <Trans i18nKey="time-picker.content.empty-recent-list">
         <div>
-          <span>
-            It looks like you haven&apos;t used this time picker before. As soon as you enter some time intervals,
-            recently used intervals will appear here.
-          </span>
+          <span>看起来你以前从未使用过这个时间选择器，一旦您输入一些时间间隔，就会在此处显示最近使用的时间间隔</span>
         </div>
         <div>
           <a
@@ -232,9 +229,9 @@ const EmptyRecentList = memo(() => {
             href="https://grafana.com/docs/grafana/latest/dashboards/time-range-controls"
             target="_new"
           >
-            Read the documentation
+            阅读文档
           </a>
-          <span> to find out more about how to enter custom time ranges.</span>
+          <span> 以了解有关如何输入自定义时间范围的详细信息</span>
         </div>
       </Trans>
     </div>

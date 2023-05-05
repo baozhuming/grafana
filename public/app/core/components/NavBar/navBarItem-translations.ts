@@ -12,37 +12,37 @@ import { t } from 'app/core/internationalization';
 export function getNavTitle(navId: string | undefined) {
   switch (navId) {
     case 'home':
-      return t('nav.home.title', 'Home');
+      return t('nav.home.title', '主页');
     case 'create':
-      return t('nav.create.title', 'Create');
+      return t('nav.create.title', '创建');
     case 'create-dashboard':
-      return t('nav.create-dashboard.title', 'Dashboard');
+      return t('nav.create-dashboard.title', '仪表盘');
     case 'folder':
-      return t('nav.create-folder.title', 'Folder');
+      return t('nav.create-folder.title', '文件夹');
     case 'import':
-      return t('nav.create-import.title', 'Import');
+      return t('nav.create-import.title', '导入');
     case 'alert':
-      return t('nav.create-alert.title', 'New alert rule');
+      return t('nav.create-alert.title', '添加告警规则');
     case 'starred':
-      return t('nav.starred.title', 'Starred');
+      return t('nav.starred.title', '加星标');
     case 'starred-empty':
-      return t('nav.starred-empty.title', 'Your starred dashboards will appear here');
+      return t('nav.starred-empty.title', '您的星标仪表盘将出现在这里');
     case 'dashboards':
-      return t('nav.dashboards.title', 'Dashboards');
+      return t('nav.dashboards.title', '面板');
     case 'dashboards/browse':
       return config.featureToggles.topnav
-        ? t('nav.dashboards.title', 'Dashboards')
-        : t('nav.manage-dashboards.title', 'Browse');
+        ? t('nav.dashboards.title', '面板')
+        : t('nav.manage-dashboards.title', '浏览');
     case 'dashboards/playlists':
-      return t('nav.playlists.title', 'Playlists');
+      return t('nav.playlists.title', '播放列表');
     case 'dashboards/snapshots':
-      return t('nav.snapshots.title', 'Snapshots');
+      return t('nav.snapshots.title', '快照');
     case 'dashboards/library-panels':
-      return t('nav.library-panels.title', 'Library panels');
+      return t('nav.library-panels.title', '面板库');
     case 'dashboards/new':
-      return t('nav.new-dashboard.title', 'New dashboard');
+      return t('nav.new-dashboard.title', '添加仪表盘');
     case 'dashboards/folder/new':
-      return t('nav.new-folder.title', 'New folder');
+      return t('nav.new-folder.title', '添加文件夹');
     case 'scenes':
       return t('nav.scenes.title', 'Scenes');
     case 'explore':

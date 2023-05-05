@@ -89,8 +89,8 @@ export class BlugeSearcher implements GrafanaSearcher {
   // This should eventually be filled by an API call, but hardcoded is a good start
   getSortOptions(): Promise<SelectableValue[]> {
     const opts: SelectableValue[] = [
-      { value: folderViewSort, label: 'Alphabetically (A-Z)' },
-      { value: '-name_sort', label: 'Alphabetically (Z-A)' },
+      { value: folderViewSort, label: '按字母顺序 (A-Z)' },
+      { value: '-name_sort', label: '按字母顺序 (Z-A)' },
     ];
 
     if (config.licenseInfo.enabledFeatures.analytics) {

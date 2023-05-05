@@ -40,7 +40,7 @@ const SeriesConfigEditor: React.FC<FieldConfigEditorProps<HideSeriesConfig, {}>>
 export function addHideFrom(builder: FieldConfigEditorBuilder<HideableFieldConfig>) {
   builder.addCustomEditor({
     id: 'hideFrom',
-    name: 'Hide in area',
+    name: '隐藏区域',
     category: ['Series'],
     path: 'hideFrom',
     defaultValue: {

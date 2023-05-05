@@ -22,9 +22,9 @@ export const DashboardActions: FC<Props> = ({ folderId, canCreateFolders = false
   const MenuActions = () => {
     return (
       <Menu>
-        {canCreateDashboards && <Menu.Item url={actionUrl('new')} label="New Dashboard" />}
-        {!folderId && canCreateFolders && <Menu.Item url="dashboards/folder/new" label="New Folder" />}
-        {canCreateDashboards && <Menu.Item url={actionUrl('import')} label="Import" />}
+        {canCreateDashboards && <Menu.Item url={actionUrl('new')} label="添加仪表盘" />}
+        {!folderId && canCreateFolders && <Menu.Item url="dashboards/folder/new" label="添加文件夹" />}
+        {canCreateDashboards && <Menu.Item url={actionUrl('import')} label="导入仪表盘" />}
       </Menu>
     );
   };
@@ -33,7 +33,7 @@ export const DashboardActions: FC<Props> = ({ folderId, canCreateFolders = false
     <div>
       <Dropdown overlay={MenuActions} placement="bottom-start">
         <Button variant="primary">
-          New
+          创建
           <Icon name="angle-down" />
         </Button>
       </Dropdown>

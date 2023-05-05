@@ -11,42 +11,42 @@ export function addLegendOptions<T extends OptionsWithLegend>(
   builder
     .addBooleanSwitch({
       path: 'legend.showLegend',
-      name: 'Visibility',
+      name: '可见性',
       category: ['Legend'],
       description: '',
       defaultValue: true,
     })
     .addRadio({
       path: 'legend.displayMode',
-      name: 'Mode',
+      name: '模式',
       category: ['Legend'],
       description: '',
       defaultValue: LegendDisplayMode.List,
       settings: {
         options: [
-          { value: LegendDisplayMode.List, label: 'List' },
-          { value: LegendDisplayMode.Table, label: 'Table' },
+          { value: LegendDisplayMode.List, label: '列表' },
+          { value: LegendDisplayMode.Table, label: '表格' },
         ],
       },
       showIf: (c) => c.legend.showLegend,
     })
     .addRadio({
       path: 'legend.placement',
-      name: 'Placement',
+      name: '摆放',
       category: ['Legend'],
       description: '',
       defaultValue: 'bottom',
       settings: {
         options: [
-          { value: 'bottom', label: 'Bottom' },
-          { value: 'right', label: 'Right' },
+          { value: 'bottom', label: '底部' },
+          { value: 'right', label: '右侧' },
         ],
       },
       showIf: (c) => c.legend.showLegend,
     })
     .addNumberInput({
       path: 'legend.width',
-      name: 'Width',
+      name: '宽',
       category: ['Legend'],
       settings: {
         placeholder: 'Auto',
@@ -58,9 +58,9 @@ export function addLegendOptions<T extends OptionsWithLegend>(
     builder.addCustomEditor<StatsPickerConfigSettings, string[]>({
       id: 'legend.calcs',
       path: 'legend.calcs',
-      name: 'Values',
+      name: '值',
       category: ['Legend'],
-      description: 'Select values or calculations to show in legend',
+      description: '选择要在图例中显示的值或计算',
       editor: standardEditorsRegistry.get('stats-picker').editor,
       defaultValue: [],
       settings: {

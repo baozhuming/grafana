@@ -41,7 +41,7 @@ export const StackingEditor: React.FC<FieldOverrideEditorProps<StackingConfig, a
           type="text"
           placeholder="Group"
           suffix={
-            <Tooltip content="Name of the stacking group" placement="top">
+            <Tooltip content="堆叠组名称" placement="top">
               <IconButton name="question-circle" />
             </Tooltip>
           }
@@ -66,7 +66,7 @@ export function addStackingConfig(
   builder.addCustomEditor({
     id: 'stacking',
     path: 'stacking',
-    name: 'Stack series',
+    name: '堆栈系列',
     category: category,
     defaultValue: defaultConfig,
     editor: StackingEditor,

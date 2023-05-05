@@ -29,8 +29,8 @@ enum SortOrder {
 }
 
 const sortOptions: Array<SelectableValue<SortOrder>> = [
-  { label: 'Alphabetically [A-Z]', value: SortOrder.Ascending },
-  { label: 'Alphabetically [Z-A]', value: SortOrder.Descending },
+  { label: '按字母顺序 [A-Z]', value: SortOrder.Ascending },
+  { label: '按字母顺序 [Z-A]', value: SortOrder.Descending },
 ];
 
 export const AlertsFolderView = ({ folder }: Props) => {
@@ -68,7 +68,7 @@ export const AlertsFolderView = ({ folder }: Props) => {
         <FilterInput
           value={nameFilter}
           onChange={setNameFilter}
-          placeholder="Search alert rules by name"
+          placeholder="按名称搜索告警规则"
           data-testid="name-filter"
         />
         <Stack direction="row">
@@ -78,13 +78,13 @@ export const AlertsFolderView = ({ folder }: Props) => {
             options={sortOptions}
             width={25}
             aria-label="Sort"
-            placeholder={`Sort (Default A-Z)`}
+            placeholder={`排序(默认A-Z)`}
             prefix={<Icon name={sortOrder === SortOrder.Ascending ? 'sort-amount-up' : 'sort-amount-down'} />}
           />
           <FilterInput
             value={labelFilter}
             onChange={setLabelFilter}
-            placeholder="Search alerts by labels"
+            placeholder="按标签搜索告警"
             className={styles.filterLabelsInput}
             data-testid="label-filter"
           />

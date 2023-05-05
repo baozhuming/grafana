@@ -28,17 +28,17 @@ export enum PanelEditTableToggle {
 }
 
 export const displayModes = [
-  { value: DisplayMode.Fill, label: 'Fill', description: 'Use all available space' },
-  { value: DisplayMode.Exact, label: 'Actual', description: 'Make same size as on the dashboard' },
+  { value: DisplayMode.Fill, label: '填充', description: '使用所有可用空间' },
+  { value: DisplayMode.Exact, label: '收缩', description: '制作与仪表板相同的大小' },
 ];
 
 export const panelEditTableModes = [
   {
     value: PanelEditTableToggle.Off,
-    label: 'Visualization',
-    description: 'Show using selected visualization',
+    label: '可视化',
+    description: '使用选定的可视化显示',
   },
-  { value: PanelEditTableToggle.Table, label: 'Table', description: 'Show raw data in table form' },
+  { value: PanelEditTableToggle.Table, label: '表格', description: '以表格形式显示原始数据' },
 ];
 
 /** @internal */

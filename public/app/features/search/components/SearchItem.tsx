@@ -65,7 +65,7 @@ export const SearchItem: FC<Props> = ({ item, editable, onToggleChecked, onTagSe
       <Card.Heading>{item.title}</Card.Heading>
       <Card.Figure align={'center'} className={styles.checkbox}>
         <SearchCheckbox
-          aria-label="Select dashboard"
+          aria-label="选择仪表盘"
           editable={editable}
           checked={item.checked}
           onClick={handleCheckboxClick}

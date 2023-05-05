@@ -19,7 +19,7 @@ export const PlaylistTable = ({ items, deleteItem, moveItem }: Props) => {
 
   return (
     <div className="gf-form-group">
-      <h3 className="page-headering">Dashboards</h3>
+      <h3 className="page-headering">仪表盘</h3>
 
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="playlist-list" direction="vertical">

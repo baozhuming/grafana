@@ -328,7 +328,7 @@ export const DashNav = React.memo<Props>((props) => {
     if (canEdit && !isFullscreen) {
       buttons.push(
         <ToolbarButton
-          tooltip={t('dashboard.toolbar.add-panel', 'Add panel')}
+          tooltip={t('dashboard.toolbar.add-panel', '添加面板')}
           icon="panel-add"
           onClick={onAddPanel}
           key="button-panel-add"

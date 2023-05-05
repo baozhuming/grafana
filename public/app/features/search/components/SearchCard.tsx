@@ -128,7 +128,7 @@ export function SearchCard({ editable, item, onTagSelected, onToggleChecked, onC
       <div className={styles.imageContainer}>
         <SearchCheckbox
           className={styles.checkbox}
-          aria-label={`Select dashboard ${item.title}`}
+          aria-label={`选择仪表盘 ${item.title}`}
           editable={editable}
           checked={item.checked}
           onClick={onCheckboxClick}

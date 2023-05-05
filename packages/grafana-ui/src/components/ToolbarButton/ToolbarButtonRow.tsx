@@ -83,7 +83,7 @@ export const ToolbarButtonRow = forwardRef<HTMLDivElement, Props>(
           <div ref={overflowRef} className={styles.overflowButton}>
             <ToolbarButton
               variant={showOverflowItems ? 'active' : 'default'}
-              tooltip="Show more items"
+              tooltip="显示更多"
               onClick={() => setShowOverflowItems(!showOverflowItems)}
               icon="ellipsis-v"
               iconOnly

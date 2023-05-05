@@ -106,8 +106,8 @@ func (s *ServiceImpl) getOrgAdminNode(c *models.ReqContext) (*navtree.NavLink, e
 
 	configNode := &navtree.NavLink{
 		Id:         navtree.NavIDCfg,
-		Text:       "Configuration",
-		SubTitle:   "Organization: " + c.OrgName,
+		Text:       "配置",
+		SubTitle:   "机构: " + c.OrgName,
 		Icon:       "cog",
 		Section:    navtree.NavSectionConfig,
 		SortWeight: navtree.WeightConfig,

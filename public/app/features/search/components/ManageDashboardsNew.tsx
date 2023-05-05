@@ -48,7 +48,7 @@ export const ManageDashboardsNew = React.memo(({ folder }: Props) => {
             onKeyDown={onKeyDown}
             autoFocus
             spellCheck={false}
-            placeholder={state.includePanels ? 'Search for dashboards and panels' : 'Search for dashboards'}
+            placeholder={state.includePanels ? '搜索仪表盘和面板' : '搜索仪表盘'}
             className={styles.searchInput}
             suffix={false ? <Spinner /> : null}
           />

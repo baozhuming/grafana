@@ -15,10 +15,10 @@ export function Footer({ onClose, onApply }: TimePickerCalendarProps) {
   return (
     <div className={styles.container}>
       <Button className={styles.apply} onClick={onApply}>
-        <Trans i18nKey="time-picker.calendar.apply-button">Apply time range</Trans>
+        <Trans i18nKey="time-picker.calendar.apply-button">应用时间范围</Trans>
       </Button>
       <Button variant="secondary" onClick={onClose}>
-        <Trans i18nKey="time-picker.calendar.cancel-button">Cancel</Trans>
+        <Trans i18nKey="time-picker.calendar.cancel-button">取消</Trans>
       </Button>
     </div>
   );

@@ -40,7 +40,7 @@ export function FolderFilter({ onChange, maxMenuHeight }: FolderFilterProps): JS
           onClick={() => onChange([])}
           aria-label="Clear folders"
         >
-          Clear folders
+          清空文件夹
         </Button>
       )}
       <AsyncMultiSelect
@@ -49,8 +49,8 @@ export function FolderFilter({ onChange, maxMenuHeight }: FolderFilterProps): JS
         isLoading={loading}
         loadOptions={debouncedLoadOptions}
         maxMenuHeight={maxMenuHeight}
-        placeholder="Filter by folder"
-        noOptionsMessage="No folders found"
+        placeholder="按文件夹筛选"
+        noOptionsMessage="没有找到文件夹"
         prefix={<Icon name="filter" />}
         aria-label="Folder filter"
         defaultOptions

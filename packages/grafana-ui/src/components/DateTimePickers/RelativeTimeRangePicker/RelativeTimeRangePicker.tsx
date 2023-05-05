@@ -108,7 +108,7 @@ export function RelativeTimeRangePicker(props: RelativeTimeRangePickerProps) {
           <Icon name="clock-nine" />
         </span>
         <span>
-          {timeOption.from} to {timeOption.to}
+          {timeOption.from} 到 {timeOption.to}
         </span>
         <span className={styles.caretIcon}>
           <Icon name={isOpen ? 'angle-up' : 'angle-down'} size="lg" />
@@ -144,7 +144,7 @@ export function RelativeTimeRangePicker(props: RelativeTimeRangePickerProps) {
                       </Tooltip>
                     </TimePickerTitle>
                   </div>
-                  <Field label="From" invalid={!from.validation.isValid} error={from.validation.errorMessage}>
+                  <Field label="从" invalid={!from.validation.isValid} error={from.validation.errorMessage}>
                     <Input
                       onClick={(event) => event.stopPropagation()}
                       onBlur={() => setFrom({ ...from, validation: isRangeValid(from.value) })}
@@ -152,7 +152,7 @@ export function RelativeTimeRangePicker(props: RelativeTimeRangePickerProps) {
                       value={from.value}
                     />
                   </Field>
-                  <Field label="To" invalid={!to.validation.isValid} error={to.validation.errorMessage}>
+                  <Field label="至" invalid={!to.validation.isValid} error={to.validation.errorMessage}>
                     <Input
                       onClick={(event) => event.stopPropagation()}
                       onBlur={() => setTo({ ...to, validation: isRangeValid(to.value) })}
@@ -161,7 +161,7 @@ export function RelativeTimeRangePicker(props: RelativeTimeRangePickerProps) {
                     />
                   </Field>
                   <Button aria-label="TimePicker submit button" onClick={onApply}>
-                    Apply time range
+                    应用时间范围
                   </Button>
                 </div>
               </div>

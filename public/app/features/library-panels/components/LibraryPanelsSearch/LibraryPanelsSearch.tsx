@@ -62,7 +62,7 @@ export const LibraryPanelsSearch = ({
             <FilterInput
               value={searchQuery}
               onChange={setSearchQuery}
-              placeholder="Search by name or description"
+              placeholder="按名称或描述搜索"
               width={0}
               escapeRegex={false}
             />
