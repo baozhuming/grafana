@@ -52,7 +52,7 @@ export const LoginPage = () => {
                         fill="text"
                         href={`${config.appSubUrl}/user/password/send-reset-email`}
                       >
-                        Forgot your password?
+                        忘记密码
                       </LinkButton>
                     </HorizontalGroup>
                   </LoginForm>

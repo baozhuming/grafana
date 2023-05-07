@@ -42,33 +42,33 @@ export class NewDashboardsFolder extends PureComponent<Props> {
   };
 
   pageNav: NavModelItem = {
-    text: 'Create a new folder',
-    subTitle: 'Folders provide a way to group dashboards and alert rules.',
-    breadcrumbs: [{ title: 'Dashboards', url: 'dashboards' }],
+    text: '创建一个新文件夹',
+    subTitle: '文件夹提供了对指示板和警报规则进行分组的方法',
+    breadcrumbs: [{ title: '仪表盘', url: 'dashboards' }],
   };
 
   render() {
     return (
       <Page navId="dashboards/browse" pageNav={this.pageNav}>
         <Page.Contents>
-          {!config.featureToggles.topnav && <h3>New dashboard folder</h3>}
+          {!config.featureToggles.topnav && <h3>新建仪表盘文件夹</h3>}
           <Form defaultValues={initialFormModel} onSubmit={this.onSubmit}>
             {({ register, errors }) => (
               <>
                 <Field
-                  label="Folder name"
+                  label="文件夹名称"
                   invalid={!!errors.folderName}
                   error={errors.folderName && errors.folderName.message}
                 >
                   <Input
                     id="folder-name-input"
                     {...register('folderName', {
-                      required: 'Folder name is required.',
+                      required: '请输入文件夹名称',
                       validate: async (v) => await this.validateFolderName(v),
                     })}
                   />
                 </Field>
-                <Button type="submit">Create</Button>
+                <Button type="submit">创建</Button>
               </>
             )}
           </Form>

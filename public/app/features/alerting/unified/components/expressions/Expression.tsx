@@ -92,7 +92,7 @@ export const Expression: FC<ExpressionProps> = ({
           return <Threshold onChange={onChangeQuery} query={query} labelWidth={'auto'} refIds={availableRefIds} />;
 
         default:
-          return <>Expression not supported: {query.type}</>;
+          return <>不支持表达式: {query.type}</>;
       }
     },
     [onChangeQuery, queries]
@@ -151,7 +151,7 @@ export const Expression: FC<ExpressionProps> = ({
 
 const PreviewSummary: FC<{ firing: number; normal: number }> = ({ firing, normal }) => {
   const { mutedText } = useStyles2(getStyles);
-  return <span className={mutedText}>{`${firing} firing, ${normal} normal`}</span>;
+  return <span className={mutedText}>{`${firing} 鸣笛, ${normal} 健康`}</span>;
 };
 
 interface HeaderProps {
@@ -293,8 +293,8 @@ const TimeseriesRow: FC<FrameProps & { index: number }> = ({ frame, index }) => 
               <table className={styles.timeseriesTable}>
                 <thead>
                   <tr>
-                    <th>Timestamp</th>
-                    <th>Value</th>
+                    <th>时间戳</th>
+                    <th>值</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -308,7 +308,7 @@ const TimeseriesRow: FC<FrameProps & { index: number }> = ({ frame, index }) => 
               </table>
             }
           >
-            <span>Time series data</span>
+            <span>时间序列数据</span>
           </HoverCard>
         </div>
       </Stack>

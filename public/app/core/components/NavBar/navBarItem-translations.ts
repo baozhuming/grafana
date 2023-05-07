@@ -22,7 +22,7 @@ export function getNavTitle(navId: string | undefined) {
     case 'import':
       return t('nav.create-import.title', '导入');
     case 'alert':
-      return t('nav.create-alert.title', '添加告警规则');
+      return t('nav.create-alert.title', '添加警报规则');
     case 'starred':
       return t('nav.starred.title', '加星标');
     case 'starred-empty':

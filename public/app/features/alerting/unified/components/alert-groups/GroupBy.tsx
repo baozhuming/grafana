@@ -22,11 +22,11 @@ export const GroupBy = ({ className, groups, groupBy, onGroupingChange }: Props)
 
   return (
     <div data-testid={'group-by-container'} className={className}>
-      <Label>Custom group by</Label>
+      <Label>自定义组</Label>
       <MultiSelect
         aria-label={'group by label keys'}
         value={groupBy}
-        placeholder="Group by"
+        placeholder="分组"
         prefix={<Icon name={'tag-alt'} />}
         onChange={(items) => {
           onGroupingChange(items.map(({ value }) => value as string));

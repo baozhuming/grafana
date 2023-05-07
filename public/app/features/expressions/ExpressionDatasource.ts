@@ -32,7 +32,7 @@ export class ExpressionDatasourceApi extends DataSourceWithBackend<ExpressionQue
   }
 
   getCollapsedText(query: ExpressionQuery) {
-    return `Expression: ${query.type}`;
+    return `表达式: ${query.type}`;
   }
 
   query(request: DataQueryRequest<ExpressionQuery>): Observable<DataQueryResponse> {

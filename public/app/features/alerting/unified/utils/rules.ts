@@ -73,7 +73,11 @@ export function isPrometheusRuleIdentifier(identifier: RuleIdentifier): identifi
 
 export function alertStateToReadable(state: PromAlertingRuleState | GrafanaAlertStateWithReason | AlertState): string {
   if (state === PromAlertingRuleState.Inactive) {
-    return 'Normal';
+    return '普通';
+  } else if (state === PromAlertingRuleState.Firing) {
+    return '鸣笛';
+  } else if (state === PromAlertingRuleState.Pending) {
+    return '挂起';
   }
   return capitalize(state);
 }

@@ -49,9 +49,9 @@ export const TemplatesTable: FC<Props> = ({ config, alertManagerName }) => {
 
   return (
     <ReceiversSection
-      title="Message templates"
-      description="Templates construct the messages that get sent to the contact points."
-      addButtonLabel="New template"
+      title="消息模板"
+      description="模板构造发送到联系点的消息"
+      addButtonLabel="创建模板"
       addButtonTo={makeAMLink('/alerting/notifications/templates/new', alertManagerName)}
       showButton={contextSrv.hasPermission(permissions.create)}
     >
@@ -64,16 +64,16 @@ export const TemplatesTable: FC<Props> = ({ config, alertManagerName }) => {
         <thead>
           <tr>
             <th></th>
-            <th>Template</th>
+            <th>模版</th>
             <Authorize actions={[permissions.update, permissions.delete]}>
-              <th>Actions</th>
+              <th>操作</th>
             </Authorize>
           </tr>
         </thead>
         <tbody>
           {!templateRows.length && (
             <tr className={tableStyles.evenRow}>
-              <td colSpan={3}>No templates defined.</td>
+              <td colSpan={3}>暂无模板数据</td>
             </tr>
           )}
           {templateRows.map(({ name, template, provenance }, idx) => {
@@ -97,7 +97,7 @@ export const TemplatesTable: FC<Props> = ({ config, alertManagerName }) => {
                           `/alerting/notifications/templates/${encodeURIComponent(name)}/edit`,
                           alertManagerName
                         )}
-                        tooltip="view template"
+                        tooltip="视图模板"
                         icon="file-alt"
                       />
                     )}
@@ -109,16 +109,12 @@ export const TemplatesTable: FC<Props> = ({ config, alertManagerName }) => {
                               `/alerting/notifications/templates/${encodeURIComponent(name)}/edit`,
                               alertManagerName
                             )}
-                            tooltip="edit template"
+                            tooltip="编辑模版"
                             icon="pen"
                           />
                         </Authorize>
                         <Authorize actions={[permissions.delete]}>
-                          <ActionIcon
-                            onClick={() => setTemplateToDelete(name)}
-                            tooltip="delete template"
-                            icon="trash-alt"
-                          />
+                          <ActionIcon onClick={() => setTemplateToDelete(name)} tooltip="删除模版" icon="trash-alt" />
                         </Authorize>
                       </Authorize>
                     )}
@@ -128,7 +124,7 @@ export const TemplatesTable: FC<Props> = ({ config, alertManagerName }) => {
                   <tr className={idx % 2 === 0 ? tableStyles.evenRow : undefined}>
                     <td></td>
                     <td colSpan={2}>
-                      <DetailsField label="Description" horizontal={true}>
+                      <DetailsField label="描述" horizontal={true}>
                         <TemplateEditor
                           width={'auto'}
                           height={'auto'}

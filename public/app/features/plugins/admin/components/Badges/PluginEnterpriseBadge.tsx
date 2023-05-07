@@ -29,7 +29,7 @@ export function PluginEnterpriseBadge({ plugin }: Props): React.ReactElement {
       <PluginSignatureBadge status={plugin.signature} />
       <Badge icon="lock" aria-label="lock icon" text="Enterprise" color="blue" className={customBadgeStyles} />
       <Button size="sm" fill="text" icon="external-link-alt" onClick={onClick}>
-        Learn more
+        了解更多
       </Button>
     </HorizontalGroup>
   );

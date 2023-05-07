@@ -10,9 +10,9 @@ export function NewDataSourcePage() {
   const pageNav: NavModelItem = {
     icon: 'database',
     id: 'datasource-new',
-    text: 'Add data source',
+    text: '添加数据源',
     url: DATASOURCES_ROUTES.New,
-    subTitle: 'Choose a data source type',
+    subTitle: '选择一个数据源类型',
   };
 
   return (

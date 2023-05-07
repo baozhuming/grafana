@@ -72,14 +72,7 @@ export const QueryWrapper: FC<Props> = ({
     const styles = useStyles2(getStyles);
     return (
       <div className={styles.dsTooltip}>
-        <Tooltip
-          content={
-            <>
-              Not finding the data source you want? Some data sources are not supported for alerting. Click on the icon
-              for more information.
-            </>
-          }
-        >
+        <Tooltip content={<>找不到想要的数据源?不支持某些数据源进行警报。点击图标查看更多信息</>}>
           <Icon
             name="info-circle"
             onClick={() =>

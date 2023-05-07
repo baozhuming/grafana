@@ -21,7 +21,7 @@ export const AlertStateFilter = ({ onStateFilterChange, stateFilter }: Props) =>
 
   return (
     <div className={styles.wrapper}>
-      <Label>State</Label>
+      <Label>状态</Label>
       <RadioButtonGroup options={alertStateOptions} value={stateFilter} onChange={onStateFilterChange} />
     </div>
   );

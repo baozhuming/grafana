@@ -240,5 +240,5 @@ export const optionalPositiveInteger: Validate<string> = (value) => {
     return undefined;
   }
 
-  return !/^\d+$/.test(value) ? 'Must be a positive integer.' : undefined;
+  return !/^\d+$/.test(value) ? '必须是正整数' : undefined;
 };

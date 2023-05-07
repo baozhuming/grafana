@@ -40,16 +40,12 @@ function UpdateActions({ permissions, alertManagerName, receiverName, onClickDel
             `/alerting/notifications/receivers/${encodeURIComponent(receiverName)}/edit`,
             alertManagerName
           )}
-          tooltip="Edit contact point"
+          tooltip="编辑连接点"
           icon="pen"
         />
       </Authorize>
       <Authorize actions={[permissions.delete]}>
-        <ActionIcon
-          onClick={() => onClickDeleteReceiver(receiverName)}
-          tooltip="Delete contact point"
-          icon="trash-alt"
-        />
+        <ActionIcon onClick={() => onClickDeleteReceiver(receiverName)} tooltip="删除连接点" icon="trash-alt" />
       </Authorize>
     </>
   );
@@ -71,7 +67,7 @@ function ViewAction({ permissions, alertManagerName, receiverName }: ActionProps
       <ActionIcon
         data-testid="view"
         to={makeAMLink(`/alerting/notifications/receivers/${encodeURIComponent(receiverName)}/edit`, alertManagerName)}
-        tooltip="View contact point"
+        tooltip="查看连接点"
         icon="file-alt"
       />
     </Authorize>
@@ -84,8 +80,8 @@ interface ReceiverErrorProps {
 }
 
 function ReceiverError({ errorCount, errorDetail, showErrorCount }: ReceiverErrorProps) {
-  const text = showErrorCount ? `${errorCount} ${pluralize('error', errorCount)}` : 'Error';
-  return <Badge color="orange" icon="exclamation-triangle" text={text} tooltip={errorDetail ?? 'Error'} />;
+  const text = showErrorCount ? `${errorCount} ${pluralize('error', errorCount)}` : '错误';
+  return <Badge color="orange" icon="exclamation-triangle" text={text} tooltip={errorDetail ?? '错误'} />;
 }
 interface NotifierHealthProps {
   errorsByNotifier: number;
@@ -95,7 +91,7 @@ interface NotifierHealthProps {
 
 function NotifierHealth({ errorsByNotifier, errorDetail, lastNotify }: NotifierHealthProps) {
   const noErrorsColor = isLastNotifyNullDate(lastNotify) ? 'orange' : 'green';
-  const noErrorsText = isLastNotifyNullDate(lastNotify) ? 'No attempts' : 'OK';
+  const noErrorsText = isLastNotifyNullDate(lastNotify) ? '没有尝试' : '正常';
   return errorsByNotifier > 0 ? (
     <ReceiverError errorCount={errorsByNotifier} errorDetail={errorDetail} showErrorCount={false} />
   ) : (
@@ -110,7 +106,7 @@ interface ReceiverHealthProps {
 
 function ReceiverHealth({ errorsByReceiver, someWithNoAttempt }: ReceiverHealthProps) {
   const noErrorsColor = someWithNoAttempt ? 'orange' : 'green';
-  const noErrorsText = someWithNoAttempt ? 'No attempts' : 'OK';
+  const noErrorsText = someWithNoAttempt ? '没有尝试' : '正常';
   return errorsByReceiver > 0 ? (
     <ReceiverError errorCount={errorsByReceiver} showErrorCount={true} />
   ) : (
@@ -155,7 +151,7 @@ function LastNotify({ lastNotifyDate }: { lastNotifyDate: string }) {
   } else {
     return (
       <Stack alignItems="center">
-        <div>{`${dateTime(lastNotifyDate).locale('en').fromNow(true)} ago`}</div>
+        <div>{`${dateTime(lastNotifyDate).locale('en').fromNow(true)} 前`}</div>
         <Icon name="clock-nine" />
         <div>{`${dateTimeFormat(lastNotifyDate, { format: 'YYYY-MM-DD HH:mm:ss' })}`}</div>
       </Stack>
@@ -171,7 +167,7 @@ function NotifiersTable({ notifiersState }: NotifiersTableProps) {
     return [
       {
         id: 'health',
-        label: 'Health',
+        label: '运行状况',
         renderCell: ({ data: { lastError, lastNotify } }) => {
           return (
             <NotifierHealth
@@ -185,19 +181,19 @@ function NotifiersTable({ notifiersState }: NotifiersTableProps) {
       },
       {
         id: 'name',
-        label: 'Name',
+        label: '名字',
         renderCell: ({ data: { type }, id }) => <>{`${type}[${id}]`}</>,
         size: 1,
       },
       {
         id: 'lastNotify',
-        label: 'Last delivery attempt',
+        label: '最后一次交付尝试',
         renderCell: ({ data: { lastNotify } }) => <LastNotify lastNotifyDate={lastNotify} />,
         size: 3,
       },
       {
         id: 'lastNotifyDuration',
-        label: 'Last duration',
+        label: '最后通知持续时间',
         renderCell: ({ data: { lastNotify, lastNotifyDuration } }) => (
           <>{isLastNotifyNullDate(lastNotify) && durationIsNull(lastNotifyDuration) ? '-' : lastNotifyDuration}</>
         ),
@@ -205,7 +201,7 @@ function NotifiersTable({ notifiersState }: NotifiersTableProps) {
       },
       {
         id: 'sendResolved',
-        label: 'Send resolved',
+        label: '发生反馈',
         renderCell: ({ data: { sendResolved } }) => <>{String(Boolean(sendResolved))}</>,
         size: 1,
       },
@@ -293,10 +289,10 @@ export const ReceiversTable: FC<Props> = ({ config, alertManagerName }) => {
   return (
     <ReceiversSection
       className={styles.section}
-      title="Contact points"
-      description="Define where the notifications will be sent to, for example email or Slack."
+      title="连接点"
+      description="定义通知将发送到何处，例如电子邮件或Slack"
       showButton={!isVanillaAM && contextSrv.hasPermission(permissions.create)}
-      addButtonLabel="New contact point"
+      addButtonLabel="创建连接点"
       addButtonTo={makeAMLink('/alerting/notifications/receivers/new', alertManagerName)}
     >
       <DynamicTable
@@ -312,18 +308,11 @@ export const ReceiversTable: FC<Props> = ({ config, alertManagerName }) => {
         }
       />
       {!!showCannotDeleteReceiverModal && (
-        <Modal
-          isOpen={true}
-          title="Cannot delete contact point"
-          onDismiss={() => setShowCannotDeleteReceiverModal(false)}
-        >
-          <p>
-            Contact point cannot be deleted because it is used in more policies. Please update or delete these policies
-            first.
-          </p>
+        <Modal isOpen={true} title="无法删除连接点" onDismiss={() => setShowCannotDeleteReceiverModal(false)}>
+          <p>由于联系点在多个策略中使用，因此无法删除联系点，请先更新或删除这些策略</p>
           <Modal.ButtonRow>
             <Button variant="secondary" onClick={() => setShowCannotDeleteReceiverModal(false)} fill="outline">
-              Close
+              关闭
             </Button>
           </Modal.ButtonRow>
         </Modal>
@@ -331,9 +320,9 @@ export const ReceiversTable: FC<Props> = ({ config, alertManagerName }) => {
       {!!receiverToDelete && (
         <ConfirmModal
           isOpen={true}
-          title="Delete contact point"
-          body={`Are you sure you want to delete contact point "${receiverToDelete}"?`}
-          confirmText="Yes, delete"
+          title="删除连接点"
+          body={`确认删除联系点 "${receiverToDelete}"?`}
+          confirmText="是的，删除"
           onConfirm={deleteReceiver}
           onDismiss={() => setReceiverToDelete(undefined)}
         />
@@ -368,7 +357,7 @@ function useGetColumns(
   const baseColumns: RowTableColumnProps[] = [
     {
       id: 'name',
-      label: 'Contact point name',
+      label: '连接点名称',
       renderCell: ({ data: { name, provisioned } }) => (
         <>
           {name} {provisioned && <ProvisioningBadge />}
@@ -378,14 +367,14 @@ function useGetColumns(
     },
     {
       id: 'type',
-      label: 'Type',
+      label: '类型',
       renderCell: ({ data: { types } }) => <>{types.join(', ')}</>,
       size: 1,
     },
   ];
   const healthColumn: RowTableColumnProps = {
     id: 'health',
-    label: 'Health',
+    label: '运行状况',
     renderCell: ({ data: { name } }) => {
       return (
         contactPointsState && (
@@ -404,7 +393,7 @@ function useGetColumns(
     ...(errorStateAvailable ? [healthColumn] : []),
     {
       id: 'actions',
-      label: 'Actions',
+      label: '操作',
       renderCell: ({ data: { provisioned, name } }) => (
         <Authorize actions={[permissions.update, permissions.delete]}>
           <div className={tableStyles.actionsCell}>

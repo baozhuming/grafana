@@ -55,14 +55,14 @@ export const MatchedSilencedRules = () => {
   return (
     <div>
       <h4 className={styles.title}>
-        Affected alert instances
+        受影响的警报实例
         {matchedAlertRules.length > 0 ? (
           <Badge className={styles.badge} color="blue" text={matchedAlertRules.length} />
         ) : null}
       </h4>
       <div className={styles.table}>
         {matchers.every((matcher) => !matcher.value && !matcher.name) ? (
-          <span>Add a valid matcher to see affected alerts</span>
+          <span>添加有效的匹配器以查看受影响的警报</span>
         ) : (
           <DynamicTable
             items={matchedAlertRules}

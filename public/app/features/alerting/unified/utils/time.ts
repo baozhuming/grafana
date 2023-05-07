@@ -15,7 +15,7 @@ export function parseInterval(value: string): [number, string] {
   if (match) {
     return [Number(match[1]), match[2]];
   }
-  throw new Error(`Invalid interval description: ${value}`);
+  throw new Error(`无效间隔: ${value}`);
 }
 
 export function intervalToSeconds(interval: string): number {

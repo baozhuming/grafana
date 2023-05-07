@@ -13,41 +13,38 @@ export enum ExpressionQueryType {
 export const gelTypes: Array<SelectableValue<ExpressionQueryType>> = [
   {
     value: ExpressionQueryType.math,
-    label: 'Math',
-    description: 'Free-form math formulas on time series or number data.',
+    label: '数学公式',
+    description: '时间序列或数字数据的自由形式数学公式',
   },
   {
     value: ExpressionQueryType.reduce,
-    label: 'Reduce',
-    description:
-      'Takes one or more time series returned from a query or an expression and turns each series into a single number.',
+    label: '数量',
+    description: '获取从查询或表达式返回的一个或多个时间序列，并将每个序列转换为单个数字',
   },
   {
     value: ExpressionQueryType.resample,
-    label: 'Resample',
-    description: 'Changes the time stamps in each time series to have a consistent time interval.',
+    label: '重新采样',
+    description: '更改每个时间序列中的时间戳，使其具有一致的时间间隔',
   },
   {
     value: ExpressionQueryType.classic,
-    label: 'Classic condition',
-    description:
-      'Takes one or more time series returned from a query or an expression and checks if any of the series match the condition.',
+    label: '典型条件',
+    description: '获取从查询或表达式返回的一个或多个时间序列，并检查是否有任何序列与条件匹配',
   },
   {
     value: ExpressionQueryType.threshold,
-    label: 'Threshold',
-    description:
-      'Takes one or more time series returned from a query or an expression and checks if any of the series match the threshold condition.',
+    label: '阈值',
+    description: '获取从查询或表达式返回的一个或多个时间序列，并检查是否有任何序列符合阈值条件',
   },
 ];
 
 export const reducerTypes: Array<SelectableValue<string>> = [
-  { value: ReducerID.min, label: 'Min', description: 'Get the minimum value' },
-  { value: ReducerID.max, label: 'Max', description: 'Get the maximum value' },
-  { value: ReducerID.mean, label: 'Mean', description: 'Get the average value' },
-  { value: ReducerID.sum, label: 'Sum', description: 'Get the sum of all values' },
-  { value: ReducerID.count, label: 'Count', description: 'Get the number of values' },
-  { value: ReducerID.last, label: 'Last', description: 'Get the last value' },
+  { value: ReducerID.min, label: '最小值', description: '最小值' },
+  { value: ReducerID.max, label: '最大值', description: '最大值' },
+  { value: ReducerID.mean, label: '平均值', description: '平均值' },
+  { value: ReducerID.sum, label: '总数', description: '所有值的和' },
+  { value: ReducerID.count, label: '数量', description: '值的数量' },
+  { value: ReducerID.last, label: '最近', description: '最后一个值' },
 ];
 
 export enum ReducerMode {
@@ -59,40 +56,40 @@ export enum ReducerMode {
 export const reducerMode: Array<SelectableValue<ReducerMode>> = [
   {
     value: ReducerMode.Strict,
-    label: 'Strict',
-    description: 'Result can be NaN if series contains non-numeric data',
+    label: '精确',
+    description: '如果序列包含非数值数据，结果可以是NaN',
   },
   {
     value: ReducerMode.DropNonNumbers,
-    label: 'Drop Non-numeric Values',
-    description: 'Drop NaN, +/-Inf and null from input series before reducing',
+    label: '删除非数字值',
+    description: '在运算之前先删除NaN，+/-Inf和null',
   },
   {
     value: ReducerMode.ReplaceNonNumbers,
     label: 'Replace Non-numeric Values',
-    description: 'Replace NaN, +/-Inf and null with a constant value before reducing',
+    description: '将NaN， +/-Inf和null替换为一个常量，然后再运算',
   },
 ];
 
 export const downsamplingTypes: Array<SelectableValue<string>> = [
-  { value: ReducerID.last, label: 'Last', description: 'Fill with the last value' },
-  { value: ReducerID.min, label: 'Min', description: 'Fill with the minimum value' },
-  { value: ReducerID.max, label: 'Max', description: 'Fill with the maximum value' },
-  { value: ReducerID.mean, label: 'Mean', description: 'Fill with the average value' },
-  { value: ReducerID.sum, label: 'Sum', description: 'Fill with the sum of all values' },
+  { value: ReducerID.last, label: '最近值', description: '用最后一个值填充' },
+  { value: ReducerID.min, label: '最小值', description: '用最小值填充' },
+  { value: ReducerID.max, label: '最大值', description: '用最大值填充' },
+  { value: ReducerID.mean, label: '平均值', description: '用平均值填充' },
+  { value: ReducerID.sum, label: '总和', description: '用所有值的和填充' },
 ];
 
 export const upsamplingTypes: Array<SelectableValue<string>> = [
-  { value: 'pad', label: 'pad', description: 'fill with the last known value' },
-  { value: 'backfilling', label: 'backfilling', description: 'fill with the next known value' },
-  { value: 'fillna', label: 'fillna', description: 'Fill with NaNs' },
+  { value: 'pad', label: 'pad', description: '用最后一个已知值填充' },
+  { value: 'backfilling', label: 'backfilling', description: '用下一个已知值填充' },
+  { value: 'fillna', label: 'fillna', description: '填充NaNs' },
 ];
 
 export const thresholdFunctions: Array<SelectableValue<EvalFunction>> = [
-  { value: EvalFunction.IsAbove, label: 'Is above' },
-  { value: EvalFunction.IsBelow, label: 'Is below' },
-  { value: EvalFunction.IsWithinRange, label: 'Is within range' },
-  { value: EvalFunction.IsOutsideRange, label: 'Is outside range' },
+  { value: EvalFunction.IsAbove, label: '高于' },
+  { value: EvalFunction.IsBelow, label: '低于' },
+  { value: EvalFunction.IsWithinRange, label: '范围内' },
+  { value: EvalFunction.IsOutsideRange, label: '范围外' },
 ];
 
 /**

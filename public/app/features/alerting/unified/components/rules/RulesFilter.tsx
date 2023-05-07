@@ -16,28 +16,28 @@ import { alertStateToReadable } from '../../utils/rules';
 const ViewOptions: SelectableValue[] = [
   {
     icon: 'folder',
-    label: 'Grouped',
+    label: '分组',
     value: 'grouped',
   },
   {
     icon: 'list-ul',
-    label: 'List',
+    label: '列表',
     value: 'list',
   },
   {
     icon: 'heart-rate',
-    label: 'State',
+    label: '状况',
     value: 'state',
   },
 ];
 
 const RuleTypeOptions: SelectableValue[] = [
   {
-    label: 'Alert ',
+    label: '警报 ',
     value: PromRuleType.Alerting,
   },
   {
-    label: 'Recording ',
+    label: '记录 ',
     value: PromRuleType.Recording,
   },
 ];
@@ -96,12 +96,12 @@ const RulesFilter = () => {
   const searchIcon = <Icon name={'search'} />;
   return (
     <div className={styles.container}>
-      <Field className={styles.inputWidth} label="Search by data source">
+      <Field className={styles.inputWidth} label="按数据源搜索">
         <DataSourcePicker
           key={dataSourceKey}
           alerting
           noDefault
-          placeholder="All data sources"
+          placeholder="所有数据源"
           current={dataSource}
           onChange={handleDataSourceChange}
           onClear={clearDataSource}
@@ -114,11 +114,11 @@ const RulesFilter = () => {
             label={
               <Label>
                 <Stack gap={0.5}>
-                  <span>Search by label</span>
+                  <span>按标签搜索</span>
                   <Tooltip
                     content={
                       <div>
-                        Filter rules and alerts using label querying, ex:
+                        使用标签查询过滤规则和警报,例如:
                         <code>{`{severity="critical", instance=~"cluster-us-.+"}`}</code>
                       </div>
                     }
@@ -135,16 +135,16 @@ const RulesFilter = () => {
               prefix={searchIcon}
               onChange={handleQueryStringChange}
               defaultValue={queryString}
-              placeholder="Search"
+              placeholder="搜索"
               data-testid="search-query-input"
             />
           </Field>
           <div className={styles.rowChild}>
-            <Label>State</Label>
+            <Label>状态</Label>
             <RadioButtonGroup options={stateOptions} value={alertState} onChange={handleAlertStateChange} />
           </div>
           <div className={styles.rowChild}>
-            <Label>Rule type</Label>
+            <Label>规则类型</Label>
             <RadioButtonGroup
               options={RuleTypeOptions}
               value={ruleType as PromRuleType}
@@ -152,7 +152,7 @@ const RulesFilter = () => {
             />
           </div>
           <div className={styles.rowChild}>
-            <Label>View as</Label>
+            <Label>展示模式</Label>
             <RadioButtonGroup
               options={ViewOptions}
               value={String(queryParams['view'] ?? ViewOptions[0].value)}
@@ -169,7 +169,7 @@ const RulesFilter = () => {
               variant="secondary"
               onClick={handleClearFiltersClick}
             >
-              Clear filters
+              清空过滤条件
             </Button>
           </div>
         )}

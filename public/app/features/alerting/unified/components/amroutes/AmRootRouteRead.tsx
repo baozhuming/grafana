@@ -35,7 +35,7 @@ export const AmRootRouteRead: FC<AmRootRouteReadProps> = ({ routes }) => {
       </div>
       <div className={styles.titleCell}>Timings</div>
       <div className={styles.valueCell} data-testid="am-routes-root-timings">
-        Group wait: {groupWait} | Group interval: {groupInterval} | Repeat interval: {repeatInterval}
+        分组等待时间: {groupWait} | 分组间隔时间: {groupInterval} | 重复间隔时间: {repeatInterval}
       </div>
     </div>
   );

@@ -22,10 +22,10 @@ export enum Annotation {
 }
 
 export const annotationLabels: Record<Annotation, string> = {
-  [Annotation.description]: 'Description',
-  [Annotation.summary]: 'Summary',
-  [Annotation.runbookURL]: 'Runbook URL',
-  [Annotation.dashboardUID]: 'Dashboard UID',
-  [Annotation.panelID]: 'Panel ID',
-  [Annotation.alertId]: 'Alert ID',
+  [Annotation.description]: '说明',
+  [Annotation.summary]: '概要',
+  [Annotation.runbookURL]: '运行手册URL',
+  [Annotation.dashboardUID]: '仪表盘UID',
+  [Annotation.panelID]: '面板ID',
+  [Annotation.alertId]: '报警ID',
 };

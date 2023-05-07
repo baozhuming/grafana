@@ -40,13 +40,13 @@ export const AmRootRouteForm: FC<AmRootRouteFormProps> = ({
     <Form defaultValues={{ ...routes, overrideTimings: true, overrideGrouping: true }} onSubmit={onSave}>
       {({ control, errors, setValue }) => (
         <>
-          <Field label="Default contact point" invalid={!!errors.receiver} error={errors.receiver?.message}>
+          <Field label="默认连接点" invalid={!!errors.receiver} error={errors.receiver?.message}>
             <>
               <div className={styles.container} data-testid="am-receiver-select">
                 <InputControl
                   render={({ field: { onChange, ref, ...field } }) => (
                     <Select
-                      aria-label="Default contact point"
+                      aria-label="默认连接点"
                       {...field}
                       className={styles.input}
                       onChange={(value) => onChange(mapSelectValueToString(value))}
@@ -62,21 +62,17 @@ export const AmRootRouteForm: FC<AmRootRouteFormProps> = ({
                   className={styles.linkText}
                   href={makeAMLink('/alerting/notifications/receivers/new', alertManagerSourceName)}
                 >
-                  Create a contact point
+                  创建连接点
                 </Link>
               </div>
             </>
           </Field>
-          <Field
-            label="Group by"
-            description="Group alerts when you receive a notification based on labels."
-            data-testid="am-group-select"
-          >
+          <Field label="分组" description="当您收到基于标签的通知时，将警报分组" data-testid="am-group-select">
             {/* @ts-ignore-check: react-hook-form made me do this */}
             <InputControl
               render={({ field: { onChange, ref, ...field } }) => (
                 <MultiSelect
-                  aria-label="Group by"
+                  aria-label="分组"
                   {...field}
                   allowCustomValue
                   className={styles.input}
@@ -98,12 +94,12 @@ export const AmRootRouteForm: FC<AmRootRouteFormProps> = ({
             collapsible
             className={styles.collapse}
             isOpen={isTimingOptionsExpanded}
-            label="Timing options"
+            label="时机"
             onToggle={setIsTimingOptionsExpanded}
           >
             <Field
-              label="Group wait"
-              description="The waiting time until the initial notification is sent for a new group created by an incoming alert. Default 30 seconds."
+              label="分组等待时间"
+              description="为传入警报创建的新组发送初始通知之前的等待时间，默认为30秒"
               invalid={!!errors.groupWaitValue}
               error={errors.groupWaitValue?.message}
               data-testid="am-group-wait"
@@ -127,7 +123,7 @@ export const AmRootRouteForm: FC<AmRootRouteFormProps> = ({
                         className={styles.input}
                         onChange={(value) => onChange(mapSelectValueToString(value))}
                         options={timeOptions}
-                        aria-label="Group wait type"
+                        aria-label="分组等待类型"
                       />
                     )}
                     control={control}
@@ -137,8 +133,8 @@ export const AmRootRouteForm: FC<AmRootRouteFormProps> = ({
               </>
             </Field>
             <Field
-              label="Group interval"
-              description="The waiting time to send a batch of new alerts for that group after the first notification was sent. Default 5 minutes."
+              label="分组通知间隔时间"
+              description="发送第一个通知后为该组发送一批新警报的等待时间，默认为5分钟"
               invalid={!!errors.groupIntervalValue}
               error={errors.groupIntervalValue?.message}
               data-testid="am-group-interval"
@@ -162,7 +158,7 @@ export const AmRootRouteForm: FC<AmRootRouteFormProps> = ({
                         className={styles.input}
                         onChange={(value) => onChange(mapSelectValueToString(value))}
                         options={timeOptions}
-                        aria-label="Group interval type"
+                        aria-label="分组通知间隔时间"
                       />
                     )}
                     control={control}
@@ -172,8 +168,8 @@ export const AmRootRouteForm: FC<AmRootRouteFormProps> = ({
               </>
             </Field>
             <Field
-              label="Repeat interval"
-              description="The waiting time to resend an alert after they have successfully been sent. Default 4 hours."
+              label="重复间隔时间"
+              description="成功发送警报后重新发送警报的等待时间，默认为4小时"
               invalid={!!errors.repeatIntervalValue}
               error={errors.repeatIntervalValue?.message}
               data-testid="am-repeat-interval"
@@ -198,7 +194,7 @@ export const AmRootRouteForm: FC<AmRootRouteFormProps> = ({
                         menuPlacement="top"
                         onChange={(value) => onChange(mapSelectValueToString(value))}
                         options={timeOptions}
-                        aria-label="Repeat interval type"
+                        aria-label="重复间隔类型"
                       />
                     )}
                     control={control}
@@ -209,9 +205,9 @@ export const AmRootRouteForm: FC<AmRootRouteFormProps> = ({
             </Field>
           </Collapse>
           <div className={styles.container}>
-            <Button type="submit">Save</Button>
+            <Button type="submit">保存</Button>
             <Button onClick={onCancel} type="reset" variant="secondary" fill="outline">
-              Cancel
+              取消
             </Button>
           </div>
         </>

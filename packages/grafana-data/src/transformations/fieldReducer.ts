@@ -153,7 +153,7 @@ export const fieldReducers = new Registry<FieldReducerInfo>(() => [
   { id: ReducerID.first, name: '第一个', description: '第一个值', standard: true, reduce: calculateFirst },
   { id: ReducerID.min, name: '最小值', description: '最小值', standard: true },
   { id: ReducerID.max, name: '最大值', description: '最大值', standard: true },
-  { id: ReducerID.mean, name: '中位数', description: '平均值', standard: true, aliasIds: ['avg'] },
+  { id: ReducerID.mean, name: '平均值', description: '平均值', standard: true, aliasIds: ['avg'] },
   {
     id: ReducerID.variance,
     name: '方差',

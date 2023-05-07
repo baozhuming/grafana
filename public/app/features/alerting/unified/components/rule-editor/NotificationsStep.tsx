@@ -23,12 +23,12 @@ export const NotificationsStep = () => {
   return (
     <RuleEditorSection
       stepNo={4}
-      title="Notifications"
-      description="Grafana handles the notifications for alerts by assigning labels to alerts. These labels connect alerts to contact points and silence alert instances that have matching labels."
+      title="通知"
+      description="Grafana通过为警报分配标签来处理警报通知。这些标签将警报连接到联系人点，并使具有匹配标签的警报实例静音"
     >
       <div>
         <div className={styles.hideButton} onClick={() => setHideFlowChart(!hideFlowChart)}>
-          {`${!hideFlowChart ? 'Hide' : 'Show'} flow chart`}
+          {`${!hideFlowChart ? 'Hide' : 'Show'} 流程图`}
         </div>
       </div>
       <div className={styles.contentWrapper}>
@@ -36,17 +36,16 @@ export const NotificationsStep = () => {
           <img
             className={styles.flowChart}
             src={`public/img/alerting/notification_policy_${theme.name.toLowerCase()}.svg`}
-            alt="notification policy flow chart"
+            alt="通知策略流程图"
           />
         )}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <LabelsField dataSourceName={dataSourceName} />
           <Card className={styles.card}>
-            <Card.Heading>Root route – default for all alerts</Card.Heading>
+            <Card.Heading>主路由-所有警报的默认值</Card.Heading>
             <Card.Description>
-              Without custom labels, your alert will be routed through the root route. To view and edit the root route,
-              go to <Link href="/alerting/routes">notification policies</Link> or contact your admin in case you are
-              using non-Grafana alert management.
+              如果没有自定义标签，您的警报将通过根路由路由。要查看和编辑根路由，请转到
+              <Link href="/alerting/routes">通知策略</Link>或联系您的管理员，如果您使用非grafana警报管理
             </Card.Description>
           </Card>
         </div>

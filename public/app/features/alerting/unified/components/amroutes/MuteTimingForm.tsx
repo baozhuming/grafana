@@ -60,7 +60,7 @@ const useDefaultValues = (muteTiming?: MuteTimeInterval): MuteTimingFields => {
 
 const defaultPageNav: Partial<NavModelItem> = {
   icon: 'sitemap',
-  breadcrumbs: [{ title: 'Notification Policies', url: 'alerting/routes' }],
+  breadcrumbs: [{ title: '通知策略', url: 'alerting/routes' }],
 };
 
 const MuteTimingForm = ({ muteTiming, showError, provenance }: Props) => {
@@ -102,7 +102,7 @@ const MuteTimingForm = ({ muteTiming, showError, provenance }: Props) => {
         newConfig,
         oldConfig: result,
         alertManagerSourceName: alertManagerSourceName!,
-        successMessage: 'Mute timing saved',
+        successMessage: '保存静音定时',
         redirectPath: '/alerting/routes/',
       })
     );
@@ -114,7 +114,7 @@ const MuteTimingForm = ({ muteTiming, showError, provenance }: Props) => {
       pageNav={{
         ...defaultPageNav,
         id: muteTiming ? 'alert-policy-edit' : 'alert-policy-new',
-        text: muteTiming ? 'Edit mute timing' : 'New mute timing',
+        text: muteTiming ? '编辑静音时间' : '创建静音时间',
       }}
     >
       <AlertManagerPicker
@@ -127,12 +127,12 @@ const MuteTimingForm = ({ muteTiming, showError, provenance }: Props) => {
       {result && !loading && (
         <FormProvider {...formApi}>
           <form onSubmit={formApi.handleSubmit(onSubmit)} data-testid="mute-timing-form">
-            {showError && <Alert title="No matching mute timing found" />}
-            <FieldSet label={'Create mute timing'} disabled={Boolean(provenance)}>
+            {showError && <Alert title="没有找到匹配的静音定时" />}
+            <FieldSet label={'创建静音时间'} disabled={Boolean(provenance)}>
               <Field
                 required
-                label="Name"
-                description="A unique name for the mute timing"
+                label="名称"
+                description="系统中唯一的名称"
                 invalid={!!formApi.formState.errors?.name}
                 error={formApi.formState.errors.name?.message}
               >
@@ -142,9 +142,9 @@ const MuteTimingForm = ({ muteTiming, showError, provenance }: Props) => {
                     validate: (value) => {
                       if (!muteTiming) {
                         const existingMuteTiming = config?.mute_time_intervals?.find(({ name }) => value === name);
-                        return existingMuteTiming ? `Mute timing already exists for "${value}"` : true;
+                        return existingMuteTiming ? `已存在相同名称 "${value}"` : true;
                       }
-                      return value.length > 0 || 'Name is required';
+                      return value.length > 0 || '请输入名称';
                     },
                   })}
                   className={styles.input}
@@ -157,10 +157,10 @@ const MuteTimingForm = ({ muteTiming, showError, provenance }: Props) => {
                 variant="secondary"
                 href={makeAMLink('/alerting/routes/', alertManagerSourceName)}
               >
-                Cancel
+                取消
               </LinkButton>
               <Button type="submit" className={styles.submitButton}>
-                {muteTiming ? 'Save' : 'Submit'}
+                {muteTiming ? '保存' : '提交'}
               </Button>
             </FieldSet>
           </form>

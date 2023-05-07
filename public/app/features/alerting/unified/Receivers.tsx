@@ -121,12 +121,12 @@ const Receivers = () => {
         )}
       </div>
       {error && !loading && (
-        <Alert severity="error" title="Error loading Alertmanager config">
-          {error.message || 'Unknown error.'}
+        <Alert severity="error" title="加载警报器配置错误">
+          {error.message || '未知错误'}
         </Alert>
       )}
       <GrafanaAlertmanagerDeliveryWarning currentAlertmanager={alertManagerSourceName} />
-      {loading && !config && <LoadingPlaceholder text="loading configuration..." />}
+      {loading && !config && <LoadingPlaceholder text="配置信息加载中..." />}
       {config && !error && (
         <Switch>
           <Route exact={true} path="/alerting/notifications">

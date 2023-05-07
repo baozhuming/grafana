@@ -31,14 +31,14 @@ export class UserLdapSyncInfo extends PureComponent<Props, State> {
 
     return (
       <>
-        <h3 className="page-heading">LDAP Synchronisation</h3>
+        <h3 className="page-heading">LDAP同步</h3>
         <div className="gf-form-group">
           <div className="gf-form">
             <table className="filter-table form-inline">
               <tbody>
                 <tr>
-                  <td>External sync</td>
-                  <td>User synced via LDAP. Some changes must be done in LDAP or mappings.</td>
+                  <td>外部同步</td>
+                  <td>通过LDAP同步的用户，必须在LDAP或映射中进行一些更改</td>
                   <td>
                     <span className="label label-tag">LDAP</span>
                   </td>
@@ -46,13 +46,13 @@ export class UserLdapSyncInfo extends PureComponent<Props, State> {
                 <tr>
                   {ldapSyncInfo.enabled ? (
                     <>
-                      <td>Next scheduled synchronization</td>
+                      <td>下一个计划同步</td>
                       <td colSpan={2}>{nextSyncTime}</td>
                     </>
                   ) : (
                     <>
-                      <td>Next scheduled synchronization</td>
-                      <td colSpan={2}>Not enabled</td>
+                      <td>下一个计划同步</td>
+                      <td colSpan={2}>未启用</td>
                     </>
                   )}
                 </tr>
@@ -62,12 +62,12 @@ export class UserLdapSyncInfo extends PureComponent<Props, State> {
           <div className="gf-form-button-row">
             {canSyncLDAPUser && (
               <Button variant="secondary" onClick={this.onUserSync}>
-                Sync user
+                同步用户
               </Button>
             )}
             {canReadLDAPUser && (
               <LinkButton variant="secondary" href={debugLDAPMappingURL}>
-                Debug LDAP Mapping
+                调试LDAP同步
               </LinkButton>
             )}
           </div>

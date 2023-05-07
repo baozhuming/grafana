@@ -228,13 +228,13 @@ export const Basic: ComponentStory<React.ComponentType<SegmentAsyncProps<string>
     noOptionMessageHandler: (state) => {
       action('noOptionMessageHandler fired')(state);
       if (state.loading) {
-        return 'Loading...';
+        return '加载中...';
       }
       if (state.error) {
-        return 'Failed to load options';
+        return '选项加载失败';
       }
       if (!Array.isArray(state.value) || state.value.length === 0) {
-        return 'No options found';
+        return '未找到任何选项';
       }
       return '';
     },

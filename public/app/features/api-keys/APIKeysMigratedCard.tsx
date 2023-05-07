@@ -13,24 +13,23 @@ export const APIKeysMigratedCard = ({ onHideApiKeys }: Props): JSX.Element => {
   const styles = useStyles2(getStyles);
 
   return (
-    <Alert title="API keys were migrated to Grafana service accounts. This tab is deprecated." severity="info">
+    <Alert title="API密钥已迁移到Grafana服务帐户，此选项卡已弃用" severity="info">
       <div className={styles.text}>
-        We have migrated API keys into Grafana service accounts. All API keys are safe and continue working as they used
-        to, you can find them inside the respective service account.
+        我们已经将API密钥迁移到Grafana服务帐户中，所有API密钥都是安全的，并继续像以前一样工作，您可以在各自的服务帐户中找到它们
       </div>
       <div className={styles.actionRow}>
         <Button className={styles.actionButton} onClick={() => setIsModalOpen(true)}>
-          Hide API keys page forever
+          永远隐藏API密钥页面
         </Button>
         <ConfirmModal
-          title={'Hide API Keys page forever'}
+          title={'永远隐藏API密钥页面'}
           isOpen={isModalOpen}
-          body={'Are you sure you want to hide API keys page forever and use service accounts from now on?'}
-          confirmText={'Yes, hide API keys page.'}
+          body={'您确定要永远隐藏API密钥页面并从现在开始使用服务帐户吗?'}
+          confirmText={'是的，隐藏API密钥页面'}
           onConfirm={onHideApiKeys}
           onDismiss={() => setIsModalOpen(false)}
         />
-        <a href="org/serviceaccounts">View service accounts page</a>
+        <a href="org/serviceaccounts">查看服务帐户页面</a>
       </div>
     </Alert>
   );

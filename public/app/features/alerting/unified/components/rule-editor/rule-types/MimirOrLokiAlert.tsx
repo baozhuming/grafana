@@ -13,12 +13,12 @@ const MimirFlavoredType: FC<Props> = ({ selected = false, disabled = false, onCl
   return (
     <DisabledTooltip visible={disabled}>
       <RuleType
-        name="Mimir or Loki alert"
+        name="Mimir或Loki警报"
         description={
           <span>
-            Use a Mimir, Loki or Cortex datasource.
+            使用Mimir、Loki或Cortex数据源
             <br />
-            Expressions are not supported.
+            不支持表达式
           </span>
         }
         image="public/img/alerting/mimir_logo.svg"

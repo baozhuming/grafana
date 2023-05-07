@@ -24,14 +24,14 @@ export const NoDataSourceCallToAction = () => {
         rel="noreferrer"
         className="text-link"
       >
-        Learn more
+        了解更多
       </a>
     </>
   );
 
   const ctaElement = (
     <LinkButton size="lg" href="datasources/new" icon="database" disabled={!canCreateDataSource}>
-      Add data source
+      添加数据源
     </LinkButton>
   );
 

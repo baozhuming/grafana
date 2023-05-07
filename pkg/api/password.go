@@ -29,12 +29,12 @@ func (hs *HTTPServer) SendResetPasswordEmail(c *models.ReqContext) response.Resp
 	usr, err := hs.userService.GetByLogin(c.Req.Context(), &userQuery)
 	if err != nil {
 		c.Logger.Info("Requested password reset for user that was not found", "user", userQuery.LoginOrEmail, "error", err)
-		return response.Error(http.StatusOK, "Email sent", nil)
+		return response.Error(http.StatusOK, "电子邮件已发送", nil)
 	}
 
 	if usr.IsDisabled {
 		c.Logger.Info("Requested password reset for disabled user", "user", userQuery.LoginOrEmail)
-		return response.Error(http.StatusOK, "Email sent", nil)
+		return response.Error(http.StatusOK, "电子邮件已发送", nil)
 	}
 
 	getAuthQuery := models.GetAuthInfoQuery{UserId: usr.ID}
@@ -50,7 +50,7 @@ func (hs *HTTPServer) SendResetPasswordEmail(c *models.ReqContext) response.Resp
 		return response.Error(500, "Failed to send email", err)
 	}
 
-	return response.Success("Email sent")
+	return response.Success("电子邮件已发送")
 }
 
 func (hs *HTTPServer) ResetPassword(c *models.ReqContext) response.Response {

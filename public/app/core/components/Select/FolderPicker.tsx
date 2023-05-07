@@ -15,7 +15,7 @@ import { AccessControlAction, PermissionLevelString } from 'app/types';
 
 export type FolderPickerFilter = (hits: DashboardSearchHit[]) => DashboardSearchHit[];
 
-export const ADD_NEW_FOLER_OPTION = '+ Add new';
+export const ADD_NEW_FOLER_OPTION = '+ 添加一个';
 
 export interface FolderWarning {
   warningCondition: (value: string) => boolean;

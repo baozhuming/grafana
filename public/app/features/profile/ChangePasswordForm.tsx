@@ -20,10 +20,10 @@ export const ChangePasswordForm: FC<Props> = ({ user, onChangePassword, isSaving
   const authSource = user.authLabels?.length && user.authLabels[0];
 
   if (authSource === 'LDAP' || authSource === 'Auth Proxy') {
-    return <p>You cannot change password when signed in with LDAP or auth proxy.</p>;
+    return <p>使用LDAP或身份验证代理登录时无法修改密码</p>;
   }
   if (authSource && disableLoginForm) {
-    return <p>Password cannot be changed here.</p>;
+    return <p>此处无法修改密码</p>;
   }
 
   return (
@@ -36,44 +36,44 @@ export const ChangePasswordForm: FC<Props> = ({ user, onChangePassword, isSaving
         {({ register, errors, getValues }) => {
           return (
             <>
-              <Field label="Old password" invalid={!!errors.oldPassword} error={errors?.oldPassword?.message}>
+              <Field label="旧密码" invalid={!!errors.oldPassword} error={errors?.oldPassword?.message}>
                 <PasswordField
                   id="current-password"
                   autoComplete="current-password"
-                  {...register('oldPassword', { required: 'Old password is required' })}
+                  {...register('oldPassword', { required: '请输入旧密码' })}
                 />
               </Field>
 
-              <Field label="New password" invalid={!!errors.newPassword} error={errors?.newPassword?.message}>
+              <Field label="新密码" invalid={!!errors.newPassword} error={errors?.newPassword?.message}>
                 <PasswordField
                   id="new-password"
                   autoComplete="new-password"
                   {...register('newPassword', {
-                    required: 'New password is required',
+                    required: '请输入新密码',
                     validate: {
-                      confirm: (v) => v === getValues().confirmNew || 'Passwords must match',
-                      old: (v) => v !== getValues().oldPassword || `New password can't be the same as the old one.`,
+                      confirm: (v) => v === getValues().confirmNew || '与确认密码必须相同',
+                      old: (v) => v !== getValues().oldPassword || `新密码不能与旧密码相同`,
                     },
                   })}
                 />
               </Field>
 
-              <Field label="Confirm password" invalid={!!errors.confirmNew} error={errors?.confirmNew?.message}>
+              <Field label="确认密码" invalid={!!errors.confirmNew} error={errors?.confirmNew?.message}>
                 <PasswordField
                   id="confirm-new-password"
                   autoComplete="new-password"
                   {...register('confirmNew', {
-                    required: 'New password confirmation is required',
-                    validate: (v) => v === getValues().newPassword || 'Passwords must match',
+                    required: '请输入确认密码',
+                    validate: (v) => v === getValues().newPassword || '与新密码必须相同',
                   })}
                 />
               </Field>
               <HorizontalGroup>
                 <Button variant="primary" disabled={isSaving} type="submit">
-                  Change Password
+                  确认
                 </Button>
                 <LinkButton variant="secondary" href={`${config.appSubUrl}/profile`} fill="outline">
-                  Cancel
+                  取消
                 </LinkButton>
               </HorizontalGroup>
             </>

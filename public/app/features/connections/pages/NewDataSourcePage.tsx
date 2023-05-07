@@ -7,7 +7,7 @@ export function NewDataSourcePage() {
   return (
     <Page
       navId={'connections-your-connections-datasources'}
-      pageNav={{ text: 'Add data source', subTitle: 'Choose a data source type', active: true }}
+      pageNav={{ text: '添加数据源', subTitle: '选择一个数据源类型', active: true }}
     >
       <Page.Contents>
         <NewDataSource />

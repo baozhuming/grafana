@@ -35,7 +35,7 @@ export function DataSourceCategories({ categories, onClickDataSourceType }: Prop
           target="_blank"
           rel="noopener"
         >
-          Find more data source plugins on grafana.com
+          在grafana.com上找到更多的数据源插件
         </LinkButton>
       </div>
     </>

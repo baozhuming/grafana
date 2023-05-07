@@ -63,7 +63,7 @@ export class UserOrgs extends PureComponent<Props, State> {
     const canAddToOrg = contextSrv.hasPermission(AccessControlAction.OrgUsersAdd) && !isExternalUser;
     return (
       <>
-        <h3 className="page-heading">Organizations</h3>
+        <h3 className="page-heading">机构</h3>
         <div className="gf-form-group">
           <div className="gf-form">
             <table className="filter-table form-inline">
@@ -84,7 +84,7 @@ export class UserOrgs extends PureComponent<Props, State> {
           <div className={addToOrgContainerClass}>
             {canAddToOrg && (
               <Button variant="secondary" onClick={this.showOrgAddModal} ref={this.addToOrgButtonRef}>
-                Add user to organization
+                把用户加入到机构
               </Button>
             )}
           </div>
@@ -239,13 +239,13 @@ class UnThemedOrgRow extends PureComponent<OrgRowProps> {
           <div className="pull-right">
             {canRemoveFromOrg && (
               <ConfirmButton
-                confirmText="Confirm removal"
+                confirmText="确认移除"
                 confirmVariant="destructive"
                 onCancel={this.onCancelClick}
                 onConfirm={this.onOrgRemove}
                 autoFocus
               >
-                Remove from organization
+                从机构中移除
               </ConfirmButton>
             )}
           </div>
@@ -362,14 +362,14 @@ export class AddToOrgModal extends PureComponent<AddToOrgModalProps, AddToOrgMod
       <Modal
         className={styles.modal}
         contentClassName={styles.modalContent}
-        title="Add to an organization"
+        title="把用户加入到机构"
         isOpen={isOpen}
         onDismiss={this.onCancel}
       >
-        <Field label="Organization">
+        <Field label="机构">
           <OrgPicker inputId="new-org-input" onSelected={this.onOrgSelect} excludeOrgs={userOrgs} autoFocus />
         </Field>
-        <Field label="Role" disabled={selectedOrg === null}>
+        <Field label="角色" disabled={selectedOrg === null}>
           {contextSrv.accessControlEnabled() ? (
             <UserRolePicker
               userId={user?.id || 0}
@@ -389,10 +389,10 @@ export class AddToOrgModal extends PureComponent<AddToOrgModalProps, AddToOrgMod
         <Modal.ButtonRow>
           <HorizontalGroup spacing="md" justify="center">
             <Button variant="secondary" fill="outline" onClick={this.onCancel}>
-              Cancel
+              取消
             </Button>
             <Button variant="primary" disabled={selectedOrg === null} onClick={this.onAddUserToOrg}>
-              Add to organization
+              把用户加入到机构
             </Button>
           </HorizontalGroup>
         </Modal.ButtonRow>
@@ -427,30 +427,28 @@ export function ChangeOrgButton({
   return (
     <div className={styles.disabledTooltip}>
       <ConfirmButton
-        confirmText="Save"
+        confirmText="保存"
         onClick={onChangeRoleClick}
         onCancel={onCancelClick}
         onConfirm={onOrgRoleSave}
         disabled={isExternalUser}
       >
-        Change role
+        变更角色
       </ConfirmButton>
       {isExternalUser && (
         <Tooltip
           placement="right-end"
           content={
             <div>
-              This user&apos;s role is not editable because it is synchronized from your auth provider. Refer to
-              the&nbsp;
+              此用户的角色不可编辑，因为它是从验证提供程序同步的，详细信息请参考
               <a
                 className={styles.tooltipItemLink}
                 href={'https://grafana.com/docs/grafana/latest/auth'}
                 rel="noreferrer"
                 target="_blank"
               >
-                Grafana authentication docs
+                Grafana授权文档
               </a>
-              &nbsp;for details.
             </div>
           }
         >

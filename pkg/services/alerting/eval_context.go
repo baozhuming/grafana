@@ -79,25 +79,25 @@ func (c *EvalContext) GetStateModel() *StateDescription {
 	case models.AlertStateOK:
 		return &StateDescription{
 			Color: "#36a64f",
-			Text:  "OK",
+			Text:  "正常",
 		}
 	case models.AlertStateNoData:
 		return &StateDescription{
 			Color: "#888888",
-			Text:  "No Data",
+			Text:  "无数据",
 		}
 	case models.AlertStateAlerting:
 		return &StateDescription{
 			Color: "#D63232",
-			Text:  "Alerting",
+			Text:  "警报",
 		}
 	case models.AlertStateUnknown:
 		return &StateDescription{
 			Color: "#888888",
-			Text:  "Unknown",
+			Text:  "未知",
 		}
 	default:
-		panic("Unknown rule state for alert " + c.Rule.State)
+		panic("未知的警报规则状态 " + c.Rule.State)
 	}
 }
 

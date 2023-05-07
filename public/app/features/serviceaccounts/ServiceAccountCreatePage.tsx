@@ -98,10 +98,10 @@ export const ServiceAccountCreatePage = ({}: Props): JSX.Element => {
   };
 
   return (
-    <Page navId="serviceaccounts" pageNav={{ text: 'Create service account' }}>
+    <Page navId="serviceaccounts" pageNav={{ text: '创建服务帐户' }}>
       <Page.Contents>
         <Page.OldNavOnly>
-          <h3 className="page-sub-heading">Create service account</h3>
+          <h3 className="page-sub-heading">创建服务帐户</h3>
         </Page.OldNavOnly>
         <Form onSubmit={onSubmit} validateOn="onSubmit">
           {({ register, errors }) => {
@@ -109,14 +109,14 @@ export const ServiceAccountCreatePage = ({}: Props): JSX.Element => {
               <>
                 <FieldSet>
                   <Field
-                    label="Display name"
+                    label="显示名称"
                     required
                     invalid={!!errors.name}
-                    error={errors.name ? 'Display name is required' : undefined}
+                    error={errors.name ? '请输入显示名称' : undefined}
                   >
                     <Input id="display-name-input" {...register('name', { required: true })} autoFocus />
                   </Field>
-                  <Field label="Role">
+                  <Field label="角色">
                     {contextSrv.licensedAccessControlEnabled() ? (
                       <UserRolePicker
                         apply
@@ -134,7 +134,7 @@ export const ServiceAccountCreatePage = ({}: Props): JSX.Element => {
                     )}
                   </Field>
                 </FieldSet>
-                <Button type="submit">Create</Button>
+                <Button type="submit">创建</Button>
               </>
             );
           }}

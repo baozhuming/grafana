@@ -96,7 +96,7 @@ export function ExpressionQueryEditor(props: Props) {
 
   return (
     <div>
-      <InlineField label="Operation" labelWidth={labelWidth}>
+      <InlineField label="操作" labelWidth={labelWidth}>
         <Select options={gelTypes} value={selected} onChange={onSelectExpressionType} width={25} />
       </InlineField>
       {renderExpressionType()}

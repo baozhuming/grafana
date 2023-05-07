@@ -17,7 +17,7 @@ const AlertLabelDropdown: FC<AlertLabelDropdownProps> = React.forwardRef<HTMLDiv
       <div ref={ref}>
         <Field disabled={false} data-testid={`alertlabel-${type}-picker`}>
           <Select
-            placeholder={`Choose ${type}`}
+            placeholder={`选择 ${type}`}
             width={29}
             className="ds-picker select-container"
             backspaceRemovesValue={false}
@@ -25,7 +25,7 @@ const AlertLabelDropdown: FC<AlertLabelDropdownProps> = React.forwardRef<HTMLDiv
             onOpenMenu={onOpenMenu}
             options={options}
             maxMenuHeight={500}
-            noOptionsMessage="No labels found"
+            noOptionsMessage="未发现标签"
             defaultValue={defaultValue}
             allowCustomValue
           />

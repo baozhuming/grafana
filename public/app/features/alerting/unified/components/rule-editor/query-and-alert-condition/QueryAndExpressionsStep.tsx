@@ -152,7 +152,7 @@ export const QueryAndExpressionsStep: FC<Props> = ({ editingExistingRule }) => {
   }, [condition, queries, setValue]);
 
   return (
-    <RuleEditorSection stepNo={1} title="Set a query and alert condition">
+    <RuleEditorSection stepNo={1} title="设置查询和警报条件">
       <AlertType editingExistingRule={editingExistingRule} />
 
       {/* This is the PromQL Editor for Cloud rules and recording rules */}
@@ -165,7 +165,7 @@ export const QueryAndExpressionsStep: FC<Props> = ({ editingExistingRule }) => {
             }}
             control={control}
             rules={{
-              required: { value: true, message: 'A valid expression is required' },
+              required: { value: true, message: '请输入有效的表达式' },
             }}
           />
         </Field>
@@ -208,7 +208,7 @@ export const QueryAndExpressionsStep: FC<Props> = ({ editingExistingRule }) => {
           />
           {/* action buttons */}
           <Stack direction="row">
-            <Tooltip content={'You appear to have no compatible data sources'} show={noCompatibleDataSources}>
+            <Tooltip content={'您似乎没有兼容的数据源'} show={noCompatibleDataSources}>
               <Button
                 type="button"
                 icon="plus"
@@ -219,7 +219,7 @@ export const QueryAndExpressionsStep: FC<Props> = ({ editingExistingRule }) => {
                 aria-label={selectors.components.QueryTab.addQuery}
                 disabled={noCompatibleDataSources}
               >
-                Add query
+                添加查询
               </Button>
             </Tooltip>
 
@@ -232,26 +232,26 @@ export const QueryAndExpressionsStep: FC<Props> = ({ editingExistingRule }) => {
                 }}
                 variant="secondary"
               >
-                Add expression
+                添加表达式
               </Button>
             )}
 
             {isDataLoading && (
               <Button icon="fa fa-spinner" type="button" variant="destructive" onClick={cancelQueries}>
-                Cancel
+                取消
               </Button>
             )}
             {!isDataLoading && (
               <Button icon="sync" type="button" onClick={() => runQueries()} disabled={emptyQueries}>
-                Preview
+                预览
               </Button>
             )}
           </Stack>
 
           {/* No Queries */}
           {emptyQueries && (
-            <Alert title="No queries or expressions have been configured" severity="warning">
-              Create at least one query or expression to be alerted on
+            <Alert title="没有配置任何查询或表达式" severity="warning">
+              创建至少一个要发出警报的查询或表达式
             </Alert>
           )}
         </Stack>

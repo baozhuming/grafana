@@ -4,22 +4,9 @@ import { MuteTimeInterval, TimeInterval } from 'app/plugins/datasource/alertmana
 
 import { MuteTimingFields, MuteTimingIntervalFields } from '../types/mute-timing-form';
 
-export const DAYS_OF_THE_WEEK = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+export const DAYS_OF_THE_WEEK = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期天'];
 
-export const MONTHS = [
-  'january',
-  'february',
-  'march',
-  'april',
-  'may',
-  'june',
-  'july',
-  'august',
-  'september',
-  'october',
-  'november',
-  'december',
-];
+export const MONTHS = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
 
 export const defaultTimeInterval: MuteTimingIntervalFields = {
   times: [{ start_time: '', end_time: '' }],

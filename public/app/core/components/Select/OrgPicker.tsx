@@ -48,8 +48,8 @@ export function OrgPicker({ onSelected, className, inputId, autoFocus, excludeOr
       isSearchable={false}
       loadOptions={getOrgOptions}
       onChange={onSelected}
-      placeholder="Select organization"
-      noOptionsMessage="No organizations found"
+      placeholder="选择机构"
+      noOptionsMessage="未找到机构"
     />
   );
 }

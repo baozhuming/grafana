@@ -29,7 +29,7 @@ const UsersTable: FC<Props> = (props) => {
           setRoleOptions(options);
         }
       } catch (e) {
-        console.error('Error loading options');
+        console.error('加载选项错误');
       }
     }
     if (contextSrv.licensedAccessControlEnabled()) {
@@ -43,11 +43,11 @@ const UsersTable: FC<Props> = (props) => {
         <thead>
           <tr>
             <th />
-            <th>Login</th>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Seen</th>
-            <th>Role</th>
+            <th>用户名</th>
+            <th>邮件</th>
+            <th>名称</th>
+            <th>最后活跃</th>
+            <th>角色</th>
             <th style={{ width: '34px' }} />
             <th></th>
           </tr>
@@ -98,7 +98,7 @@ const UsersTable: FC<Props> = (props) => {
                 </td>
 
                 <td className="width-1 text-center">
-                  {user.isDisabled && <span className="label label-tag label-tag--gray">Disabled</span>}
+                  {user.isDisabled && <span className="label label-tag label-tag--gray">禁用</span>}
                 </td>
 
                 {contextSrv.hasPermissionInMetadata(AccessControlAction.OrgUsersRemove, user) && (
@@ -121,9 +121,9 @@ const UsersTable: FC<Props> = (props) => {
       </table>
       {Boolean(userToRemove) && (
         <ConfirmModal
-          body={`Are you sure you want to delete user ${userToRemove?.login}?`}
-          confirmText="Delete"
-          title="Delete"
+          body={`您确定要删除用户 ${userToRemove?.login}?`}
+          confirmText="删除"
+          title="删除"
           onDismiss={() => {
             setUserToRemove(null);
           }}

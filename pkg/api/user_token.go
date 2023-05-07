@@ -58,7 +58,7 @@ func (hs *HTTPServer) logoutUserFromAllDevicesInternal(ctx context.Context, user
 		if errors.Is(err, user.ErrUserNotFound) {
 			return response.Error(404, "User not found", err)
 		}
-		return response.Error(500, "Could not read user from database", err)
+		return response.Error(500, "无法从数据库读取用户", err)
 	}
 
 	err = hs.AuthTokenService.RevokeAllUserTokens(ctx, userID)
@@ -67,7 +67,7 @@ func (hs *HTTPServer) logoutUserFromAllDevicesInternal(ctx context.Context, user
 	}
 
 	return response.JSON(http.StatusOK, util.DynMap{
-		"message": "User logged out",
+		"message": "用户注销",
 	})
 }
 
@@ -80,10 +80,10 @@ func (hs *HTTPServer) getUserAuthTokensInternal(c *models.ReqContext, userID int
 			return response.Error(http.StatusNotFound, "User not found", err)
 		} else if errors.Is(err, user.ErrCaseInsensitive) {
 			return response.Error(http.StatusConflict,
-				"User has conflicting login or email with another user. Please contact server admin", err)
+				"用户的登录名或电子邮件与其他用户冲突，请联系服务器管理员", err)
 		}
 
-		return response.Error(http.StatusInternalServerError, "Failed to get user", err)
+		return response.Error(http.StatusInternalServerError, "获取用户失败", err)
 	}
 
 	tokens, err := hs.AuthTokenService.GetUserTokens(c.Req.Context(), userID)
@@ -150,7 +150,7 @@ func (hs *HTTPServer) revokeUserAuthTokenInternal(c *models.ReqContext, userID i
 		if errors.Is(err, user.ErrUserNotFound) {
 			return response.Error(404, "User not found", err)
 		}
-		return response.Error(500, "Failed to get user", err)
+		return response.Error(500, "获取用户失败", err)
 	}
 
 	token, err := hs.AuthTokenService.GetUserToken(c.Req.Context(), userID, cmd.AuthTokenId)
@@ -158,11 +158,11 @@ func (hs *HTTPServer) revokeUserAuthTokenInternal(c *models.ReqContext, userID i
 		if errors.Is(err, models.ErrUserTokenNotFound) {
 			return response.Error(404, "User auth token not found", err)
 		}
-		return response.Error(500, "Failed to get user auth token", err)
+		return response.Error(500, "获取用户认证令牌失败", err)
 	}
 
 	if c.UserToken != nil && c.UserToken.Id == token.Id {
-		return response.Error(400, "Cannot revoke active user auth token", nil)
+		return response.Error(400, "无法撤销活动的用户验证令牌", nil)
 	}
 
 	err = hs.AuthTokenService.RevokeToken(c.Req.Context(), token, false)
@@ -170,11 +170,11 @@ func (hs *HTTPServer) revokeUserAuthTokenInternal(c *models.ReqContext, userID i
 		if errors.Is(err, models.ErrUserTokenNotFound) {
 			return response.Error(404, "User auth token not found", err)
 		}
-		return response.Error(500, "Failed to revoke user auth token", err)
+		return response.Error(500, "撤销用户认证令牌失败", err)
 	}
 
 	return response.JSON(http.StatusOK, util.DynMap{
-		"message": "User auth token revoked",
+		"message": "用户认证令牌被撤销",
 	})
 }
 

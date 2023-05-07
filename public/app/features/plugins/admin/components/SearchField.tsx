@@ -40,7 +40,7 @@ export const SearchField = ({ value, onSearch }: Props) => {
           onSearch(e.currentTarget.value);
         }
       }}
-      placeholder="Search Grafana plugins"
+      placeholder="搜索Grafana插件"
       onChange={(value) => {
         setQuery(value);
       }}

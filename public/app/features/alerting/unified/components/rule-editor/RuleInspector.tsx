@@ -39,7 +39,7 @@ export const RuleInspector: FC<Props> = ({ onClose }) => {
 
   return (
     <Drawer
-      title="Inspect Alert rule"
+      title="检查警报规则"
       subtitle={
         <div className={styles.subtitle}>
           <RuleInspectorSubtitle setActiveTab={setActiveTab} activeTab={activeTab} />
@@ -98,7 +98,7 @@ const InspectorYamlTab: FC<YamlTabProps> = ({ onSubmit }) => {
     <>
       <div className={styles.applyButton}>
         <Button type="button" onClick={onApply}>
-          Apply
+          应用
         </Button>
         <Tooltip content={<YamlContentInfo />} theme="info" placement="left-start" interactive={true}>
           <Icon name="exclamation-triangle" size="xl" />
@@ -130,14 +130,14 @@ const InspectorYamlTab: FC<YamlTabProps> = ({ onSubmit }) => {
 function YamlContentInfo() {
   return (
     <div>
-      The YAML content in the editor only contains alert rule configuration <br />
-      To configure Prometheus, you need to provide the rest of the{' '}
+      编辑器中的YAML内容仅包含警报规则配置 <br />
+      要配置Prometheus，需要提供文件的其余部分{' '}
       <a
         href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/"
         target="_blank"
         rel="noreferrer"
       >
-        configuration file content.
+        配置文件内容
       </a>
     </div>
   );

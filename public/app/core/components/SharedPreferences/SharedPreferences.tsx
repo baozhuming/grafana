@@ -32,9 +32,9 @@ export interface Props {
 export type State = UserPreferencesDTO;
 
 const themes: SelectableValue[] = [
-  { value: '', label: t('shared-preferences.theme.default-label', 'Default') },
-  { value: 'dark', label: t('shared-preferences.theme.dark-label', 'Dark') },
-  { value: 'light', label: t('shared-preferences.theme.light-label', 'Light') },
+  { value: '', label: t('shared-preferences.theme.default-label', '默认') },
+  { value: 'dark', label: t('shared-preferences.theme.dark-label', '暗黑') },
+  { value: 'light', label: t('shared-preferences.theme.light-label', '高亮') },
 ];
 
 function getLanguageOptions(): Array<SelectableValue<string>> {

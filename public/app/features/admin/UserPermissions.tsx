@@ -11,8 +11,8 @@ interface Props {
 }
 
 const adminOptions = [
-  { label: 'Yes', value: true },
-  { label: 'No', value: false },
+  { label: '是', value: true },
+  { label: '否', value: false },
 ];
 
 export function UserPermissions({ isGrafanaAdmin, onGrafanaAdminChange }: Props) {
@@ -32,13 +32,13 @@ export function UserPermissions({ isGrafanaAdmin, onGrafanaAdminChange }: Props)
 
   return (
     <>
-      <h3 className="page-heading">Permissions</h3>
+      <h3 className="page-heading">权限</h3>
       <div className="gf-form-group">
         <div className="gf-form">
           <table className="filter-table form-inline">
             <tbody>
               <tr>
-                <td className="width-16">Grafana Admin</td>
+                <td className="width-16">管理员</td>
                 {isEditing ? (
                   <td colSpan={2}>
                     <RadioButtonGroup
@@ -52,10 +52,10 @@ export function UserPermissions({ isGrafanaAdmin, onGrafanaAdminChange }: Props)
                   <td colSpan={2}>
                     {isGrafanaAdmin ? (
                       <>
-                        <Icon name="shield" /> Yes
+                        <Icon name="shield" /> 是
                       </>
                     ) : (
-                      <>No</>
+                      <>否</>
                     )}
                   </td>
                 )}
@@ -65,9 +65,9 @@ export function UserPermissions({ isGrafanaAdmin, onGrafanaAdminChange }: Props)
                       onClick={onChangeClick}
                       onConfirm={handleGrafanaAdminChange}
                       onCancel={onCancelClick}
-                      confirmText="Change"
+                      confirmText="变更"
                     >
-                      Change
+                      变更
                     </ConfirmButton>
                   )}
                 </td>

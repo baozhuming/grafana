@@ -125,13 +125,13 @@ const AmRoutes = () => {
         dataSources={alertManagers}
       />
       {resultError && !resultLoading && (
-        <Alert severity="error" title="Error loading Alertmanager config">
-          {resultError.message || 'Unknown error.'}
+        <Alert severity="error" title="加载警报器配置错误">
+          {resultError.message || '未知错误'}
         </Alert>
       )}
       <GrafanaAlertmanagerDeliveryWarning currentAlertmanager={alertManagerSourceName} />
       {isProvisioned && <ProvisioningAlert resource={ProvisionedResource.RootNotificationPolicy} />}
-      {resultLoading && <LoadingPlaceholder text="Loading Alertmanager config..." />}
+      {resultLoading && <LoadingPlaceholder text="警报器配置信息加载中..." />}
       {result && !resultLoading && !resultError && (
         <>
           <AmRootRoute

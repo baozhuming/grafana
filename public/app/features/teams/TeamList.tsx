@@ -113,7 +113,7 @@ export class TeamList extends PureComponent<Props, State> {
         )}
         <td className="text-right">
           <DeleteButton
-            aria-label={`Delete team ${team.name}`}
+            aria-label={`删除团队 ${team.name}`}
             size="sm"
             disabled={!canDelete}
             onConfirm={() => this.deleteTeam(team)}
@@ -126,12 +126,12 @@ export class TeamList extends PureComponent<Props, State> {
   renderEmptyList() {
     return (
       <EmptyListCTA
-        title="You haven't created any teams yet."
+        title="你还没有创建任何团队"
         buttonIcon="users-alt"
         buttonLink="org/teams/new"
-        buttonTitle=" New team"
+        buttonTitle=" 新建团队"
         buttonDisabled={!contextSrv.hasPermission(AccessControlAction.ActionTeamsCreate)}
-        proTip="Assign folder and dashboard permissions to teams instead of users to ease administration."
+        proTip="将文件夹和仪表板权限分配给团队，而不是用户，以简化管理"
         proTipLink=""
         proTipLinkTitle=""
         proTipTarget="_blank"
@@ -160,11 +160,11 @@ export class TeamList extends PureComponent<Props, State> {
       <>
         <div className="page-action-bar">
           <div className="gf-form gf-form--grow">
-            <FilterInput placeholder="Search teams" value={searchQuery} onChange={this.onSearchQueryChange} />
+            <FilterInput placeholder="搜索团队" value={searchQuery} onChange={this.onSearchQueryChange} />
           </div>
 
           <LinkButton href={newTeamHref} disabled={!canCreate}>
-            New Team
+            新建团队
           </LinkButton>
         </div>
 
@@ -174,9 +174,9 @@ export class TeamList extends PureComponent<Props, State> {
               <thead>
                 <tr>
                   <th />
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Members</th>
+                  <th>名称</th>
+                  <th>邮件</th>
+                  <th>成员</th>
                   {displayRolePicker && <th>Roles</th>}
                   <th style={{ width: '1%' }} />
                 </tr>

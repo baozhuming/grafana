@@ -59,13 +59,13 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
             {({ fields, append, remove }) => (
               <>
                 <VerticalGroup justify="flex-start" spacing="md">
-                  <div>Matching labels</div>
+                  <div>匹配的标签</div>
                   {fields.length === 0 && (
                     <Badge
                       color="orange"
                       className={styles.noMatchersWarning}
                       icon="exclamation-triangle"
-                      text="If no matchers are specified, this notification policy will handle all alert instances."
+                      text="如果没有指定匹配器，则此通知策略将处理所有警报实例"
                     />
                   )}
                   {fields.length > 0 && (
@@ -75,17 +75,17 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                         return (
                           <HorizontalGroup key={field.id} align="flex-start" height="auto">
                             <Field
-                              label="Label"
+                              label="标签"
                               invalid={!!errors.object_matchers?.[index]?.name}
                               error={errors.object_matchers?.[index]?.name?.message}
                             >
                               <Input
-                                {...register(`${localPath}.name`, { required: 'Field is required' })}
+                                {...register(`${localPath}.name`, { required: '请输入标签' })}
                                 defaultValue={field.name}
-                                placeholder="label"
+                                placeholder="标签"
                               />
                             </Field>
-                            <Field label={'Operator'}>
+                            <Field label={'操作符'}>
                               <InputControl
                                 render={({ field: { onChange, ref, ...field } }) => (
                                   <Select
@@ -93,33 +93,33 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                                     className={styles.matchersOperator}
                                     onChange={(value) => onChange(value?.value)}
                                     options={matcherFieldOptions}
-                                    aria-label="Operator"
+                                    aria-label="操作符"
                                   />
                                 )}
                                 defaultValue={field.operator}
                                 control={control}
                                 name={`${localPath}.operator` as const}
-                                rules={{ required: { value: true, message: 'Required.' } }}
+                                rules={{ required: { value: true, message: '请输入操作符' } }}
                               />
                             </Field>
                             <Field
-                              label="Value"
+                              label="值"
                               invalid={!!errors.object_matchers?.[index]?.value}
                               error={errors.object_matchers?.[index]?.value?.message}
                             >
                               <Input
                                 {...register(`${localPath}.value`, { required: 'Field is required' })}
                                 defaultValue={field.value}
-                                placeholder="value"
+                                placeholder="值"
                               />
                             </Field>
                             <IconButton
                               className={styles.removeButton}
-                              tooltip="Remove matcher"
+                              tooltip="删除匹配器"
                               name={'trash-alt'}
                               onClick={() => remove(index)}
                             >
-                              Remove
+                              删除
                             </IconButton>
                           </HorizontalGroup>
                         );
@@ -133,18 +133,18 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                     variant="secondary"
                     type="button"
                   >
-                    Add matcher
+                    添加匹配器
                   </Button>
                 </VerticalGroup>
               </>
             )}
           </FieldArray>
-          <Field label="Contact point">
+          <Field label="连接点">
             {/* @ts-ignore-check: react-hook-form made me do this */}
             <InputControl
               render={({ field: { onChange, ref, ...field } }) => (
                 <Select
-                  aria-label="Contact point"
+                  aria-label="连接点"
                   {...field}
                   className={formStyles.input}
                   onChange={(value) => onChange(mapSelectValueToString(value))}
@@ -155,21 +155,18 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
               name="receiver"
             />
           </Field>
-          <Field label="Continue matching subsequent sibling nodes">
+          <Field label="继续匹配后续兄弟节点">
             <Switch id="continue-toggle" {...register('continue')} />
           </Field>
-          <Field label="Override grouping">
+          <Field label="覆盖分组">
             <Switch id="override-grouping-toggle" {...register('overrideGrouping')} />
           </Field>
           {watch().overrideGrouping && (
-            <Field
-              label="Group by"
-              description="Group alerts when you receive a notification based on labels. If empty it will be inherited from the parent policy."
-            >
+            <Field label="分组" description="当您收到基于标签的通知时，将警报分组。如果为空，将从父策略继承">
               <InputControl
                 render={({ field: { onChange, ref, ...field } }) => (
                   <MultiSelect
-                    aria-label="Group by"
+                    aria-label="分组"
                     {...field}
                     allowCustomValue
                     className={formStyles.input}
@@ -188,14 +185,14 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
               />
             </Field>
           )}
-          <Field label="Override general timings">
+          <Field label="超常计时">
             <Switch id="override-timings-toggle" {...register('overrideTimings')} />
           </Field>
           {watch().overrideTimings && (
             <>
               <Field
-                label="Group wait"
-                description="The waiting time until the initial notification is sent for a new group created by an incoming alert. If empty it will be inherited from the parent policy."
+                label="分组等待时间"
+                description="为传入警报创建的新组发送初始通知之前的等待时间。如果为空，将从父策略继承"
                 invalid={!!errors.groupWaitValue}
                 error={errors.groupWaitValue?.message}
               >
@@ -207,7 +204,7 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                           {...field}
                           className={formStyles.smallInput}
                           invalid={invalid}
-                          aria-label="Group wait value"
+                          aria-label="分组等待时间的值"
                         />
                       )}
                       control={control}
@@ -223,7 +220,7 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                           className={formStyles.input}
                           onChange={(value) => onChange(mapSelectValueToString(value))}
                           options={timeOptions}
-                          aria-label="Group wait type"
+                          aria-label="分组等待类型"
                         />
                       )}
                       control={control}
@@ -233,8 +230,8 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                 </>
               </Field>
               <Field
-                label="Group interval"
-                description="The waiting time to send a batch of new alerts for that group after the first notification was sent. If empty it will be inherited from the parent policy."
+                label="分组通知间隔时间"
+                description="发送第一个通知后为该组发送一批新警报的等待时间。如果为空，将从父策略继承"
                 invalid={!!errors.groupIntervalValue}
                 error={errors.groupIntervalValue?.message}
               >
@@ -246,7 +243,7 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                           {...field}
                           className={formStyles.smallInput}
                           invalid={invalid}
-                          aria-label="Group interval value"
+                          aria-label="分组通知间隔时间的值"
                         />
                       )}
                       control={control}
@@ -262,7 +259,7 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                           className={formStyles.input}
                           onChange={(value) => onChange(mapSelectValueToString(value))}
                           options={timeOptions}
-                          aria-label="Group interval type"
+                          aria-label="分组间隔类型"
                         />
                       )}
                       control={control}
@@ -272,8 +269,8 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                 </>
               </Field>
               <Field
-                label="Repeat interval"
-                description="The waiting time to resend an alert after they have successfully been sent."
+                label="重复间隔时间"
+                description="成功发送警报后重新发送警报的等待时间"
                 invalid={!!errors.repeatIntervalValue}
                 error={errors.repeatIntervalValue?.message}
               >
@@ -285,7 +282,7 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                           {...field}
                           className={formStyles.smallInput}
                           invalid={invalid}
-                          aria-label="Repeat interval value"
+                          aria-label="重复间隔时间的值"
                         />
                       )}
                       control={control}
@@ -302,7 +299,7 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
                           menuPlacement="top"
                           onChange={(value) => onChange(mapSelectValueToString(value))}
                           options={timeOptions}
-                          aria-label="Repeat interval type"
+                          aria-label="重复间隔时间类型"
                         />
                       )}
                       control={control}
@@ -314,15 +311,15 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
             </>
           )}
           <Field
-            label="Mute timings"
+            label="静音"
             data-testid="am-mute-timing-select"
-            description="Add mute timing to policy"
+            description="在策略中添加静音定时"
             invalid={!!errors.muteTimeIntervals}
           >
             <InputControl
               render={({ field: { onChange, ref, ...field } }) => (
                 <MultiSelect
-                  aria-label="Mute timings"
+                  aria-label="静音"
                   {...field}
                   className={formStyles.input}
                   onChange={(value) => onChange(mapMultiSelectValueToStrings(value))}
@@ -334,9 +331,9 @@ export const AmRoutesExpandedForm: FC<AmRoutesExpandedFormProps> = ({ onCancel, 
             />
           </Field>
           <div className={styles.buttonGroup}>
-            <Button type="submit">Save policy</Button>
+            <Button type="submit">保存策略</Button>
             <Button onClick={onCancel} fill="outline" type="button" variant="secondary">
-              Cancel
+              取消
             </Button>
           </div>
         </>

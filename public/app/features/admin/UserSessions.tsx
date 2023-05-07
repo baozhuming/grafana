@@ -56,23 +56,23 @@ class BaseUserSessions extends PureComponent<Props, State> {
 
     return (
       <>
-        <h3 className="page-heading">Sessions</h3>
+        <h3 className="page-heading">会话</h3>
         <div className="gf-form-group">
           <div className="gf-form">
             <table className="filter-table form-inline">
               <thead>
                 <tr>
-                  <th>Last seen</th>
-                  <th>Logged on</th>
-                  <th>IP address</th>
-                  <th colSpan={2}>Browser and OS</th>
+                  <th>最后上线</th>
+                  <th>登录</th>
+                  <th>IP地址</th>
+                  <th colSpan={2}>浏览器和操作系统</th>
                 </tr>
               </thead>
               <tbody>
                 {sessions &&
                   sessions.map((session, index) => (
                     <tr key={`${session.id}-${index}`}>
-                      <td>{session.isActive ? 'Now' : session.seenAt}</td>
+                      <td>{session.isActive ? '现在' : session.seenAt}</td>
                       <td>{i18nDate(session.createdAt, { dateStyle: 'long' })}</td>
                       <td>{session.clientIp}</td>
                       <td>{`${session.browser} on ${session.os} ${session.osVersion}`}</td>
@@ -80,12 +80,12 @@ class BaseUserSessions extends PureComponent<Props, State> {
                         <div className="pull-right">
                           {canLogout && (
                             <ConfirmButton
-                              confirmText="Confirm logout"
+                              confirmText="确认注销"
                               confirmVariant="destructive"
                               onConfirm={this.onSessionRevoke(session.id)}
                               autoFocus
                             >
-                              Force logout
+                              确认注销
                             </ConfirmButton>
                           )}
                         </div>
@@ -98,14 +98,14 @@ class BaseUserSessions extends PureComponent<Props, State> {
           <div className={logoutFromAllDevicesClass}>
             {canLogout && sessions.length > 0 && (
               <Button variant="secondary" onClick={this.showLogoutConfirmationModal} ref={this.forceAllLogoutButton}>
-                Force logout from all devices
+                强制从所有设备注销
               </Button>
             )}
             <ConfirmModal
               isOpen={showLogoutModal}
-              title="Force logout from all devices"
-              body="Are you sure you want to force logout from all devices?"
-              confirmText="Force logout"
+              title="强制从所有设备注销"
+              body="您确定要强制从所有设备注销吗?"
+              confirmText="注销"
               onConfirm={this.onAllSessionsRevoke}
               onDismiss={this.dismissLogoutConfirmationModal}
             />

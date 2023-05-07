@@ -89,7 +89,7 @@ const AddButton: FC<{
       append({ key: '', value: '' });
     }}
   >
-    Add label
+    添加标签
   </Button>
 );
 
@@ -127,7 +127,7 @@ const LabelsWithSuggestions: FC<{ dataSourceName: string }> = ({ dataSourceName 
 
   return (
     <>
-      {loading && <LoadingPlaceholder text="Loading" />}
+      {loading && <LoadingPlaceholder text="加载" />}
       {!loading && (
         <>
           {fields.map((field, index) => {
@@ -142,7 +142,7 @@ const LabelsWithSuggestions: FC<{ dataSourceName: string }> = ({ dataSourceName 
                   >
                     <AlertLabelDropdown
                       {...register(`labels.${index}.key`, {
-                        required: { value: Boolean(labels[index]?.value), message: 'Required.' },
+                        required: { value: Boolean(labels[index]?.value), message: '必输字段' },
                       })}
                       defaultValue={field.key ? { label: field.key, value: field.key } : undefined}
                       options={keys}
@@ -162,7 +162,7 @@ const LabelsWithSuggestions: FC<{ dataSourceName: string }> = ({ dataSourceName 
                   >
                     <AlertLabelDropdown
                       {...register(`labels.${index}.value`, {
-                        required: { value: Boolean(labels[index]?.key), message: 'Required.' },
+                        required: { value: Boolean(labels[index]?.key), message: '必输字段' },
                       })}
                       defaultValue={field.value ? { label: field.value, value: field.value } : undefined}
                       options={values}
@@ -213,7 +213,7 @@ const LabelsWithoutSuggestions: FC = () => {
               >
                 <Input
                   {...register(`labels.${index}.key`, {
-                    required: { value: !!labels[index]?.value, message: 'Required.' },
+                    required: { value: !!labels[index]?.value, message: '必输字段' },
                   })}
                   placeholder="key"
                   data-testid={`label-key-${index}`}
@@ -228,7 +228,7 @@ const LabelsWithoutSuggestions: FC = () => {
               >
                 <Input
                   {...register(`labels.${index}.value`, {
-                    required: { value: !!labels[index]?.key, message: 'Required.' },
+                    required: { value: !!labels[index]?.key, message: '必输字段' },
                   })}
                   placeholder="value"
                   data-testid={`label-value-${index}`}
@@ -252,22 +252,15 @@ const LabelsField: FC<Props> = ({ className, dataSourceName }) => {
     <div className={cx(className, styles.wrapper)}>
       <Label>
         <Stack gap={0.5}>
-          <span>Custom Labels</span>
-          <Tooltip
-            content={
-              <div>
-                The dropdown only displays labels that you have previously used for alerts. Select a label from the
-                dropdown or type in a new one.
-              </div>
-            }
-          >
+          <span>自定义标签</span>
+          <Tooltip content={<div>下拉列表只显示以前用于警报的标签，从下拉菜单中选择一个标签，或者键入一个新标签</div>}>
             <Icon className={styles.icon} name="info-circle" size="sm" />
           </Tooltip>
         </Stack>
       </Label>
       <>
         <div className={styles.flexRow}>
-          <InlineLabel width={18}>Labels</InlineLabel>
+          <InlineLabel width={18}>标签</InlineLabel>
           <div className={styles.flexColumn}>
             {dataSourceName && <LabelsWithSuggestions dataSourceName={dataSourceName} />}
             {!dataSourceName && <LabelsWithoutSuggestions />}

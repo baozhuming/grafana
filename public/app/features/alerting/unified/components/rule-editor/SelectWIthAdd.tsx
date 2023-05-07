@@ -27,7 +27,7 @@ export const SelectWithAdd: FC<Props> = ({
   custom,
   onCustomChange,
   disabled = false,
-  addLabel = '+ Add new',
+  addLabel = '+ 添加一个',
   'aria-label': ariaLabel,
 }) => {
   const [isCustom, setIsCustom] = useState(custom);

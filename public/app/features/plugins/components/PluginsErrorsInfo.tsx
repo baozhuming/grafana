@@ -20,15 +20,12 @@ export function PluginsErrorsInfo() {
     <InfoBox
       aria-label={selectors.pages.PluginsList.signatureErrorNotice}
       severity="warning"
-      urlTitle="Read more about plugin signing"
+      urlTitle="阅读更多关于插件签名的信息"
       url="https://grafana.com/docs/grafana/latest/plugins/plugin-signatures/"
     >
       <div>
-        <p>
-          Unsigned plugins were found during plugin initialization. Grafana Labs cannot guarantee the integrity of these
-          plugins. We recommend only using signed plugins.
-        </p>
-        The following plugins are disabled and not shown in the list below:
+        <p>在插件初始化期间发现了未签名的插件，Grafana实验室不能保证这些插件的完整性，我们建议只使用签名插件</p>
+        以下插件已禁用，未显示在下面的列表中:
         <List
           items={errors}
           className={styles.list}

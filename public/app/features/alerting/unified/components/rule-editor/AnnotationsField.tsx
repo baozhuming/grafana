@@ -28,7 +28,7 @@ const AnnotationsField = () => {
 
   return (
     <>
-      <Label>Summary and annotations</Label>
+      <Label>摘要和注释</Label>
       <div className={styles.flexColumn}>
         {fields.map((annotationField, index) => {
           const isUrl = annotations[index]?.key?.toLocaleLowerCase().endsWith('url');
@@ -54,7 +54,7 @@ const AnnotationsField = () => {
                     />
                   )}
                   control={control}
-                  rules={{ required: { value: !!annotations[index]?.value, message: 'Required.' } }}
+                  rules={{ required: { value: !!annotations[index]?.value, message: '必输字段' } }}
                 />
               </Field>
               <Field
@@ -66,7 +66,7 @@ const AnnotationsField = () => {
                   data-testid={`annotation-value-${index}`}
                   className={cx(styles.annotationValueInput, { [styles.textarea]: !isUrl })}
                   {...register(`annotations.${index}.value`)}
-                  placeholder={isUrl ? 'https://' : `Text`}
+                  placeholder={isUrl ? 'https://' : `文本`}
                   defaultValue={annotationField.value}
                 />
               </Field>
@@ -90,7 +90,7 @@ const AnnotationsField = () => {
             append({ key: '', value: '' });
           }}
         >
-          Add info
+          补充信息
         </Button>
       </div>
     </>

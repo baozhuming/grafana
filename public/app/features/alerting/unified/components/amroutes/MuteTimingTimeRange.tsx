@@ -42,17 +42,17 @@ export const MuteTimingTimeRange: FC<Props> = ({ intervalIndex }) => {
     <div>
       <Field
         className={styles.field}
-        label="Time range"
-        description="The time inclusive of the starting time and exclusive of the end time in UTC"
+        label="时间范围"
+        description="包括开始时间，不包括结束时间"
         invalid={timeRangeInvalid}
-        error={timeRangeInvalid ? 'Times must be between 00:00 and 24:00 UTC' : ''}
+        error={timeRangeInvalid ? '时间必须在UTC时间00:00到24:00之间' : ''}
       >
         <>
           {timeRanges.map((timeRange, index) => {
             return (
               <div className={styles.timeRange} key={timeRange.id}>
                 <InlineFieldRow>
-                  <InlineField label="Start time" invalid={!!formErrors?.times?.[index]?.start_time}>
+                  <InlineField label="开始时间" invalid={!!formErrors?.times?.[index]?.start_time}>
                     <Input
                       {...register(`time_intervals.${intervalIndex}.times.${index}.start_time`, {
                         validate: validateTime,
@@ -64,7 +64,7 @@ export const MuteTimingTimeRange: FC<Props> = ({ intervalIndex }) => {
                       data-testid="mute-timing-starts-at"
                     />
                   </InlineField>
-                  <InlineField label="End time" invalid={!!formErrors?.times?.[index]?.end_time}>
+                  <InlineField label="结束时间" invalid={!!formErrors?.times?.[index]?.end_time}>
                     <Input
                       {...register(`time_intervals.${intervalIndex}.times.${index}.end_time`, {
                         validate: validateTime,
@@ -99,7 +99,7 @@ export const MuteTimingTimeRange: FC<Props> = ({ intervalIndex }) => {
         icon={'plus'}
         onClick={() => addTimeRange({ start_time: '', end_time: '' })}
       >
-        Add another time range
+        添加另一个时间范围
       </Button>
     </div>
   );

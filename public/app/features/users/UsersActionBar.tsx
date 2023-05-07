@@ -34,8 +34,8 @@ export class UsersActionBar extends PureComponent<Props> {
       showInvites,
     } = this.props;
     const options = [
-      { label: 'Users', value: 'users' },
-      { label: `Pending Invites (${pendingInvitesCount})`, value: 'invites' },
+      { label: '用户表', value: 'users' },
+      { label: `待处理的邀请用户 (${pendingInvitesCount})`, value: 'invites' },
     ];
     const canAddToOrg: boolean = contextSrv.hasAccess(AccessControlAction.OrgUsersAdd, canInvite);
 
@@ -45,7 +45,7 @@ export class UsersActionBar extends PureComponent<Props> {
           <FilterInput
             value={searchQuery}
             onChange={setUsersSearchQuery}
-            placeholder="Search user by login, email or name"
+            placeholder="通过登录、电子邮件或名称搜索用户"
           />
         </div>
         {pendingInvitesCount > 0 && (
@@ -53,7 +53,7 @@ export class UsersActionBar extends PureComponent<Props> {
             <RadioButtonGroup value={showInvites ? 'invites' : 'users'} options={options} onChange={onShowInvites} />
           </div>
         )}
-        {canAddToOrg && <LinkButton href="org/users/invite">Invite</LinkButton>}
+        {canAddToOrg && <LinkButton href="org/users/invite">邀请</LinkButton>}
         {externalUserMngLinkUrl && (
           <LinkButton href={externalUserMngLinkUrl} target="_blank" rel="noopener">
             {externalUserMngLinkName}

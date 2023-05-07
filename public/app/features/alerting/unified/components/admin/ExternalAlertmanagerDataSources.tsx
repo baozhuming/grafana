@@ -18,21 +18,21 @@ export function ExternalAlertmanagerDataSources({ alertmanagers, inactive }: Ext
 
   return (
     <>
-      <h5>Alertmanagers Receiving Grafana-managed alerts</h5>
+      <h5>报警器接收Grafana-managed警报</h5>
       <div className={styles.muted}>
-        Alertmanager data sources support a configuration setting that allows you to choose to send Grafana-managed
-        alerts to that Alertmanager. <br />
-        Below, you can see the list of all Alertmanager data sources that have this setting enabled.
+        警报器数据源支持一个配置设置，允许您选择将Grafana-managed警报发送到该警报器.
+        <br />
+        下面，您可以看到启用了此设置的所有警报器数据源的列表
       </div>
       {alertmanagers.length === 0 && (
         <CallToActionCard
           message={
             <div>
-              There are no Alertmanager data sources configured to receive Grafana-managed alerts. <br />
-              You can change this by selecting Receive Grafana Alerts in a data source configuration.
+              没有配置用于接收的报警器数据源 Grafana-managed 报警器. <br />
+              您可以通过在数据源配置中选择接收Grafana警报来更改此设置
             </div>
           }
-          callToActionElement={<LinkButton href="/datasources">Go to data sources</LinkButton>}
+          callToActionElement={<LinkButton href="/datasources">转到数据源</LinkButton>}
           className={styles.externalDsCTA}
         />
       )}
@@ -62,7 +62,7 @@ export function ExternalAMdataSourceCard({ alertmanager, inactive }: ExternalAMd
       <Card.Heading className={styles.externalHeading}>
         {dataSource.name}{' '}
         {statusInconclusive && (
-          <Tooltip content="Multiple Alertmangers have the same URL configured. The state might be inconclusive.">
+          <Tooltip content="多个报警器配置了相同的URL">
             <Icon name="exclamation-triangle" size="md" className={styles.externalWarningIcon} />
           </Tooltip>
         )}
@@ -78,11 +78,7 @@ export function ExternalAMdataSourceCard({ alertmanager, inactive }: ExternalAMd
       </Card.Figure>
       <Card.Tags>
         {inactive ? (
-          <Badge
-            text="Inactive"
-            color="red"
-            tooltip="Grafana is configured to send alerts to the built-in internal Alertmanager only. External Alertmanagers do not receive any alerts."
-          />
+          <Badge text="暂停" color="red" tooltip="只能向内置的内部警报器发送警报，外部警报器不接收任何警报" />
         ) : (
           <Badge
             text={capitalize(status)}
@@ -93,7 +89,7 @@ export function ExternalAMdataSourceCard({ alertmanager, inactive }: ExternalAMd
       <Card.Meta>{url}</Card.Meta>
       <Card.Actions>
         <LinkButton href={makeDataSourceLink(dataSource)} size="sm" variant="secondary">
-          Go to datasource
+          转到数据源
         </LinkButton>
       </Card.Actions>
     </Card>

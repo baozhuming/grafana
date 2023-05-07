@@ -54,23 +54,23 @@ export const forValidationOptions = (evaluateEvery: string): RegisterOptions => 
 export const evaluateEveryValidationOptions: RegisterOptions = {
   required: {
     value: true,
-    message: 'Required.',
+    message: '必输字段',
   },
   validate: (value: string) => {
     try {
       const duration = parsePrometheusDuration(value);
 
       if (duration < MIN_TIME_RANGE_STEP_S * 1000) {
-        return `Cannot be less than ${MIN_TIME_RANGE_STEP_S} seconds.`;
+        return `不能小于 ${MIN_TIME_RANGE_STEP_S} 秒钟`;
       }
 
       if (duration % (MIN_TIME_RANGE_STEP_S * 1000) !== 0) {
-        return `Must be a multiple of ${MIN_TIME_RANGE_STEP_S} seconds.`;
+        return `必须是 ${MIN_TIME_RANGE_STEP_S} 秒钟的倍数`;
       }
 
       return true;
     } catch (error) {
-      return error instanceof Error ? error.message : 'Failed to parse duration';
+      return error instanceof Error ? error.message : '解析持续时间失败';
     }
   },
 };
@@ -91,18 +91,11 @@ export const GrafanaEvaluationBehavior = () => {
 
   return (
     // TODO remove "and alert condition" for recording rules
-    <RuleEditorSection stepNo={2} title="Alert evaluation behavior">
-      <Field
-        label="Evaluate"
-        description="Evaluation interval applies to every rule within a group. It can overwrite the interval of an existing alert rule."
-      >
+    <RuleEditorSection stepNo={2} title="警报评估行为">
+      <Field label="评估" description="评估间隔适用于组内的每个规则，它可以覆盖现有警报规则的间隔">
         <div className={styles.flexRow}>
-          <InlineLabel
-            htmlFor={evaluateEveryId}
-            width={16}
-            tooltip="How often the alert will be evaluated to see if it fires"
-          >
-            Evaluate every
+          <InlineLabel htmlFor={evaluateEveryId} width={16} tooltip="多长时间评估一次警报，看看它是否触发">
+            评估每一个
           </InlineLabel>
           <Field
             className={styles.inlineField}
@@ -116,9 +109,9 @@ export const GrafanaEvaluationBehavior = () => {
           <InlineLabel
             htmlFor={evaluateForId}
             width={7}
-            tooltip='Once condition is breached, alert will go into pending state. If it is pending for longer than the "for" value, it will become a firing alert.'
+            tooltip="一旦违反条件，警报将进入待处理状态，如果挂起的时间超过范围值，它将变成一个触发警报"
           >
-            for
+            至
           </InlineLabel>
           <Field
             className={styles.inlineField}
@@ -138,12 +131,12 @@ export const GrafanaEvaluationBehavior = () => {
       <CollapseToggle
         isCollapsed={!showErrorHandling}
         onToggle={(collapsed) => setShowErrorHandling(!collapsed)}
-        text="Configure no data and error handling"
+        text="不配置数据和错误处理"
         className={styles.collapseToggle}
       />
       {showErrorHandling && (
         <>
-          <Field htmlFor="no-data-state-input" label="Alert state if no data or all values are null">
+          <Field htmlFor="no-data-state-input" label="如果没有数据或所有值都为空，则警报状态">
             <InputControl
               render={({ field: { onChange, ref, ...field } }) => (
                 <GrafanaAlertStatePicker
@@ -158,7 +151,7 @@ export const GrafanaEvaluationBehavior = () => {
               name="noDataState"
             />
           </Field>
-          <Field htmlFor="exec-err-state-input" label="Alert state if execution error or timeout">
+          <Field htmlFor="exec-err-state-input" label="执行错误或超时时的警报状态">
             <InputControl
               render={({ field: { onChange, ref, ...field } }) => (
                 <GrafanaAlertStatePicker

@@ -21,10 +21,7 @@ export function UpgradePage({ navModel }: Props) {
     <Page navModel={navModel}>
       <Page.Contents>
         <ServerStats />
-        <UpgradeInfo
-          editionNotice="You are running the open-source version of Grafana.
-        You have to install the Enterprise edition in order enable Enterprise features."
-        />
+        <UpgradeInfo editionNotice="您正在运行的是开源版本的Grafana，您必须安装企业版才能启用企业功能" />
       </Page.Contents>
     </Page>
   );
@@ -41,8 +38,8 @@ export const UpgradeInfo = ({ editionNotice }: UpgradeInfoProps) => {
 
   return (
     <>
-      <h2 className={styles.title}>Enterprise license</h2>
-      <LicenseChrome header="Grafana Enterprise" subheader="Get your free trial" editionNotice={editionNotice}>
+      <h2 className={styles.title}>企业版许可</h2>
+      <LicenseChrome header="Grafana企业版" subheader="免费试用" editionNotice={editionNotice}>
         <div className={styles.column}>
           <FeatureInfo />
           <ServiceInfo />
@@ -73,12 +70,9 @@ const getStyles = (theme: GrafanaTheme2) => {
 const GetEnterprise = () => {
   return (
     <div style={{ marginTop: '40px', marginBottom: '30px' }}>
-      <h2 style={titleStyles}>Get Grafana Enterprise</h2>
+      <h2 style={titleStyles}>获取Grafana企业版</h2>
       <CallToAction />
-      <p style={{ paddingTop: '12px' }}>
-        You can use the trial version for free for 30 days. We will remind you about it five days before the trial
-        period ends.
-      </p>
+      <p style={{ paddingTop: '12px' }}>你可以免费试用30天。我们会在试用期结束前5天提醒您</p>
     </div>
   );
 };
@@ -90,7 +84,7 @@ const CallToAction = () => {
       size="lg"
       href="https://grafana.com/contact?about=grafana-enterprise&utm_source=grafana-upgrade-page"
     >
-      Contact us and get a free trial
+      联系我们并获得免费试用
     </LinkButton>
   );
 };
@@ -98,28 +92,28 @@ const CallToAction = () => {
 const ServiceInfo = () => {
   return (
     <div>
-      <h4>At your service</h4>
+      <h4>当前系统的功能</h4>
 
       <List>
-        <Item title="Enterprise Plugins" image="public/img/licensing/plugin_enterprise.svg" />
-        <Item title="Critical SLA: 2 hours" image="public/img/licensing/sla.svg" />
-        <Item title="Unlimited Expert Support" image="public/img/licensing/customer_support.svg">
-          24 x 7 x 365 support via
+        <Item title="企业插件" image="public/img/licensing/plugin_enterprise.svg" />
+        <Item title="重要的 SLA: 2 小时" image="public/img/licensing/sla.svg" />
+        <Item title="专家全年支持" image="public/img/licensing/customer_support.svg">
+          24 x 7 x 365 支持渠道
           <List nested={true}>
-            <Item title="Email" />
-            <Item title="Private Slack channel" />
-            <Item title="Phone" />
+            <Item title="邮件" />
+            <Item title="私有Slack通道" />
+            <Item title="电话" />
           </List>
         </Item>
-        <Item title="Hand-in-hand support" image="public/img/licensing/handinhand_support.svg">
-          in the upgrade process
+        <Item title="手把手支持" image="public/img/licensing/handinhand_support.svg">
+          在升级过程中
         </Item>
       </List>
 
       <div style={{ marginTop: '20px' }}>
-        <strong>Also included:</strong>
+        <strong>还包括:</strong>
         <br />
-        Indemnification, working with Grafana Labs on future prioritization, and training from the core Grafana team.
+        赔偿，与Grafana实验室合作确定未来的优先级，并接受Grafana核心团队的培训
       </div>
 
       <GetEnterprise />
@@ -130,7 +124,7 @@ const ServiceInfo = () => {
 const FeatureInfo = () => {
   return (
     <div style={{ paddingRight: '11px' }}>
-      <h4>Enhanced functionality</h4>
+      <h4>增强功能</h4>
       <FeatureListing />
     </div>
   );
@@ -139,23 +133,23 @@ const FeatureInfo = () => {
 const FeatureListing = () => {
   return (
     <List>
-      <Item title="Data source permissions" />
-      <Item title="Reporting" />
-      <Item title="SAML authentication" />
-      <Item title="Enhanced LDAP integration" />
-      <Item title="Team Sync">LDAP, GitHub OAuth, Auth Proxy, Okta</Item>
-      <Item title="White labeling" />
-      <Item title="Auditing" />
-      <Item title="Settings updates at runtime" />
-      <Item title="Grafana usage insights">
+      <Item title="数据源权限" />
+      <Item title="报表" />
+      <Item title="SAML校验" />
+      <Item title="增强的LDAP集成" />
+      <Item title="团队同步">LDAP, GitHub OAuth, Auth Proxy, Okta</Item>
+      <Item title="贴牌" />
+      <Item title="审计" />
+      <Item title="运行中更新设置" />
+      <Item title="Grafana使用洞察">
         <List nested={true}>
-          <Item title="Sort dashboards by popularity in search" />
-          <Item title="Find unused dashboards" />
-          <Item title="Dashboard usage stats drawer" />
-          <Item title="Dashboard presence indicators" />
+          <Item title="根据搜索中的流行程度对仪表盘进行排序" />
+          <Item title="查找未使用的仪表盘" />
+          <Item title="仪表盘使用统计抽屉" />
+          <Item title="仪表盘状态指示器" />
         </List>
       </Item>
-      <Item title="Enterprise plugins">
+      <Item title="企业插件">
         <List nested={true}>
           <Item title="Oracle" />
           <Item title="Splunk" />

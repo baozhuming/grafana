@@ -68,7 +68,7 @@ export const AlertsFolderView = ({ folder }: Props) => {
         <FilterInput
           value={nameFilter}
           onChange={setNameFilter}
-          placeholder="按名称搜索告警规则"
+          placeholder="按名称搜索警报规则"
           data-testid="name-filter"
         />
         <Stack direction="row">
@@ -84,7 +84,7 @@ export const AlertsFolderView = ({ folder }: Props) => {
           <FilterInput
             value={labelFilter}
             onChange={setLabelFilter}
-            placeholder="按标签搜索告警"
+            placeholder="按标签搜索警报"
             className={styles.filterLabelsInput}
             data-testid="label-filter"
           />

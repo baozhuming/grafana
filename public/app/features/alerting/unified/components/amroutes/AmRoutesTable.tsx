@@ -118,7 +118,7 @@ export const AmRoutesTable: FC<AmRoutesTableProps> = ({
     },
     {
       id: 'muteTimings',
-      label: 'Mute timings',
+      label: '静音时间',
       renderCell: (item) => item.data.muteTimeIntervals.join(', ') || '-',
       size: 5,
     },

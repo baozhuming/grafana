@@ -43,20 +43,20 @@ export function RuleListErrors(): ReactElement {
     const result: JSX.Element[] = [];
 
     if (grafanaPromError) {
-      result.push(<>Failed to load Grafana rules state: {grafanaPromError.message || 'Unknown error.'}</>);
+      result.push(<>加载规则状态失败: {grafanaPromError.message || '未知错误'}</>);
     }
     if (grafanaRulerError) {
-      result.push(<>Failed to load Grafana rules config: {grafanaRulerError.message || 'Unknown error.'}</>);
+      result.push(<>加载规则配置失败: {grafanaRulerError.message || '未知错误'}</>);
     }
 
     dataSourceConfigErrors.forEach(({ dataSource, error }) => {
       result.push(
         <>
-          Failed to load the data source configuration for{' '}
+          加载数据源配置失败{' '}
           <a href={makeDataSourceLink(dataSource)} className={styles.dsLink}>
             {dataSource.name}
           </a>
-          : {error.message || 'Unknown error.'}
+          : {error.message || '未知错误'}
         </>
       );
     });
@@ -64,11 +64,11 @@ export function RuleListErrors(): ReactElement {
     promRequestErrors.forEach(({ dataSource, error }) =>
       result.push(
         <>
-          Failed to load rules state from{' '}
+          加载规则状态失败{' '}
           <a href={makeDataSourceLink(dataSource)} className={styles.dsLink}>
             {dataSource.name}
           </a>
-          : {error.message || 'Unknown error.'}
+          : {error.message || '未知错误'}
         </>
       )
     );
@@ -76,11 +76,11 @@ export function RuleListErrors(): ReactElement {
     rulerRequestErrors.forEach(({ dataSource, error }) =>
       result.push(
         <>
-          Failed to load rules config from{' '}
+          加载规则配置失败{' '}
           <a href={makeDataSourceLink(dataSource)} className={styles.dsLink}>
             {dataSource.name}
           </a>
-          : {error.message || 'Unknown error.'}
+          : {error.message || '未知错误'}
         </>
       )
     );
@@ -96,7 +96,7 @@ export function RuleListErrors(): ReactElement {
       {!!errors.length && !closed && (
         <Alert
           data-testid="cloud-rulessource-errors"
-          title="Errors loading rules"
+          title="加载规则错误"
           severity="error"
           onRemove={() => setClosed(true)}
         >

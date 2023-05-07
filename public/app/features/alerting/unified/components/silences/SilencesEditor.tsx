@@ -169,15 +169,15 @@ export const SilencesEditor: FC<Props> = ({ silence, alertManagerSourceName }) =
   return (
     <FormProvider {...formAPI}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FieldSet label={`${silence ? 'Recreate silence' : 'Create silence'}`}>
+        <FieldSet label={`${silence ? '重建屏蔽器' : '创建屏蔽器'}`}>
           <div className={cx(styles.flexRow, styles.silencePeriod)}>
             <SilencePeriod />
             <Field
-              label="Duration"
+              label="持续时间"
               invalid={!!formState.errors.duration}
               error={
                 formState.errors.duration &&
-                (formState.errors.duration.type === 'required' ? 'Required field' : formState.errors.duration.message)
+                (formState.errors.duration.type === 'required' ? '必填字段' : formState.errors.duration.message)
               }
             >
               <Input
@@ -185,7 +185,7 @@ export const SilencesEditor: FC<Props> = ({ silence, alertManagerSourceName }) =
                 {...register('duration', {
                   validate: (value) =>
                     Object.keys(parseDuration(value)).length === 0
-                      ? 'Invalid duration. Valid example: 1d 4h (Available units: y, M, w, d, h, m, s)'
+                      ? '无效的时间，例如:1d 4h(可选单位:y、M、w、d、h、M、s)'
                       : undefined,
                 })}
                 id="duration"
@@ -196,28 +196,28 @@ export const SilencesEditor: FC<Props> = ({ silence, alertManagerSourceName }) =
           <MatchersField />
           <Field
             className={cx(styles.field, styles.textArea)}
-            label="Comment"
+            label="说明"
             required
             error={formState.errors.comment?.message}
             invalid={!!formState.errors.comment}
           >
             <TextArea
-              {...register('comment', { required: { value: true, message: 'Required.' } })}
+              {...register('comment', { required: { value: true, message: '必填字段' } })}
               rows={5}
-              placeholder="Details about the silence"
+              placeholder="关于屏蔽器的详情"
             />
           </Field>
           {!userLogged && (
             <Field
               className={cx(styles.field, styles.createdBy)}
-              label="Created By"
+              label="创建人"
               required
               error={formState.errors.createdBy?.message}
               invalid={!!formState.errors.createdBy}
             >
               <Input
-                {...register('createdBy', { required: { value: true, message: 'Required.' } })}
-                placeholder="Who's creating the silence"
+                {...register('createdBy', { required: { value: true, message: '必填字段' } })}
+                placeholder="屏蔽器创建人"
               />
             </Field>
           )}
@@ -226,16 +226,16 @@ export const SilencesEditor: FC<Props> = ({ silence, alertManagerSourceName }) =
         <div className={styles.flexRow}>
           {loading && (
             <Button disabled={true} icon="fa fa-spinner" variant="primary">
-              Saving...
+              保存中...
             </Button>
           )}
-          {!loading && <Button type="submit">Submit</Button>}
+          {!loading && <Button type="submit">提交</Button>}
           <LinkButton
             href={makeAMLink('alerting/silences', alertManagerSourceName)}
             variant={'secondary'}
             fill="outline"
           >
-            Cancel
+            取消
           </LinkButton>
         </div>
       </form>

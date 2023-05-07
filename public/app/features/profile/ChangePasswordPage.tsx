@@ -37,7 +37,7 @@ export function ChangePasswordPage({ loadUser, isUpdating, user, changePassword 
         {user ? (
           <>
             <Page.OldNavOnly>
-              <h3 className="page-sub-heading">Change Your Password</h3>
+              <h3 className="page-sub-heading">更改密码</h3>
             </Page.OldNavOnly>
             <ChangePasswordForm user={user} onChangePassword={changePassword} isSaving={isUpdating} />
           </>

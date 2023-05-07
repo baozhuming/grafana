@@ -171,55 +171,41 @@ export const ServiceAccountsListPageUnconnected = ({
       target="_blank"
       rel="noopener noreferrer"
     >
-      here.
+      了解更多
     </a>
   );
-  const subTitle = (
-    <span>
-      Service accounts and their tokens can be used to authenticate against the Grafana API. Find out more {docsLink}
-    </span>
-  );
+  const subTitle = <span>服务帐户及其令牌可用于针对Grafana API进行身份验证 {docsLink}</span>;
 
   return (
     <Page navId="serviceaccounts" subTitle={subTitle}>
       <Page.Contents>
         {apiKeysMigrated && showApiKeysMigrationInfo && (
           <Alert
-            title="API keys migrated to Service accounts. Your keys are now called tokens and live inside respective service
-          accounts. Learn more."
+            title="API密钥已迁移到服务帐户。您的密钥现在被称为令牌，并驻留在各自的服务帐户中。了解详情"
             severity="success"
             onRemove={onMigrationInfoClose}
           ></Alert>
         )}
         <Page.OldNavOnly>
           <div className={styles.pageHeader}>
-            <h2>Service accounts</h2>
+            <h2>服务帐户</h2>
             <div className={styles.apiKeyInfoLabel}>
-              <Tooltip
-                placement="bottom"
-                interactive
-                content={<>API keys are now service accounts with tokens. Find out more {docsLink}</>}
-              >
+              <Tooltip placement="bottom" interactive content={<>API密钥现在是带有令牌的服务帐户 {docsLink}</>}>
                 <Icon name="question-circle" />
               </Tooltip>
-              <span>Looking for API keys?</span>
+              <span>加载API密钥?</span>
             </div>
           </div>
         </Page.OldNavOnly>
         <div className="page-action-bar">
           <div className="gf-form gf-form--grow">
-            <FilterInput
-              placeholder="Search service account by name"
-              value={query}
-              onChange={onQueryChange}
-              width={50}
-            />
+            <FilterInput placeholder="按名称搜索服务帐户" value={query} onChange={onQueryChange} width={50} />
           </div>
           <RadioButtonGroup
             options={[
-              { label: 'All', value: ServiceAccountStateFilter.All },
-              { label: 'With expired tokens', value: ServiceAccountStateFilter.WithExpiredTokens },
-              { label: 'Disabled', value: ServiceAccountStateFilter.Disabled },
+              { label: '所有', value: ServiceAccountStateFilter.All },
+              { label: '过期token', value: ServiceAccountStateFilter.WithExpiredTokens },
+              { label: '禁用', value: ServiceAccountStateFilter.Disabled },
             ]}
             onChange={onStateFilterChange}
             value={serviceAccountStateFilter}
@@ -227,7 +213,7 @@ export const ServiceAccountsListPageUnconnected = ({
           />
           {!noServiceAccountsCreated && contextSrv.hasPermission(AccessControlAction.ServiceAccountsCreate) && (
             <LinkButton href="org/serviceaccounts/create" variant="primary">
-              Add service account
+              添加业务帐号
             </LinkButton>
           )}
         </div>
@@ -235,12 +221,12 @@ export const ServiceAccountsListPageUnconnected = ({
         {!isLoading && noServiceAccountsCreated && (
           <>
             <EmptyListCTA
-              title="You haven't created any service accounts yet."
+              title="您还没有创建任何服务帐户"
               buttonIcon="key-skeleton-alt"
               buttonLink="org/serviceaccounts/create"
-              buttonTitle="Add service account"
+              buttonTitle="添加业务帐号"
               buttonDisabled={!contextSrv.hasPermission(AccessControlAction.ServiceAccountsCreate)}
-              proTip="Remember, you can provide specific permissions for API access to other applications."
+              proTip="请记住，您可以为API访问其他应用程序提供特定的权限"
               proTipLink=""
               proTipLinkTitle=""
               proTipTarget="_blank"
@@ -284,24 +270,21 @@ export const ServiceAccountsListPageUnconnected = ({
           <>
             <ConfirmModal
               isOpen={isRemoveModalOpen}
-              body={`Are you sure you want to delete '${currentServiceAccount.name}'${
+              body={`您确定要删除'${currentServiceAccount.name}'${
                 !!currentServiceAccount.tokens
-                  ? ` and ${currentServiceAccount.tokens} accompanying ${pluralize(
-                      'token',
-                      currentServiceAccount.tokens
-                    )}`
+                  ? ` 和 ${currentServiceAccount.tokens} 以及 ${pluralize('token', currentServiceAccount.tokens)}`
                   : ''
-              }?`}
-              confirmText="Delete"
-              title="Delete service account"
+              }吗?`}
+              confirmText="删除"
+              title="删除业务帐号"
               onConfirm={onServiceAccountRemove}
               onDismiss={onRemoveModalClose}
             />
             <ConfirmModal
               isOpen={isDisableModalOpen}
-              title="Disable service account"
-              body={`Are you sure you want to disable '${currentServiceAccount.name}'?`}
-              confirmText="Disable service account"
+              title="禁用服务帐户"
+              body={`你确定要禁用 '${currentServiceAccount.name}'吗?`}
+              confirmText="禁用服务帐户"
               onConfirm={onDisable}
               onDismiss={onDisableModalClose}
             />

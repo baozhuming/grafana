@@ -12,7 +12,7 @@ const DisabledTooltip = ({ children, visible = false }: React.PropsWithChildren<
   }
 
   return (
-    <Tooltip content="You do not appear to have any compatible datasources." placement="top">
+    <Tooltip content="您似乎没有任何兼容的数据源" placement="top">
       <div>{children}</div>
     </Tooltip>
   );

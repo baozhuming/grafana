@@ -94,19 +94,19 @@ export const AmSpecificRouting: FC<AmSpecificRoutingProps> = ({
   };
   return (
     <div className={styles.container}>
-      <h5>Specific routing</h5>
-      <p>Send specific alerts to chosen contact points, based on matching criteria</p>
+      <h5>特定策略</h5>
+      <p>根据匹配条件向选定的联络点发送特定警报</p>
       {!routes.receiver ? (
         readOnly ? (
           <EmptyArea>
-            <p>There is no default contact point configured for the root route.</p>
+            <p>主路由没有配置默认的接触点</p>
           </EmptyArea>
         ) : (
           <EmptyAreaWithCTA
             buttonIcon="rocket"
-            buttonLabel="Set a default contact point"
+            buttonLabel="设置默认连接点"
             onButtonClick={onRootRouteEdit}
-            text="You haven't set a default contact point for the root route yet."
+            text="您还没有为主路由设置默认的连接点"
             showButton={canCreateNotifications}
           />
         )
@@ -123,20 +123,20 @@ export const AmSpecificRouting: FC<AmSpecificRoutingProps> = ({
                   className={styles.filterInput}
                 />
                 <div className={styles.filterInput}>
-                  <Label>Search by contact point</Label>
+                  <Label>按连接点搜索</Label>
                   <Input
                     onChange={({ currentTarget }) =>
                       setFilters((currentFilters) => ({ ...currentFilters, contactPoint: currentTarget.value }))
                     }
                     value={filters.contactPoint ?? ''}
-                    placeholder="Search by contact point"
+                    placeholder="按连接点搜索"
                     data-testid="search-query-input"
                     prefix={<Icon name={'search'} />}
                   />
                 </div>
                 {(queryString || contactPoint) && (
                   <Button variant="secondary" icon="times" onClick={clearFilters} className={styles.clearFilterBtn}>
-                    Clear filters
+                    清空过滤条件
                   </Button>
                 )}
               </div>
@@ -146,7 +146,7 @@ export const AmSpecificRouting: FC<AmSpecificRoutingProps> = ({
               <Authorize actions={[permissions.create]}>
                 <div className={styles.addMatcherBtnRow}>
                   <Button className={styles.addMatcherBtn} icon="plus" onClick={addNewRoute} type="button">
-                    New policy
+                    新建策略
                   </Button>
                 </div>
               </Authorize>
@@ -165,14 +165,14 @@ export const AmSpecificRouting: FC<AmSpecificRoutingProps> = ({
         </>
       ) : readOnly ? (
         <EmptyArea>
-          <p>There are no specific policies configured.</p>
+          <p>没有配置特定的策略</p>
         </EmptyArea>
       ) : (
         <EmptyAreaWithCTA
           buttonIcon="plus"
-          buttonLabel="New specific policy"
+          buttonLabel="新建特定策略"
           onButtonClick={addNewRoute}
-          text="You haven't created any specific policies yet."
+          text="您还没有创建任何特定的策略"
           showButton={canCreateNotifications}
         />
       )}

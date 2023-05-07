@@ -14,7 +14,7 @@ interface Props {
 }
 
 function getAlertManagerLabel(alertManager: AlertManagerDataSource) {
-  return alertManager.name === GRAFANA_RULES_SOURCE_NAME ? 'Grafana' : alertManager.name.slice(0, 37);
+  return alertManager.name === GRAFANA_RULES_SOURCE_NAME ? '默认' : alertManager.name.slice(0, 37);
 }
 
 export const AlertManagerPicker: FC<Props> = ({ onChange, current, dataSources, disabled = false }) => {
@@ -32,19 +32,19 @@ export const AlertManagerPicker: FC<Props> = ({ onChange, current, dataSources, 
   return (
     <Field
       className={styles.field}
-      label={disabled ? 'Alertmanager' : 'Choose Alertmanager'}
+      label={disabled ? '警报器' : '选择警报器'}
       disabled={disabled || options.length === 1}
       data-testid="alertmanager-picker"
     >
       <Select
-        aria-label={disabled ? 'Alertmanager' : 'Choose Alertmanager'}
+        aria-label={disabled ? '警报器' : '警报器'}
         width={29}
         className="ds-picker select-container"
         backspaceRemovesValue={false}
         onChange={(value) => value.value && onChange(value.value)}
         options={options}
         maxMenuHeight={500}
-        noOptionsMessage="No datasources found"
+        noOptionsMessage="未找到数据源"
         value={current}
         getOptionLabel={(o) => o.label}
       />

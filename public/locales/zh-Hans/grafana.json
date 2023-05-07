@@ -101,7 +101,7 @@
   },
   "nav": {
     "admin": {
-      "subtitle": "管理整个服务器范围的设置，以及对组织、用户和许可证等资源的访问权限",
+      "subtitle": "管理整个服务器范围的设置，以及对机构、用户和许可证等资源的访问权限",
       "title": "服务器管理员"
     },
     "admin-access": {
@@ -128,7 +128,7 @@
       "title": "通知渠道"
     },
     "alerting-groups": {
-      "subtitle": "查看来自 Alertmanager（警报管理器）实例的分组警报",
+      "subtitle": "查看来自警报器实例的分组警报",
       "title": "组"
     },
     "alerting-legacy": {
@@ -140,11 +140,11 @@
     },
     "alerting-receivers": {
       "subtitle": "确定警报触发时如何通知联络人",
-      "title": "联络点"
+      "title": "连接点"
     },
     "alerting-silences": {
       "subtitle": "停止来自一个或多个警报规则的通知",
-      "title": "静默"
+      "title": "屏蔽器"
     },
     "alerts-and-incidents": {
       "subtitle": "警报和事件管理应用",
@@ -159,7 +159,7 @@
       "title": "应用"
     },
     "config": {
-      "title": "管理",
+      "title": "管理员",
       "titleBeforeTopnav": "配置"
     },
     "correlations": {
@@ -194,7 +194,7 @@
     },
     "global-orgs": {
       "subtitle": "在同一服务器上运行的 Grafana 的孤立实例",
-      "title": "组织"
+      "title": "机构"
     },
     "global-users": {
       "subtitle": "在整个 Grafana 服务器上管理和创建用户",
@@ -241,8 +241,8 @@
       "title": "新建文件夹"
     },
     "org-settings": {
-      "subtitle": "管理整个组织的首选项",
-      "title": "",
+      "subtitle": "管理整个机构的首选项",
+      "title": "默认首选项",
       "titleBeforeTopnav": "首选项"
     },
     "playlists": {
@@ -262,7 +262,7 @@
     "profile/settings": {
       "title": "首选项"
     },
-    "profile/switch-org": "切换组织",
+    "profile/switch-org": "切换机构",
     "scenes": {
       "title": "场景"
     },
@@ -499,8 +499,8 @@
     "current-org-button": "当前",
     "name-column": "姓名",
     "role-column": "角色",
-    "select-org-button": "选择组织",
-    "title": "组织"
+    "select-org-button": "选择机构",
+    "title": "机构"
   },
   "user-profile": {
     "fields": {

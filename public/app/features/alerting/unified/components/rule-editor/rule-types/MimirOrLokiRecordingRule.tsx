@@ -9,12 +9,12 @@ const RecordingRuleType: FC<SharedProps> = ({ selected = false, disabled = false
   return (
     <DisabledTooltip visible={disabled}>
       <RuleType
-        name="Mimir or Loki recording rule"
+        name="Mimir或Loki录制规则"
         description={
           <span>
-            Precompute expressions.
+            预先执行表达式
             <br />
-            Should be combined with an alert rule.
+            应该与警报规则结合使用
           </span>
         }
         image="public/img/alerting/mimir_logo_recording.svg"

@@ -54,7 +54,7 @@
     },
     "links": [
       {
-        "name": "Learn more",
+        "name": "了解更多",
         "url": "https://prometheus.io/docs/alerting/latest/alertmanager/"
       }
     ]

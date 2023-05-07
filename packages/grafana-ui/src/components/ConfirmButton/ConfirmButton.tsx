@@ -135,7 +135,7 @@ class UnThemedConfirmButton extends PureComponent<React.PropsWithChildren<Props>
             {confirmText}
           </Button>
           <Button size={size} fill="text" onClick={this.onClickCancel}>
-            Cancel
+            取消
           </Button>
         </span>
       </span>

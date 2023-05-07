@@ -68,7 +68,7 @@ export const Threshold: FC<Props> = ({ labelWidth, onChange, refIds, query }) =>
 
   return (
     <InlineFieldRow>
-      <InlineField label="Input" labelWidth={labelWidth}>
+      <InlineField label="输入值" labelWidth={labelWidth}>
         <Select onChange={onRefIdChange} options={refIds} value={query.expression} width={20} />
       </InlineField>
       <ButtonSelect
@@ -85,7 +85,7 @@ export const Threshold: FC<Props> = ({ labelWidth, onChange, refIds, query }) =>
             onChange={(event) => onEvaluateValueChange(event, 0)}
             defaultValue={condition.evaluator.params[0]}
           />
-          <div className={styles.button}>TO</div>
+          <div className={styles.button}>～</div>
           <Input
             type="number"
             width={10}

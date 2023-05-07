@@ -50,7 +50,7 @@ export const Basic = () => {
 };
 
 export const WithStack = () => {
-  return <ErrorWithStack error={new Error('Test error')} title={'Unexpected error'} errorInfo={null} />;
+  return <ErrorWithStack error={new Error('Test error')} title={'异常错误'} errorInfo={null} />;
 };
 
 export const BoundaryAlert = () => {

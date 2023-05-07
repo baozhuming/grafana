@@ -105,7 +105,7 @@ export const AlertRuleForm: FC<Props> = ({ existing }) => {
   };
 
   const onInvalid = () => {
-    notifyApp.error('There are errors in the form. Please correct them and try again!');
+    notifyApp.error('表格中有错误，请更正后再试一次');
   };
 
   return (
@@ -120,12 +120,12 @@ export const AlertRuleForm: FC<Props> = ({ existing }) => {
               fill="outline"
               onClick={() => logInfo(LogMessages.cancelSavingAlertRule)}
             >
-              Cancel
+              取消
             </Button>
           </Link>
           {existing ? (
             <Button variant="destructive" type="button" onClick={() => setShowDeleteModal(true)}>
-              Delete
+              删除
             </Button>
           ) : null}
           {isCortexLokiOrRecordingRule(watch) && (
@@ -135,7 +135,7 @@ export const AlertRuleForm: FC<Props> = ({ existing }) => {
               onClick={() => setShowEditYaml(true)}
               disabled={submitState.loading}
             >
-              Edit yaml
+              编辑yaml配置文件
             </Button>
           )}
           <Button
@@ -145,7 +145,7 @@ export const AlertRuleForm: FC<Props> = ({ existing }) => {
             disabled={submitState.loading}
           >
             {submitState.loading && <Spinner className={styles.buttonSpinner} inline={true} />}
-            Save
+            保存
           </Button>
           <Button
             variant="primary"
@@ -154,7 +154,7 @@ export const AlertRuleForm: FC<Props> = ({ existing }) => {
             disabled={submitState.loading}
           >
             {submitState.loading && <Spinner className={styles.buttonSpinner} inline={true} />}
-            Save and exit
+            保存并退出
           </Button>
         </HorizontalGroup>
         <div className={styles.contentOuter}>
@@ -175,9 +175,9 @@ export const AlertRuleForm: FC<Props> = ({ existing }) => {
       {showDeleteModal ? (
         <ConfirmModal
           isOpen={true}
-          title="Delete rule"
-          body="Deleting this rule will permanently remove it. Are you sure you want to delete this rule?"
-          confirmText="Yes, delete"
+          title="删除规则"
+          body="删除此规则将永久删除该规则。您确定要删除此规则吗?"
+          confirmText="是的，删除"
           icon="exclamation-triangle"
           onConfirm={deleteRule}
           onDismiss={() => setShowDeleteModal(false)}

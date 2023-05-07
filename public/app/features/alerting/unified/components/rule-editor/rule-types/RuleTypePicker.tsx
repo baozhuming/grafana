@@ -53,10 +53,7 @@ const RuleTypePicker: FC<RuleTypePickerProps> = ({ selected, onChange, enabledTy
         )}
       </Stack>
       {enabledTypes.includes(RuleFormType.grafana) && (
-        <small className={styles.meta}>
-          Select &ldquo;Grafana managed&rdquo; unless you have a Mimir, Loki or Cortex data source with the Ruler API
-          enabled.
-        </small>
+        <small className={styles.meta}>选择Grafana managed,除非你有一个Mimir, Loki或Cortex数据源与尺API启用</small>
       )}
     </>
   );

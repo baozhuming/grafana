@@ -33,7 +33,7 @@ export const MetricSelect: FC<Props> = (props) => {
       isSearchable={isSearchable}
       maxMenuHeight={500}
       placeholder={placeholder}
-      noOptionsMessage={() => 'No options found'}
+      noOptionsMessage={() => '未找到任何选项'}
       value={selected}
     />
   );

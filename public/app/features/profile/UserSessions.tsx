@@ -24,7 +24,7 @@ class UserSessions extends PureComponent<Props> {
       <div>
         {sessions.length > 0 && (
           <>
-            <h3 className="page-sub-heading">Sessions</h3>
+            <h3 className="page-sub-heading">会话</h3>
             <div className="gf-form-group">
               <table className="filter-table form-inline" data-testid={selectors.components.UserProfile.sessionsTable}>
                 <thead>
@@ -48,7 +48,7 @@ class UserSessions extends PureComponent<Props> {
                 <tbody>
                   {sessions.map((session: UserSession, index) => (
                     <tr key={index}>
-                      {session.isActive ? <td>Now</td> : <td>{session.seenAt}</td>}
+                      {session.isActive ? <td>当前</td> : <td>{session.seenAt}</td>}
                       <td>{i18nDate(session.createdAt, { dateStyle: 'long' })}</td>
                       <td>{session.clientIp}</td>
                       <td>

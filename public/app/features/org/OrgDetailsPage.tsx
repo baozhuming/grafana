@@ -36,9 +36,9 @@ export class OrgDetailsPage extends PureComponent<Props> {
     return new Promise<boolean>((resolve) => {
       appEvents.publish(
         new ShowConfirmModalEvent({
-          title: 'Confirm preferences update',
-          text: 'This will update the preferences for the whole organization. Are you sure you want to update the preferences?',
-          yesText: 'Save',
+          title: '确认更新首选项',
+          text: '这将更新整个机构的首选项，您确定要更新首选项吗?',
+          yesText: '保存',
           yesButtonVariant: 'primary',
           onConfirm: async () => resolve(true),
           onDismiss: async () => resolve(false),

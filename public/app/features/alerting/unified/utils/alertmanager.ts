@@ -117,10 +117,10 @@ export function matchersToString(matchers: Matcher[]) {
 }
 
 export const matcherFieldOptions: SelectableValue[] = [
-  { label: MatcherOperator.equal, description: 'Equals', value: MatcherOperator.equal },
-  { label: MatcherOperator.notEqual, description: 'Does not equal', value: MatcherOperator.notEqual },
-  { label: MatcherOperator.regex, description: 'Matches regex', value: MatcherOperator.regex },
-  { label: MatcherOperator.notRegex, description: 'Does not match regex', value: MatcherOperator.notRegex },
+  { label: MatcherOperator.equal, description: '等于', value: MatcherOperator.equal },
+  { label: MatcherOperator.notEqual, description: '不等于', value: MatcherOperator.notEqual },
+  { label: MatcherOperator.regex, description: '匹配正则表达式', value: MatcherOperator.regex },
+  { label: MatcherOperator.notRegex, description: '不匹配正则表达式', value: MatcherOperator.notRegex },
 ];
 
 const matcherOperators = [

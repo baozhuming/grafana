@@ -60,7 +60,7 @@ export const Reduce: FC<Props> = ({ labelWidth = 'auto', onChange, refIds, query
       return;
     }
     return (
-      <InlineField label="Replace With" labelWidth={labelWidth}>
+      <InlineField label="替换为" labelWidth={labelWidth}>
         <Input type="number" width={10} onChange={onReplaceWithChanged} value={query.settings?.replaceWithValue ?? 0} />
       </InlineField>
     );
@@ -69,15 +69,15 @@ export const Reduce: FC<Props> = ({ labelWidth = 'auto', onChange, refIds, query
   return (
     <>
       <InlineFieldRow>
-        <InlineField label="Function" labelWidth={labelWidth}>
+        <InlineField label="函数" labelWidth={labelWidth}>
           <Select options={reducerTypes} value={reducer} onChange={onSelectReducer} width={20} />
         </InlineField>
-        <InlineField label="Input" labelWidth={labelWidth}>
+        <InlineField label="输入值" labelWidth={labelWidth}>
           <Select onChange={onRefIdChange} options={refIds} value={query.expression} width={'auto'} />
         </InlineField>
       </InlineFieldRow>
       <InlineFieldRow>
-        <InlineField label="Mode" labelWidth={labelWidth}>
+        <InlineField label="模式" labelWidth={labelWidth}>
           <Select onChange={onModeChanged} options={reducerMode} value={mode} width={25} />
         </InlineField>
         {replaceWithNumber()}

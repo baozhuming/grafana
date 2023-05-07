@@ -28,9 +28,9 @@ export const PanelAlertTabContent: FC<Props> = ({ dashboard, panel }) => {
   const canCreateRules = contextSrv.hasPermission(permissions.create);
 
   const alert = errors.length ? (
-    <Alert title="Errors loading rules" severity="error">
+    <Alert title="加载规则错误" severity="error">
       {errors.map((error, index) => (
-        <div key={index}>Failed to load Grafana rules state: {error.message || 'Unknown error.'}</div>
+        <div key={index}>Failed to load Grafana rules state: {error.message || '未知错误'}</div>
       ))}
     </Alert>
   ) : null;

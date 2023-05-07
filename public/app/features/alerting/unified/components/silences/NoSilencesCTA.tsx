@@ -17,10 +17,10 @@ export const NoSilencesSplash: FC<Props> = ({ alertManagerSourceName }) => {
   if (contextSrv.hasAccess(permissions.create, contextSrv.isEditor)) {
     return (
       <EmptyListCTA
-        title="You haven't created any silences yet"
+        title="你还没有创建屏蔽器"
         buttonIcon="bell-slash"
         buttonLink={makeAMLink('alerting/silence/new', alertManagerSourceName)}
-        buttonTitle="New silence"
+        buttonTitle="创建屏蔽器"
       />
     );
   }

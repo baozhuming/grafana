@@ -82,15 +82,15 @@ const UserListAdminPageUnConnected = ({
         <div className="page-action-bar">
           <div className="gf-form gf-form--grow">
             <FilterInput
-              placeholder="Search user by login, email, or name."
+              placeholder="通过用户名、电子邮件或名称搜索用户"
               autoFocus={true}
               value={query}
               onChange={changeQuery}
             />
             <RadioButtonGroup
               options={[
-                { label: 'All users', value: false },
-                { label: 'Active last 30 days', value: true },
+                { label: '所有员工', value: false },
+                { label: '最近30天活跃', value: true },
               ]}
               onChange={(value) => changeFilter({ name: 'activeLast30Days', value })}
               value={filters.find((f) => f.name === 'activeLast30Days')?.value}
@@ -102,7 +102,7 @@ const UserListAdminPageUnConnected = ({
           </div>
           {contextSrv.hasPermission(AccessControlAction.UsersCreate) && (
             <LinkButton href="admin/users/create" variant="primary">
-              New user
+              新建用户
             </LinkButton>
           )}
         </div>
@@ -115,19 +115,18 @@ const UserListAdminPageUnConnected = ({
                 <thead>
                   <tr>
                     <th></th>
-                    <th>Login</th>
-                    <th>Email</th>
-                    <th>Name</th>
-                    <th>Belongs to</th>
+                    <th>用户名</th>
+                    <th>邮件</th>
+                    <th>名称</th>
+                    <th>所属机构</th>
                     {showLicensedRole && (
                       <th>
-                        Licensed role{' '}
+                        授权角色{' '}
                         <Tooltip
                           placement="top"
                           content={
                             <>
-                              Licensed role is based on a user&apos;s Org role (i.e. Viewer, Editor, Admin) and their
-                              dashboard/folder permissions.{' '}
+                              授权角色基于用户的机构角色(即查看者、编辑者、管理员)及其仪表盘/文件夹权限{' '}
                               <a
                                 className={styles.link}
                                 target="_blank"
@@ -136,7 +135,7 @@ const UserListAdminPageUnConnected = ({
                                   'https://grafana.com/docs/grafana/next/enterprise/license/license-restrictions/#active-users-limit'
                                 }
                               >
-                                Learn more
+                                了解更多
                               </a>
                             </>
                           }
@@ -146,8 +145,8 @@ const UserListAdminPageUnConnected = ({
                       </th>
                     )}
                     <th>
-                      Last active&nbsp;
-                      <Tooltip placement="top" content="Time since user was seen using Grafana">
+                      最后活跃&nbsp;
+                      <Tooltip placement="top" content="用户被看到使用Grafana的时间">
                         <Icon name="question-circle" />
                       </Tooltip>
                     </th>

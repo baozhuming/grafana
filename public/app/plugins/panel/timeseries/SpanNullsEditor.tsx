@@ -5,15 +5,15 @@ import { HorizontalGroup, Input, RadioButtonGroup } from '@grafana/ui';
 
 const GAPS_OPTIONS: Array<SelectableValue<boolean | number>> = [
   {
-    label: 'Never',
+    label: '从不',
     value: false,
   },
   {
-    label: 'Always',
+    label: '始终',
     value: true,
   },
   {
-    label: 'Threshold',
+    label: '阈值',
     value: 3600000, // 1h
   },
 ];
@@ -52,7 +52,7 @@ export const SpanNullsEditor: React.FC<FieldOverrideEditorProps<boolean | number
       {isThreshold && (
         <Input
           autoFocus={false}
-          placeholder="never"
+          placeholder="从不"
           width={10}
           defaultValue={formattedTime}
           onKeyDown={handleEnterKey}

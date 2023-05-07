@@ -20,28 +20,25 @@ export const MigrateToServiceAccountsCard = ({ onMigrate, disabled }: Props): JS
       target="_blank"
       rel="noopener noreferrer"
     >
-      here.
+      了解更多
     </a>
   );
-  const migrationBoxDesc = (
-    <span>Are you sure you want to migrate all API keys to service accounts? Find out more {docsLink}</span>
-  );
+  const migrationBoxDesc = <span>您确定要将所有API密钥迁移到服务帐户吗? {docsLink}</span>;
 
   return (
-    <Alert title="Switch from API keys to service accounts" severity="info">
+    <Alert title="从API密钥切换到服务帐户" severity="info">
       <div className={styles.text}>
-        Each API key will be automatically migrated into a service account with a token. The service account will be
-        created with the same permission as the API Key and current API Keys will continue to work as they were.
+        每个API密钥将自动迁移到带有令牌的服务帐户中，服务帐户将以与API密钥相同的权限创建，并且当前的API密钥将继续像以前一样工作
       </div>
       <div className={styles.actionRow}>
         <Button className={styles.actionButton} onClick={() => setIsModalOpen(true)}>
-          Migrate to service accounts now
+          现在迁移到服务帐户
         </Button>
         <ConfirmModal
-          title={'Migrate API keys to service accounts'}
+          title={'将API密钥迁移到服务帐户'}
           isOpen={isModalOpen}
           body={migrationBoxDesc}
-          confirmText={'Yes, migrate now'}
+          confirmText={'是的，现在就迁移'}
           onConfirm={onMigrate}
           onDismiss={() => setIsModalOpen(false)}
         />

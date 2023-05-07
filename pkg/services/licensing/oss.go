@@ -69,7 +69,7 @@ func ProvideService(cfg *setting.Cfg, hooksService *hooks.HooksService) *OSSLice
 
 		if adminNode := indexData.NavTree.FindById(adminNodeID); adminNode != nil {
 			adminNode.Children = append(adminNode.Children, &navtree.NavLink{
-				Text: "Stats and license",
+				Text: "统计信息和许可证",
 				Id:   "upgrading",
 				Url:  l.LicenseURL(req.IsGrafanaAdmin),
 				Icon: "unlock",

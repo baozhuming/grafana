@@ -67,10 +67,10 @@ export function NewDataSourceView({
     <>
       {/* Search */}
       <div className="page-action-bar">
-        <FilterInput value={searchQuery} onChange={onSetSearchQuery} placeholder="Filter by name or type" />
+        <FilterInput value={searchQuery} onChange={onSetSearchQuery} placeholder="按名称或类型筛选" />
         <div className="page-action-bar__spacer" />
         <LinkButton href={dataSourcesRoutes.List} fill="outline" variant="secondary" icon="arrow-left">
-          Cancel
+          取消
         </LinkButton>
       </div>
 

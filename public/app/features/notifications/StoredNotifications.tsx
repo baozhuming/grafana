@@ -57,24 +57,21 @@ export function StoredNotifications() {
     return (
       <div className={styles.noNotifsWrapper}>
         <Icon name="bell" size="xxl" />
-        <span>Notifications you have received will appear here.</span>
+        <span>您收到的通知将显示在这里</span>
       </div>
     );
   }
 
   return (
     <div className={styles.wrapper}>
-      <Alert
-        severity="info"
-        title="This page displays past errors and warnings. Once dismissed, they cannot be retrieved."
-      />
+      <Alert severity="info" title="此页面显示过去的错误和警告，一旦被驳回，它们就不能被收回" />
       <div className={styles.topRow}>
         <Checkbox
           value={allNotificationsSelected}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleAllCheckboxToggle(event.target.checked)}
         />
         <Button disabled={selectedNotificationIds.length === 0} onClick={clearSelectedNotifications}>
-          Dismiss notifications
+          消除通知
         </Button>
       </div>
       <ul className={styles.list}>

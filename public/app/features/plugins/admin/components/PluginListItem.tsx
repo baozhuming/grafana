@@ -30,7 +30,7 @@ export function PluginListItem({ plugin, pathName, displayMode = PluginListDispl
         <PluginListItemBadges plugin={plugin} />
       </div>
       <div className={styles.pluginType}>
-        {plugin.type && <Icon name={PluginIconName[plugin.type]} title={`${plugin.type} plugin`} />}
+        {plugin.type && <Icon name={PluginIconName[plugin.type]} title={`${plugin.type} 插件`} />}
       </div>
     </a>
   );

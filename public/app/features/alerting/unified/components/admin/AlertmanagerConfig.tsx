@@ -69,7 +69,7 @@ export default function AlertmanagerConfig(): JSX.Element {
           newConfig: JSON.parse(values.configJSON),
           oldConfig: config,
           alertManagerSourceName,
-          successMessage: 'Alertmanager configuration updated.',
+          successMessage: '配置已更新',
           refetch: true,
         })
       );
@@ -84,13 +84,13 @@ export default function AlertmanagerConfig(): JSX.Element {
         dataSources={alertManagers}
       />
       {loadingError && !loading && (
-        <Alert severity="error" title="Error loading Alertmanager configuration">
-          {loadingError.message || 'Unknown error.'}
+        <Alert severity="error" title="报警器配置信息加载错误">
+          {loadingError.message || '未知错误'}
         </Alert>
       )}
       {isDeleting && alertManagerSourceName !== GRAFANA_RULES_SOURCE_NAME && (
-        <Alert severity="info" title="Resetting Alertmanager configuration">
-          It might take a while...
+        <Alert severity="info" title="重置报警器配置">
+          小憩一会...
         </Alert>
       )}
       {alertManagerSourceName && config && (
@@ -98,21 +98,16 @@ export default function AlertmanagerConfig(): JSX.Element {
           {({ register, errors }) => (
             <>
               {!readOnly && (
-                <Field
-                  disabled={loading}
-                  label="Configuration"
-                  invalid={!!errors.configJSON}
-                  error={errors.configJSON?.message}
-                >
+                <Field disabled={loading} label="配置" invalid={!!errors.configJSON} error={errors.configJSON?.message}>
                   <TextArea
                     {...register('configJSON', {
-                      required: { value: true, message: 'Required.' },
+                      required: { value: true, message: '必输字段' },
                       validate: (v) => {
                         try {
                           JSON.parse(v);
                           return true;
                         } catch (e) {
-                          return e instanceof Error ? e.message : 'Invalid JSON.';
+                          return e instanceof Error ? e.message : '无效JSON';
                         }
                       },
                     })}
@@ -122,14 +117,14 @@ export default function AlertmanagerConfig(): JSX.Element {
                 </Field>
               )}
               {readOnly && (
-                <Field label="Configuration">
+                <Field label="配置">
                   <pre data-testid="readonly-config">{defaultValues.configJSON}</pre>
                 </Field>
               )}
               {!readOnly && (
                 <HorizontalGroup>
                   <Button type="submit" variant="primary" disabled={loading}>
-                    Save
+                    保存
                   </Button>
                   <Button
                     type="button"
@@ -137,20 +132,18 @@ export default function AlertmanagerConfig(): JSX.Element {
                     variant="destructive"
                     onClick={() => setShowConfirmDeleteAMConfig(true)}
                   >
-                    Reset configuration
+                    重置配置
                   </Button>
                 </HorizontalGroup>
               )}
               {!!showConfirmDeleteAMConfig && (
                 <ConfirmModal
                   isOpen={true}
-                  title="Reset Alertmanager configuration"
-                  body={`Are you sure you want to reset configuration ${
-                    alertManagerSourceName === GRAFANA_RULES_SOURCE_NAME
-                      ? 'for the Grafana Alertmanager'
-                      : `for "${alertManagerSourceName}"`
-                  }? Contact points and notification policies will be reset to their defaults.`}
-                  confirmText="Yes, reset configuration"
+                  title="重置报警器配置"
+                  body={`您确定要重置 ${
+                    alertManagerSourceName === GRAFANA_RULES_SOURCE_NAME ? '内置' : `"${alertManagerSourceName}"`
+                  }报警器的规则吗? 连接点和通知策略将被重置为默认值`}
+                  confirmText="是的，重置配置"
                   onConfirm={resetConfig}
                   onDismiss={() => setShowConfirmDeleteAMConfig(false)}
                 />

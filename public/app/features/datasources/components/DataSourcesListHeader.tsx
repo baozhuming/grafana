@@ -32,7 +32,7 @@ export function DataSourcesListHeaderView({ searchQuery, setSearchQuery, canCrea
   const dataSourcesRoutes = useDataSourcesRoutes();
   const linkButton = {
     href: dataSourcesRoutes.New,
-    title: 'Add data source',
+    title: '添加数据源',
     disabled: !canCreateDataSource,
   };
 

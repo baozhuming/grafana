@@ -64,12 +64,9 @@ export const MuteTimingsTable: FC<Props> = ({ alertManagerSourceName, muteTiming
 
   return (
     <div className={styles.container}>
-      {!hideActions && <h5>Mute timings</h5>}
+      {!hideActions && <h5>静音时间</h5>}
       {!hideActions && (
-        <p>
-          Mute timings are a named interval of time that may be referenced in the notification policy tree to mute
-          particular notification policies for specific times of the day.
-        </p>
+        <p>静音时间是一个命名的时间间隔，可以在通知策略树中引用该时间间隔，以便在一天中的特定时间静音特定的通知策略</p>
       )}
       {!hideActions && items.length > 0 && (
         <Authorize actions={[permissions.create]}>
@@ -79,7 +76,7 @@ export const MuteTimingsTable: FC<Props> = ({ alertManagerSourceName, muteTiming
             variant="primary"
             href={makeAMLink('alerting/routes/mute-timing/new', alertManagerSourceName)}
           >
-            New mute timing
+            创建静音时间
           </LinkButton>
         </Authorize>
       )}
@@ -87,22 +84,22 @@ export const MuteTimingsTable: FC<Props> = ({ alertManagerSourceName, muteTiming
         <DynamicTable items={items} cols={columns} />
       ) : !hideActions ? (
         <EmptyAreaWithCTA
-          text="You haven't created any mute timings yet"
-          buttonLabel="Add mute timing"
+          text="你还没有设置任何静音时间"
+          buttonLabel="添加静音定时"
           buttonIcon="plus"
           buttonSize="lg"
           href={makeAMLink('alerting/routes/mute-timing/new', alertManagerSourceName)}
           showButton={contextSrv.hasPermission(permissions.create)}
         />
       ) : (
-        <p>No mute timings configured</p>
+        <p>没有配置静音定时</p>
       )}
       {!hideActions && (
         <ConfirmModal
           isOpen={!!muteTimingName}
-          title="Delete mute timing"
-          body={`Are you sure you would like to delete "${muteTimingName}"`}
-          confirmText="Delete"
+          title="删除静音定时"
+          body={`确认删除静音定时 "${muteTimingName}"`}
+          confirmText="删除"
           onConfirm={() => dispatch(deleteMuteTimingAction(alertManagerSourceName, muteTimingName))}
           onDismiss={() => setMuteTimingName('')}
         />
@@ -122,7 +119,7 @@ function useColumns(alertManagerSourceName: string, hideActions = false, setMute
     const columns: Array<DynamicTableColumnProps<MuteTimeInterval>> = [
       {
         id: 'name',
-        label: 'Name',
+        label: '名称',
         renderCell: function renderName({ data }) {
           return (
             <>
@@ -134,14 +131,14 @@ function useColumns(alertManagerSourceName: string, hideActions = false, setMute
       },
       {
         id: 'timeRange',
-        label: 'Time range',
+        label: '时间范围',
         renderCell: ({ data }) => renderTimeIntervals(data.time_intervals),
       },
     ];
     if (showActions) {
       columns.push({
         id: 'actions',
-        label: 'Actions',
+        label: '操作',
         renderCell: function renderActions({ data }) {
           if (data.provenance) {
             return (
@@ -151,7 +148,7 @@ function useColumns(alertManagerSourceName: string, hideActions = false, setMute
                     muteName: data.name,
                   })}
                 >
-                  <IconButton name="file-alt" title="View mute timing" />
+                  <IconButton name="file-alt" title="查看静音定时" />
                 </Link>
               </div>
             );
@@ -164,15 +161,11 @@ function useColumns(alertManagerSourceName: string, hideActions = false, setMute
                     muteName: data.name,
                   })}
                 >
-                  <IconButton name="edit" title="Edit mute timing" />
+                  <IconButton name="edit" title="编辑静音定时" />
                 </Link>
               </Authorize>
               <Authorize actions={[permissions.delete]}>
-                <IconButton
-                  name={'trash-alt'}
-                  title="Delete mute timing"
-                  onClick={() => setMuteTimingName(data.name)}
-                />
+                <IconButton name={'trash-alt'} title="删除静音定时" onClick={() => setMuteTimingName(data.name)} />
               </Authorize>
             </div>
           );

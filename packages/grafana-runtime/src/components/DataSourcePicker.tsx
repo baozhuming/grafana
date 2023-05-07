@@ -199,7 +199,7 @@ export class DataSourcePicker extends PureComponent<DataSourcePickerProps, DataS
           openMenuOnFocus={openMenuOnFocus}
           maxMenuHeight={500}
           placeholder={placeholder}
-          noOptionsMessage="No datasources found"
+          noOptionsMessage="未找到数据源"
           value={value ?? null}
           invalid={Boolean(error) || Boolean(this.props.invalid)}
           getOptionLabel={(o) => {

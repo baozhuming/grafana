@@ -11,10 +11,10 @@ type Props = Omit<SelectBaseProps<GrafanaAlertStateDecision>, 'options'> & {
 };
 
 const options: SelectableValue[] = [
-  { value: GrafanaAlertStateDecision.Alerting, label: 'Alerting' },
-  { value: GrafanaAlertStateDecision.NoData, label: 'No Data' },
-  { value: GrafanaAlertStateDecision.OK, label: 'OK' },
-  { value: GrafanaAlertStateDecision.Error, label: 'Error' },
+  { value: GrafanaAlertStateDecision.Alerting, label: '警报' },
+  { value: GrafanaAlertStateDecision.NoData, label: '无数据' },
+  { value: GrafanaAlertStateDecision.OK, label: '正常' },
+  { value: GrafanaAlertStateDecision.Error, label: '错误' },
 ];
 
 export const GrafanaAlertStatePicker: FC<Props> = ({ includeNoData, includeError, ...props }) => {

@@ -125,7 +125,7 @@ export const AddPanelWidgetUnconnected = ({ panel, dashboard }: Props) => {
   const onCreateNewRow = () => {
     const newRow: any = {
       type: 'row',
-      title: 'Row title',
+      title: '行标题',
       gridPos: { x: 0, y: 0 },
     };
 

@@ -259,7 +259,7 @@ function copyGrafanaUID(
 ): asserts oldRule is RuleWithLocation<RulerGrafanaRuleDTO> {
   // type guard to make sure we're working with a Grafana managed rule
   if (!isGrafanaRulerRule(oldRule.rule)) {
-    throw new Error('The rule is not a Grafana managed rule');
+    throw new Error('该规则不是Grafana托管规则');
   }
 
   const uid = oldRule.rule.grafana_alert.uid;

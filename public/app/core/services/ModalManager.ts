@@ -55,12 +55,12 @@ export class ModalManager {
       text2,
       altActionText,
       onAltAction,
-      noText,
+      noText = '取消',
       text,
       text2htmlBind,
-      yesText = 'Yes',
+      yesText = '删除',
       icon,
-      title = 'Confirm',
+      title = '确认',
       yesButtonVariant,
     } = payload;
     const props: ConfirmModalProps = {

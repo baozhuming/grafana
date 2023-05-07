@@ -124,8 +124,8 @@ export class UserAdminPage extends PureComponent<Props> {
     const pageNav: NavModelItem = {
       text: user?.login ?? '',
       icon: 'shield',
-      breadcrumbs: [{ title: 'Users', url: 'admin/users' }],
-      subTitle: 'Manage settings for an individual user.',
+      breadcrumbs: [{ title: '用户', url: 'admin/users' }],
+      subTitle: '管理单个用户的设置',
     };
 
     return (

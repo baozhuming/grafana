@@ -10,7 +10,7 @@ import (
 
 var (
 	// ErrNoAdminConfiguration is an error for when no admin configuration is found.
-	ErrNoAdminConfiguration = fmt.Errorf("no admin configuration available")
+	ErrNoAdminConfiguration = fmt.Errorf("没有可用的管理配置")
 )
 
 type UpdateAdminConfigurationCmd struct {

@@ -81,7 +81,7 @@ func (srv ConfigSrv) RoutePostNGalertConfig(c *models.ReqContext, body apimodels
 	}
 
 	if sendAlertsTo == ngmodels.ExternalAlertmanagers && len(externalAlertmanagers) < 1 {
-		return response.Error(400, "At least one Alertmanager must be provided or configured as a datasource that handles alerts to choose this option", nil)
+		return response.Error(400, "要选择此选项，必须提供或配置至少一个警报器作为处理警报的数据源", nil)
 	}
 
 	cfg := &ngmodels.AdminConfiguration{
@@ -96,7 +96,7 @@ func (srv ConfigSrv) RoutePostNGalertConfig(c *models.ReqContext, body apimodels
 		return ErrResp(http.StatusBadRequest, err, msg)
 	}
 
-	return response.JSON(http.StatusCreated, util.DynMap{"message": "admin configuration updated"})
+	return response.JSON(http.StatusCreated, util.DynMap{"message": "配置已更新"})
 }
 
 func (srv ConfigSrv) RouteDeleteNGalertConfig(c *models.ReqContext) response.Response {

@@ -23,8 +23,8 @@ interface CreateOrgFormDTO {
 const pageNav: NavModelItem = {
   icon: 'building',
   id: 'org-new',
-  text: 'New organization',
-  breadcrumbs: [{ title: 'Server admin', url: 'admin/orgs' }],
+  text: '新建机构',
+  breadcrumbs: [{ title: '服务器管理员', url: 'admin/orgs' }],
 };
 
 export const NewOrgPage: FC<Props> = ({ createOrganization }) => {
@@ -37,9 +37,7 @@ export const NewOrgPage: FC<Props> = ({ createOrganization }) => {
     <Page navId="global-orgs" pageNav={pageNav}>
       <Page.Contents>
         <p className="muted">
-          Each organization contains their own dashboards, data sources, and configuration, which cannot be shared
-          shared between organizations. While users might belong to more than one organization, multiple organizations
-          are most frequently used in multi-tenant deployments.
+          每个机构都包含自己的仪表板、数据源和配置，这些信息不能在机构之间共享,虽然用户可能属于多个机构,但在多租户部署中最常使用多个机构
         </p>
 
         <Form<CreateOrgFormDTO> onSubmit={createOrg}>
@@ -47,16 +45,16 @@ export const NewOrgPage: FC<Props> = ({ createOrganization }) => {
             return (
               <>
                 <FieldSet>
-                  <Field label="Organization name" invalid={!!errors.name} error={errors.name && errors.name.message}>
+                  <Field label="机构名称" invalid={!!errors.name} error={errors.name && errors.name.message}>
                     <Input
-                      placeholder="Org name"
+                      placeholder="机构名称"
                       {...register('name', {
-                        required: 'Organization name is required',
+                        required: '请输入机构名称',
                       })}
                     />
                   </Field>
                 </FieldSet>
-                <Button type="submit">Create</Button>
+                <Button type="submit">创建</Button>
               </>
             );
           }}

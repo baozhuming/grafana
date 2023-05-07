@@ -26,14 +26,14 @@ const MatchersField: FC<Props> = ({ className }) => {
 
   return (
     <div className={cx(className, styles.wrapper)}>
-      <Field label="Matching labels" required>
+      <Field label="标签匹配规则" required>
         <div>
           <div className={styles.matchers}>
             {matchers.map((matcher, index) => {
               return (
                 <div className={styles.row} key={`${matcher.id}`} data-testid="matcher">
                   <Field
-                    label="Label"
+                    label="标签"
                     invalid={!!errors?.matchers?.[index]?.name}
                     error={errors?.matchers?.[index]?.name?.message}
                   >
@@ -45,7 +45,7 @@ const MatchersField: FC<Props> = ({ className }) => {
                       placeholder="label"
                     />
                   </Field>
-                  <Field label={'Operator'}>
+                  <Field label={'操作符'}>
                     <InputControl
                       control={control}
                       render={({ field: { onChange, ref, ...field } }) => (
@@ -59,30 +59,30 @@ const MatchersField: FC<Props> = ({ className }) => {
                       )}
                       defaultValue={matcher.operator || matcherFieldOptions[0].value}
                       name={`matchers.${index}.operator` as const}
-                      rules={{ required: { value: true, message: 'Required.' } }}
+                      rules={{ required: { value: true, message: '必填字段' } }}
                     />
                   </Field>
                   <Field
-                    label="Value"
+                    label="数值"
                     invalid={!!errors?.matchers?.[index]?.value}
                     error={errors?.matchers?.[index]?.value?.message}
                   >
                     <Input
                       {...register(`matchers.${index}.value` as const, {
-                        required: { value: true, message: 'Required.' },
+                        required: { value: true, message: '必填字段' },
                       })}
                       defaultValue={matcher.value}
-                      placeholder="value"
+                      placeholder="数值"
                     />
                   </Field>
                   {matchers.length > 1 && (
                     <IconButton
                       className={styles.removeButton}
-                      tooltip="Remove matcher"
+                      tooltip="删除匹配器"
                       name={'trash-alt'}
                       onClick={() => remove(index)}
                     >
-                      Remove
+                      删除
                     </IconButton>
                   )}
                 </div>
@@ -98,7 +98,7 @@ const MatchersField: FC<Props> = ({ className }) => {
               append(newMatcher);
             }}
           >
-            Add matcher
+            添加匹配器
           </Button>
         </div>
       </Field>

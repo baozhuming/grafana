@@ -16,8 +16,7 @@ interface Props {
 }
 
 const mathPlaceholder =
-  'Math operations on one or more queries. You reference the query by ${refId} ie. $A, $B, $C etc\n' +
-  'The sum of two scalar values: $A + $B > 10';
+  '对一个或多个查询进行数学运算，您通过${refId}引用变量值，例如：$A, $B, $C等\n' + ' 两个变量值的和: $A + $B > 10';
 
 export const Math: FC<Props> = ({ labelWidth, onChange, query, onRunQuery }) => {
   const onExpressionChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -44,71 +43,60 @@ export const Math: FC<Props> = ({ labelWidth, onChange, query, onRunQuery }) => 
                     <Icon name="book-open" /> Math operator
                   </header>
                   <div>
-                    Run math operations on one or more queries. You reference the query by {'${refId}'} ie. $A, $B, $C
-                    etc.
+                    对一个或多个查询进行数学运算，您通过{'${refId}'}引用变量值，例如：$A, $B, $C等
                     <br />
-                    Example: <code>$A + $B</code>
+                    例如: <code>$A + $B</code>
                   </div>
                   <header className={styles.documentationHeader}>Available Math functions</header>
                   <div className={styles.documentationFunctions}>
-                    <DocumentedFunction
-                      name="abs"
-                      description="returns the absolute value of its argument which can be a number or a series"
-                    />
+                    <DocumentedFunction name="abs" description="返回其参数的绝对值，该参数可以是数字或序列" />
                     <DocumentedFunction
                       name="is_inf"
-                      description="returns 1 for Inf values (negative or positive) and 0 for other values. It's able to operate on series or scalar values."
+                      description="对于Inf值(负或正)返回1，对于其他值返回0。它可以对级数或标量值进行运算"
                     />
                     <DocumentedFunction
                       name="is_nan"
-                      description="returns 1 for NaN values and 0 for other values. It's able to operate on series or scalar values."
+                      description="NaN值返回1，其他值返回0。它可以对级数或标量值进行运算"
                     />
                     <DocumentedFunction
                       name="is_null"
-                      description="returns 1 for null values and 0 for other values. It's able to operate on series or scalar values."
+                      description="空值返回1，其他值返回0。它可以对级数或标量值进行运算"
                     />
                     <DocumentedFunction
                       name="is_number"
-                      description="returns 1 for all real number values and 0 for non-number. It's able to operate on series or scalar values."
+                      description="对于所有实数返回1，对于非数字返回0。它可以对级数或标量值进行运算"
                     />
-                    <DocumentedFunction
-                      name="log"
-                      description="returns the natural logarithm of its argument, which can be a number or a series"
-                    />
+                    <DocumentedFunction name="log" description="返回其参数的自然对数，该参数可以是数字或级数" />
                     <DocumentedFunction
                       name="inf, infn, nan, and null"
-                      description="The inf for infinity positive, infn for infinity negative, nan, and null functions all return a single scalar value that matches its name."
+                      description="inf(表示正无穷)、inf(表示负无穷)、nan和null函数都返回与其名称匹配的单个标量值"
                     />
-                    <DocumentedFunction
-                      name="round"
-                      description="returns a rounded integer value. It's able to operate on series or escalar values."
-                    />
+                    <DocumentedFunction name="round" description="返回一个舍入整数值，它可以对级数或标量值进行运算" />
                     <DocumentedFunction
                       name="ceil"
-                      description="rounds the number up to the nearest integer value. It's able to operate on series or escalar values."
+                      description="将数字四舍五入到最接近的整数值，它可以对级数或标量值进行运算"
                     />
                     <DocumentedFunction
                       name="floor"
-                      description="rounds the number down to the nearest integer value. It's able to operate on series or escalar values."
+                      description="将数字舍入到最接近的整数值，它可以对级数或标量值进行运算"
                     />
                   </div>
                   <div>
-                    See our additional documentation on{' '}
+                    详见文档{' '}
                     <a
                       className={styles.documentationLink}
                       target="_blank"
                       href="https://grafana.com/docs/grafana/latest/panels/query-a-data-source/use-expressions-to-manipulate-data/about-expressions/#math"
                       rel="noreferrer"
                     >
-                      <Icon size="xs" name="external-link-alt" /> Math expressions
+                      <Icon size="xs" name="external-link-alt" /> 数学表达式
                     </a>
-                    .
                   </div>
                 </div>
               }
             >
               <span>
-                Expression <Icon name="info-circle" />
+                表达式 <Icon name="info-circle" />
               </span>
             </HoverCard>
           </InlineLabel>

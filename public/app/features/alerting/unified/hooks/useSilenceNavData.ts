@@ -5,7 +5,7 @@ import { NavModelItem } from '@grafana/data';
 
 const defaultPageNav: Partial<NavModelItem> = {
   icon: 'bell-slash',
-  breadcrumbs: [{ title: 'Silences', url: 'alerting/silences' }],
+  breadcrumbs: [{ title: '屏蔽器', url: 'alerting/silences' }],
 };
 
 export function useSilenceNavData() {
@@ -17,13 +17,13 @@ export function useSilenceNavData() {
       setPageNav({
         ...defaultPageNav,
         id: 'silence-new',
-        text: 'Add silence',
+        text: '添加屏蔽器',
       });
     } else if (path === '/alerting/silence/:id/edit') {
       setPageNav({
         ...defaultPageNav,
         id: 'silence-edit',
-        text: 'Edit silence',
+        text: '编辑屏蔽器',
       });
     }
   }, [path, isExact]);

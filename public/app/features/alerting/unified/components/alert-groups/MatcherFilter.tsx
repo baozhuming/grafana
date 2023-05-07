@@ -37,11 +37,11 @@ export const MatcherFilter = ({ className, onFilterChange, defaultQueryString }:
     <div className={className}>
       <Label>
         <Stack gap={0.5}>
-          <span>Search by label</span>
+          <span>按标签搜索</span>
           <Tooltip
             content={
               <div>
-                Filter alerts using label querying, ex:
+                使用标签查询过滤警报,例如:
                 <pre>{`{severity="critical", instance=~"cluster-us-.+"}`}</pre>
               </div>
             }
@@ -51,7 +51,7 @@ export const MatcherFilter = ({ className, onFilterChange, defaultQueryString }:
         </Stack>
       </Label>
       <Input
-        placeholder="Search"
+        placeholder="搜索"
         defaultValue={defaultQueryString}
         onChange={onSearchInputChanged}
         data-testid="search-query-input"

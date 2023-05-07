@@ -4,15 +4,15 @@ import { DataSourcePluginCategory } from 'app/types';
 
 export function buildCategories(plugins: DataSourcePluginMeta[]): DataSourcePluginCategory[] {
   const categories: DataSourcePluginCategory[] = [
-    { id: 'tsdb', title: 'Time series databases', plugins: [] },
-    { id: 'logging', title: 'Logging & document databases', plugins: [] },
-    { id: 'tracing', title: 'Distributed tracing', plugins: [] },
-    { id: 'profiling', title: 'Profiling', plugins: [] },
+    { id: 'tsdb', title: '时间序列数据库', plugins: [] },
+    { id: 'logging', title: '日志和文档数据库', plugins: [] },
+    { id: 'tracing', title: '分布式调用链', plugins: [] },
+    { id: 'profiling', title: '分析', plugins: [] },
     { id: 'sql', title: 'SQL', plugins: [] },
-    { id: 'cloud', title: 'Cloud', plugins: [] },
-    { id: 'enterprise', title: 'Enterprise plugins', plugins: [] },
-    { id: 'iot', title: 'Industrial & IoT', plugins: [] },
-    { id: 'other', title: 'Others', plugins: [] },
+    { id: 'cloud', title: '云', plugins: [] },
+    { id: 'enterprise', title: '引擎插件', plugins: [] },
+    { id: 'iot', title: '工业与物联网', plugins: [] },
+    { id: 'other', title: '其他', plugins: [] },
   ].filter((item) => item);
 
   const categoryIndex: Record<string, DataSourcePluginCategory> = {};
@@ -36,7 +36,7 @@ export function buildCategories(plugins: DataSourcePluginMeta[]): DataSourcePlug
     // Fix link name
     if (plugin.info.links) {
       for (const link of plugin.info.links) {
-        link.name = 'Learn more';
+        link.name = '了解更多';
       }
     }
 
@@ -245,7 +245,7 @@ function getPhantomPlugin(options: GetPhantomPluginOptions): DataSourcePluginMet
       links: [
         {
           url: config.pluginCatalogURL + options.id,
-          name: 'Install now',
+          name: '现在安装',
         },
       ],
       screenshots: [],

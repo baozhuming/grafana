@@ -18,9 +18,9 @@ func (s *ServiceImpl) getOrgAdminNode(c *models.ReqContext) (*navtree.NavLink, e
 	hasAccess := ac.HasAccess(s.accessControl, c)
 	if hasAccess(ac.ReqOrgAdmin, datasources.ConfigurationPageAccess) {
 		configNodes = append(configNodes, &navtree.NavLink{
-			Text:     "Data sources",
+			Text:     "数据源",
 			Icon:     "database",
-			SubTitle: "Add and configure data sources",
+			SubTitle: "添加和配置数据源",
 			Id:       "datasources",
 			Url:      s.cfg.AppSubURL + "/datasources",
 		})
@@ -28,9 +28,9 @@ func (s *ServiceImpl) getOrgAdminNode(c *models.ReqContext) (*navtree.NavLink, e
 
 	if s.features.IsEnabled(featuremgmt.FlagCorrelations) && hasAccess(ac.ReqOrgAdmin, correlations.ConfigurationPageAccess) {
 		configNodes = append(configNodes, &navtree.NavLink{
-			Text:     "Correlations",
+			Text:     "统计",
 			Icon:     "gf-glue",
-			SubTitle: "Add and configure correlations",
+			SubTitle: "添加和配置相关性",
 			Id:       "correlations",
 			Url:      s.cfg.AppSubURL + "/datasources/correlations",
 		})
@@ -38,9 +38,9 @@ func (s *ServiceImpl) getOrgAdminNode(c *models.ReqContext) (*navtree.NavLink, e
 
 	if hasAccess(ac.ReqOrgAdmin, ac.EvalPermission(ac.ActionOrgUsersRead)) {
 		configNodes = append(configNodes, &navtree.NavLink{
-			Text:     "Users",
+			Text:     "用户",
 			Id:       "users",
-			SubTitle: "Invite and assign roles to users",
+			SubTitle: "邀请和分配角色给用户",
 			Icon:     "user",
 			Url:      s.cfg.AppSubURL + "/org/users",
 		})
@@ -48,9 +48,9 @@ func (s *ServiceImpl) getOrgAdminNode(c *models.ReqContext) (*navtree.NavLink, e
 
 	if hasAccess(s.ReqCanAdminTeams, ac.TeamsAccessEvaluator) {
 		configNodes = append(configNodes, &navtree.NavLink{
-			Text:     "Teams",
+			Text:     "团队",
 			Id:       "teams",
-			SubTitle: "Groups of users that have common dashboard and permission needs",
+			SubTitle: "具有共同指示板和权限需求的用户组",
 			Icon:     "users-alt",
 			Url:      s.cfg.AppSubURL + "/org/teams",
 		})
@@ -59,9 +59,9 @@ func (s *ServiceImpl) getOrgAdminNode(c *models.ReqContext) (*navtree.NavLink, e
 	// FIXME: while we don't have a permissions for listing plugins the legacy check has to stay as a default
 	if plugins.ReqCanAdminPlugins(s.cfg)(c) || hasAccess(plugins.ReqCanAdminPlugins(s.cfg), plugins.AdminAccessEvaluator) {
 		configNodes = append(configNodes, &navtree.NavLink{
-			Text:     "Plugins",
+			Text:     "插件",
 			Id:       "plugins",
-			SubTitle: "Extend the Grafana experience with plugins",
+			SubTitle: "通过插件扩展Grafana体验",
 			Icon:     "plug",
 			Url:      s.cfg.AppSubURL + "/plugins",
 		})
@@ -69,9 +69,9 @@ func (s *ServiceImpl) getOrgAdminNode(c *models.ReqContext) (*navtree.NavLink, e
 
 	if hasAccess(ac.ReqOrgAdmin, ac.OrgPreferencesAccessEvaluator) {
 		configNodes = append(configNodes, &navtree.NavLink{
-			Text:     "Preferences",
+			Text:     "参数设置",
 			Id:       "org-settings",
-			SubTitle: "Manage preferences across an organization",
+			SubTitle: "管理跨机构的首选项",
 			Icon:     "sliders-v-alt",
 			Url:      s.cfg.AppSubURL + "/org",
 		})
@@ -86,9 +86,9 @@ func (s *ServiceImpl) getOrgAdminNode(c *models.ReqContext) (*navtree.NavLink, e
 	apiKeysHidden := hideApiKeys == "1" && len(apiKeys) == 0
 	if hasAccess(ac.ReqOrgAdmin, ac.ApiKeyAccessEvaluator) && !apiKeysHidden {
 		configNodes = append(configNodes, &navtree.NavLink{
-			Text:     "API keys",
+			Text:     "API密钥",
 			Id:       "apikeys",
-			SubTitle: "Manage and create API keys that are used to interact with Grafana HTTP APIs",
+			SubTitle: "管理和创建用于与Grafana HTTP API交互的API密钥",
 			Icon:     "key-skeleton-alt",
 			Url:      s.cfg.AppSubURL + "/org/apikeys",
 		})
@@ -96,9 +96,9 @@ func (s *ServiceImpl) getOrgAdminNode(c *models.ReqContext) (*navtree.NavLink, e
 
 	if enableServiceAccount(s, c) {
 		configNodes = append(configNodes, &navtree.NavLink{
-			Text:     "Service accounts",
+			Text:     "服务帐户",
 			Id:       "serviceaccounts",
-			SubTitle: "Use service accounts to run automated workloads in Grafana",
+			SubTitle: "在Grafana中使用服务帐户来运行自动化工作负载",
 			Icon:     "gf-service-account",
 			Url:      s.cfg.AppSubURL + "/org/serviceaccounts",
 		})
@@ -125,27 +125,27 @@ func (s *ServiceImpl) getServerAdminNode(c *models.ReqContext) *navtree.NavLink 
 
 	if hasAccess(ac.ReqGrafanaAdmin, ac.EvalPermission(ac.ActionUsersRead, ac.ScopeGlobalUsersAll)) {
 		adminNavLinks = append(adminNavLinks, &navtree.NavLink{
-			Text: "Users", SubTitle: "Manage and create users across the whole Grafana server", Id: "global-users", Url: s.cfg.AppSubURL + "/admin/users", Icon: "user",
+			Text: "用户", SubTitle: "管理和创建整个Grafana服务器上的用户", Id: "global-users", Url: s.cfg.AppSubURL + "/admin/users", Icon: "user",
 		})
 	}
 
 	if hasGlobalAccess(ac.ReqGrafanaAdmin, orgsAccessEvaluator) {
 		adminNavLinks = append(adminNavLinks, &navtree.NavLink{
-			Text: "Organizations", SubTitle: "Isolated instances of Grafana running on the same server", Id: "global-orgs", Url: s.cfg.AppSubURL + "/admin/orgs", Icon: "building",
+			Text: "机构", SubTitle: "在同一台服务器上运行Grafana的独立实例", Id: "global-orgs", Url: s.cfg.AppSubURL + "/admin/orgs", Icon: "building",
 		})
 	}
 
 	if hasAccess(ac.ReqGrafanaAdmin, ac.EvalPermission(ac.ActionSettingsRead)) {
 		adminNavLinks = append(adminNavLinks, &navtree.NavLink{
-			Text: "Settings", SubTitle: "View the settings defined in your Grafana config", Id: "server-settings", Url: s.cfg.AppSubURL + "/admin/settings", Icon: "sliders-v-alt",
+			Text: "设置", SubTitle: "查看在Grafana配置中定义的设置", Id: "server-settings", Url: s.cfg.AppSubURL + "/admin/settings", Icon: "sliders-v-alt",
 		})
 	}
 
 	if hasAccess(ac.ReqGrafanaAdmin, ac.EvalPermission(ac.ActionSettingsRead)) && s.features.IsEnabled(featuremgmt.FlagStorage) {
 		adminNavLinks = append(adminNavLinks, &navtree.NavLink{
-			Text:     "Storage",
+			Text:     "存储",
 			Id:       "storage",
-			SubTitle: "Manage file storage",
+			SubTitle: "管理文件存储",
 			Icon:     "cube",
 			Url:      s.cfg.AppSubURL + "/admin/storage",
 		})

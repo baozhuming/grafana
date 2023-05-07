@@ -101,15 +101,15 @@ export function SegmentAsync<T>({
 
 function mapStateToNoOptionsMessage<T>(state: AsyncState<Array<SelectableValue<T>>>): string {
   if (state.loading) {
-    return 'Loading options...';
+    return '选项加载中...';
   }
 
   if (state.error) {
-    return 'Failed to load options';
+    return '加载选项失败';
   }
 
   if (!Array.isArray(state.value) || state.value.length === 0) {
-    return 'No options found';
+    return '未找到任何选项';
   }
 
   return '';
