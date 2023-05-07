@@ -12,12 +12,11 @@ export const NoDataSourceCallToAction = () => {
     contextSrv.hasPermission(AccessControlAction.DataSourcesCreate) &&
     contextSrv.hasPermission(AccessControlAction.DataSourcesWrite);
 
-  const message =
-    'Explore requires at least one data source. Once you have added a data source, you can query it here.';
+  const message = '查询器至少需要一个数据源，一旦添加了数据源，就可以在这里查询它';
   const footer = (
     <>
       <Icon name="rocket" />
-      <> ProTip: You can also define data sources through configuration files. </>
+      <> 提示: 您也可以通过配置文件定义数据源 </>
       <a
         href="http://docs.grafana.org/administration/provisioning/#datasources?utm_source=explore"
         target="_blank"

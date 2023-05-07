@@ -91,7 +91,7 @@ export class TableContainer extends PureComponent<Props> {
     const subFrames = dataFrames?.filter((df) => df.meta?.custom?.parentRowIndex !== undefined);
 
     return (
-      <Collapse label="Table" loading={loading} isOpen>
+      <Collapse label="表格" loading={loading} isOpen>
         {mainFrame?.length ? (
           <Table
             ariaLabel={ariaLabel}
@@ -102,7 +102,7 @@ export class TableContainer extends PureComponent<Props> {
             onCellFilterAdded={onCellFilterAdded}
           />
         ) : (
-          <MetaInfoText metaItems={[{ value: '0 series returned' }]} />
+          <MetaInfoText metaItems={[{ value: '返回 0 条结果' }]} />
         )}
       </Collapse>
     );

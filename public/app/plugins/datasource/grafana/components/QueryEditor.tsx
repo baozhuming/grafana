@@ -34,19 +34,19 @@ export class QueryEditor extends PureComponent<Props, State> {
 
   queryTypes: Array<SelectableValue<GrafanaQueryType>> = [
     {
-      label: 'Random Walk',
+      label: '随机',
       value: GrafanaQueryType.RandomWalk,
-      description: 'Random signal within the selected time range',
+      description: '所选时间范围内的随机值',
     },
     {
-      label: 'Live Measurements',
+      label: '实时测量',
       value: GrafanaQueryType.LiveMeasurements,
-      description: 'Stream real-time measurements from Grafana',
+      description: '从Grafana实时测量',
     },
     {
-      label: 'List public files',
+      label: '列出公共文件',
       value: GrafanaQueryType.List,
-      description: 'Show directory listings for public resources',
+      description: '显示公共资源的目录列表',
     },
   ];
 
@@ -55,9 +55,9 @@ export class QueryEditor extends PureComponent<Props, State> {
 
     if (config.featureToggles.panelTitleSearch && hasAlphaPanels) {
       this.queryTypes.push({
-        label: 'Search',
+        label: '搜索',
         value: GrafanaQueryType.Search,
-        description: 'Search for grafana resources',
+        description: '搜索grafana资源',
       });
     }
   }
@@ -208,7 +208,7 @@ export class QueryEditor extends PureComponent<Props, State> {
       currentChannel = {
         value: channel,
         label: channel,
-        description: `Connected to ${channel}`,
+        description: `连接 ${channel}`,
       };
       channels = [currentChannel, ...channels];
     }
@@ -235,8 +235,8 @@ export class QueryEditor extends PureComponent<Props, State> {
         if (!distinctFields.has(f)) {
           fields.push({
             value: f,
-            label: `${f} (not loaded)`,
-            description: `Configured, but not found in the query results`,
+            label: `${f} (未加载)`,
+            description: `已配置，但在查询结果中未找到`,
           });
           distinctFields.add(f);
         }
@@ -251,17 +251,17 @@ export class QueryEditor extends PureComponent<Props, State> {
     return (
       <>
         <div className="gf-form">
-          <InlineField label="Channel" grow={true} labelWidth={labelWidth}>
+          <InlineField label="通道" grow={true} labelWidth={labelWidth}>
             <Select
               options={channels}
               value={currentChannel || ''}
               onChange={this.onChannelChange}
               allowCustomValue={true}
               backspaceRemovesValue={true}
-              placeholder="Select measurements channel"
+              placeholder="选择测量通道"
               isClearable={true}
-              noOptionsMessage="Enter channel name"
-              formatCreateLabel={(input: string) => `Connect to: ${input}`}
+              noOptionsMessage="输入通道名称"
+              formatCreateLabel={(input: string) => `连接: ${input}`}
             />
           </InlineField>
         </div>
@@ -274,17 +274,17 @@ export class QueryEditor extends PureComponent<Props, State> {
                 onChange={this.onFieldNamesChange}
                 allowCustomValue={true}
                 backspaceRemovesValue={true}
-                placeholder="All fields"
+                placeholder="所有字段"
                 isClearable={true}
-                noOptionsMessage="Unable to list all fields"
-                formatCreateLabel={(input: string) => `Field: ${input}`}
+                noOptionsMessage="无法列出所有字段"
+                formatCreateLabel={(input: string) => `字段: ${input}`}
                 isSearchable={true}
                 isMulti={true}
               />
             </InlineField>
-            <InlineField label="Buffer">
+            <InlineField label="缓冲">
               <Input
-                placeholder="Auto"
+                placeholder="自动"
                 width={12}
                 defaultValue={formattedTime}
                 onKeyDown={this.handleEnterKey}
@@ -295,9 +295,8 @@ export class QueryEditor extends PureComponent<Props, State> {
           </div>
         )}
 
-        <Alert title="Grafana Live - Measurements" severity="info">
-          This supports real-time event streams in Grafana core. This feature is under heavy development. Expect the
-          interfaces and structures to change as this becomes more production ready.
+        <Alert title="Grafana实时测量" severity="info">
+          这在Grafana核心中支持实时事件流，这个功能正在大力开发中，当它变得更适合生产时，预计接口和结构会发生变化
         </Alert>
       </>
     );
@@ -329,14 +328,14 @@ export class QueryEditor extends PureComponent<Props, State> {
 
     return (
       <InlineFieldRow>
-        <InlineField label="Path" grow={true} labelWidth={labelWidth}>
+        <InlineField label="路径" grow={true} labelWidth={labelWidth}>
           <Select
             options={folders}
             value={currentFolder || ''}
             onChange={this.onFolderChanged}
             allowCustomValue={true}
             backspaceRemovesValue={true}
-            placeholder="Select folder"
+            placeholder="选择文件夹"
             isClearable={true}
             formatCreateLabel={(input: string) => `Folder: ${input}`}
           />
@@ -350,7 +349,7 @@ export class QueryEditor extends PureComponent<Props, State> {
 
     return (
       <InlineFieldRow>
-        <InlineField label="Snapshot" grow={true} labelWidth={labelWidth}>
+        <InlineField label="快照" grow={true} labelWidth={labelWidth}>
           <InlineLabel>{pluralize('frame', query.snapshot?.length ?? 0, true)}</InlineLabel>
         </InlineField>
       </InlineFieldRow>
@@ -381,7 +380,7 @@ export class QueryEditor extends PureComponent<Props, State> {
       queryTypes = [
         ...this.queryTypes,
         {
-          label: 'Snapshot',
+          label: '快照',
           value: queryType,
         },
       ];
@@ -390,13 +389,12 @@ export class QueryEditor extends PureComponent<Props, State> {
     return (
       <>
         {queryType === GrafanaQueryType.Search && (
-          <Alert title="Grafana Search" severity="info">
-            Using this datasource to call the new search system is experimental, and subject to change at any time
-            without notice.
+          <Alert title="Grafana搜索" severity="info">
+            使用这个数据源调用新的搜索系统是实验性的，可能会随时更改，恕不另行通知
           </Alert>
         )}
         <InlineFieldRow>
-          <InlineField label="Query type" grow={true} labelWidth={labelWidth}>
+          <InlineField label="查询类型" grow={true} labelWidth={labelWidth}>
             <Select
               options={queryTypes}
               value={queryTypes.find((v) => v.value === queryType) || queryTypes[0]}

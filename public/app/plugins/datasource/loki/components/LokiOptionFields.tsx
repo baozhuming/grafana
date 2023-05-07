@@ -93,7 +93,7 @@ export function LokiOptionFields(props: LokiOptionFieldsProps) {
         )}
         aria-label="Query type field"
       >
-        <InlineFormLabel width="auto">Query type</InlineFormLabel>
+        <InlineFormLabel width="auto">查询类型</InlineFormLabel>
 
         <RadioButtonGroup
           options={queryTypeOptions}
@@ -117,7 +117,7 @@ export function LokiOptionFields(props: LokiOptionFieldsProps) {
         )}
         aria-label="Line limit field"
       >
-        <InlineField label="Line limit" tooltip={'Upper limit for number of log lines returned by query.'}>
+        <InlineField label="行限制" tooltip={'查询返回的日志行数上限'}>
           <Input
             className="width-4"
             placeholder="auto"

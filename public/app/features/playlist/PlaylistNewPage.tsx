@@ -19,7 +19,7 @@ export const PlaylistNewPage = () => {
   const pageNav: NavModelItem = {
     text: '添加播放列表',
     subTitle:
-      '播放列表在预先选择的仪表板列表中旋转，播放列表可以是建立态势感知的好方法，或者只是向团队或访客展示你的指标',
+      '播放列表在预先选择的仪表盘列表中旋转，播放列表可以是建立态势感知的好方法，或者只是向团队或访客展示你的指标',
   };
 
   return (

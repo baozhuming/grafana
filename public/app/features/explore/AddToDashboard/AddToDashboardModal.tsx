@@ -91,7 +91,7 @@ export const AddToDashboardModal = ({ onClose, exploreId }: Props) => {
 
   const saveTarget = saveTargets.length > 1 ? watch('saveTarget') : saveTargets[0].value;
 
-  const modalTitle = `Add panel to ${saveTargets.length > 1 ? 'dashboard' : saveTargets[0].label!.toLowerCase()}`;
+  const modalTitle = `添加面板到 ${saveTargets.length > 1 ? '仪表盘' : saveTargets[0].label!.toLowerCase()}`;
 
   const onSubmit = async (openInNewTab: boolean, data: FormDTO) => {
     setSubmissionError(undefined);
@@ -154,7 +154,7 @@ export const AddToDashboardModal = ({ onClose, exploreId }: Props) => {
           <InputControl
             control={control}
             render={({ field: { ref, ...field } }) => (
-              <Field label="Target dashboard" description="Choose where to add the panel.">
+              <Field label="目标仪表盘" description="选择添加面板的位置">
                 <RadioButtonGroup options={saveTargets} {...field} id="e2d-save-target" />
               </Field>
             )}
@@ -169,8 +169,8 @@ export const AddToDashboardModal = ({ onClose, exploreId }: Props) => {
               <InputControl
                 render={({ field: { ref, value, onChange, ...field } }) => (
                   <Field
-                    label="Dashboard"
-                    description="Select in which dashboard the panel will be created."
+                    label="仪表盘"
+                    description="选择将在哪个指示板中创建面板"
                     error={errors.dashboardUid?.message}
                     invalid={!!errors.dashboardUid}
                   >
@@ -185,20 +185,20 @@ export const AddToDashboardModal = ({ onClose, exploreId }: Props) => {
                 control={control}
                 name="dashboardUid"
                 shouldUnregister
-                rules={{ required: { value: true, message: 'This field is required.' } }}
+                rules={{ required: { value: true, message: '必输字段' } }}
               />
             );
           })()}
 
         {submissionError && (
-          <Alert severity="error" title="Error adding the panel">
+          <Alert severity="error" title="添加面板错误">
             {submissionError.message}
           </Alert>
         )}
 
         <Modal.ButtonRow>
           <Button type="reset" onClick={onClose} fill="outline" variant="secondary">
-            Cancel
+            取消
           </Button>
           <Button
             type="submit"
@@ -206,10 +206,10 @@ export const AddToDashboardModal = ({ onClose, exploreId }: Props) => {
             onClick={handleSubmit(partial(onSubmit, true))}
             icon="external-link-alt"
           >
-            Open in new tab
+            在新选项卡中打开
           </Button>
           <Button type="submit" variant="primary" onClick={handleSubmit(partial(onSubmit, false))} icon="apps">
-            Open dashboard
+            打开仪表盘
           </Button>
         </Modal.ButtonRow>
       </form>

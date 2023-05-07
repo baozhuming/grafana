@@ -20,10 +20,10 @@ export enum Tabs {
 
 export const getSortOrderOptions = () =>
   [
-    { label: 'Newest first', value: SortOrder.Descending },
-    { label: 'Oldest first', value: SortOrder.Ascending },
-    { label: 'Data source A-Z', value: SortOrder.DatasourceAZ },
-    { label: 'Data source Z-A', value: SortOrder.DatasourceZA },
+    { label: '最新一个', value: SortOrder.Descending },
+    { label: '最早一个', value: SortOrder.Ascending },
+    { label: '数据源 A-Z', value: SortOrder.DatasourceAZ },
+    { label: '数据源 Z-A', value: SortOrder.DatasourceZA },
   ].filter((option) => supportedFeatures().availableFilters.includes(option.value));
 
 export interface RichHistoryProps extends Themeable2 {

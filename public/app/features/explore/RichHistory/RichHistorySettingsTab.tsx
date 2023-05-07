@@ -81,22 +81,19 @@ export function RichHistorySettingsTab(props: RichHistorySettingsProps) {
     <div className={styles.container}>
       {supportedFeatures().changeRetention ? (
         <Field
-          label="History time span"
-          description={`Select the period of time for which Grafana will save your query history. Up to ${MAX_HISTORY_ITEMS} entries will be stored.`}
+          label="历史时间跨度"
+          description={`选择Grafana保存查询历史记录的时间段。最多将存储 ${MAX_HISTORY_ITEMS} 条目`}
         >
           <div className={styles.input}>
             <Select value={selectedOption} options={retentionPeriodOptions} onChange={onChangeRetentionPeriod}></Select>
           </div>
         </Field>
       ) : (
-        <Alert severity="info" title="History time span">
-          Grafana will keep entries up to {selectedOption?.label}.
+        <Alert severity="info" title="历史时间跨度">
+          Grafana将保留条目到 {selectedOption?.label}
         </Alert>
       )}
-      <InlineField
-        label="Change the default active tab from “Query history” to “Starred”"
-        className={styles.spaceBetween}
-      >
+      <InlineField label="将默认的活动选项卡从“查询历史”更改为“星标”" className={styles.spaceBetween}>
         <InlineSwitch
           id="explore-query-history-settings-default-active-tab"
           value={starredTabAsFirstTab}
@@ -104,10 +101,7 @@ export function RichHistorySettingsTab(props: RichHistorySettingsProps) {
         />
       </InlineField>
       {supportedFeatures().onlyActiveDataSource && (
-        <InlineField
-          label="Only show queries for data source currently active in Explore"
-          className={styles.spaceBetween}
-        >
+        <InlineField label="仅显示对查询器中当前活动的数据源的查询" className={styles.spaceBetween}>
           <InlineSwitch
             id="explore-query-history-settings-data-source-behavior"
             value={activeDatasourceOnly}
@@ -117,10 +111,10 @@ export function RichHistorySettingsTab(props: RichHistorySettingsProps) {
       )}
       {supportedFeatures().clearHistory && (
         <div>
-          <div className={styles.bold}>Clear query history</div>
-          <div className={styles.bottomMargin}>Delete all of your query history, permanently.</div>
+          <div className={styles.bold}>清除查询历史</div>
+          <div className={styles.bottomMargin}>永久删除所有查询历史记录</div>
           <Button variant="destructive" onClick={onDelete}>
-            Clear query history
+            清除查询历史
           </Button>
         </div>
       )}

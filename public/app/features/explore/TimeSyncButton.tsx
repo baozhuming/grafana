@@ -12,7 +12,7 @@ export function TimeSyncButton(props: TimeSyncButtonProps) {
 
   const syncTimesTooltip = () => {
     const { isSynced } = props;
-    const tooltip = isSynced ? 'Unsync all views' : 'Sync all views to this time range';
+    const tooltip = isSynced ? '取消所有视图同步' : '将所有视图同步到此时间范围';
     return <>{tooltip}</>;
   };
 

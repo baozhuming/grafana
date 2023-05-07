@@ -145,7 +145,7 @@ class UnthemedDashboardImport extends PureComponent<Props> {
                   placeholder="Grafana.com 仪表盘URL或ID"
                   type="text"
                   {...register('gcomDashboard', {
-                    required: '需要一个Grafana仪表板URL或ID',
+                    required: '需要一个Grafana仪表盘URL或ID',
                     validate: validateGcomDashboard,
                   })}
                   addonAfter={<Button type="submit">加载</Button>}
@@ -186,7 +186,7 @@ class UnthemedDashboardImport extends PureComponent<Props> {
 
   pageNav: NavModelItem = {
     text: '导入仪表盘',
-    subTitle: '从文件或Grafana.com导入仪表板"',
+    subTitle: '从文件或Grafana.com导入仪表盘"',
     breadcrumbs: [{ title: '仪表盘', url: 'dashboards' }],
   };
 

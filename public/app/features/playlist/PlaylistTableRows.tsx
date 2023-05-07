@@ -20,7 +20,7 @@ export const PlaylistTableRows = ({ items, onDelete }: Props) => {
   if (!items?.length) {
     return (
       <div>
-        <em>播放列表为空，在下面添加仪表板</em>
+        <em>播放列表为空，在下面添加仪表盘</em>
       </div>
     );
   }

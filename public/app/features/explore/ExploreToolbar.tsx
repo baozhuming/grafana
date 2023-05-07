@@ -89,7 +89,7 @@ class UnConnectedExploreToolbar extends PureComponent<Props> {
   renderRefreshPicker = (showSmallTimePicker: boolean) => {
     const { loading, refreshInterval, isLive } = this.props;
 
-    let refreshPickerText: string | undefined = loading ? 'Cancel' : 'Run query';
+    let refreshPickerText: string | undefined = loading ? '取消' : '运行查询';
     let refreshPickerTooltip = undefined;
     let refreshPickerWidth = '108px';
     if (showSmallTimePicker) {
@@ -142,18 +142,12 @@ class UnConnectedExploreToolbar extends PureComponent<Props> {
 
     return [
       !splitted ? (
-        <ToolbarButton
-          key="split"
-          tooltip="Split the pane"
-          onClick={this.onOpenSplitView}
-          icon="columns"
-          disabled={isLive}
-        >
-          Split
+        <ToolbarButton key="split" tooltip="分割窗格" onClick={this.onOpenSplitView} icon="columns" disabled={isLive}>
+          分割
         </ToolbarButton>
       ) : (
-        <ToolbarButton key="split" tooltip="Close split pane" onClick={this.onCloseSplitView} icon="times">
-          Close
+        <ToolbarButton key="split" tooltip="关闭分割窗格" onClick={this.onCloseSplitView} icon="times">
+          关闭
         </ToolbarButton>
       ),
 
@@ -224,7 +218,7 @@ class UnConnectedExploreToolbar extends PureComponent<Props> {
     const getDashNav = () => (
       <DashNavButton
         key="share"
-        tooltip="Copy shortened link"
+        tooltip="复制缩短链接"
         icon="share-alt"
         onClick={this.onCopyShortLink}
         aria-label="Copy shortened link"

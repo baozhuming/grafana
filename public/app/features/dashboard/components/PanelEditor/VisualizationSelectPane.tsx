@@ -63,7 +63,7 @@ export const VisualizationSelectPane: FC<Props> = ({ panel, data }) => {
     {
       label: '面板库',
       value: VisualizationSelectPaneTab.LibraryPanels,
-      description: '可重复使用的面板，可以在多个仪表板之间共享',
+      description: '可重复使用的面板，可以在多个仪表盘之间共享',
     },
   ];
 

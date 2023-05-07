@@ -37,7 +37,7 @@ export const NewOrgPage: FC<Props> = ({ createOrganization }) => {
     <Page navId="global-orgs" pageNav={pageNav}>
       <Page.Contents>
         <p className="muted">
-          每个机构都包含自己的仪表板、数据源和配置，这些信息不能在机构之间共享,虽然用户可能属于多个机构,但在多租户部署中最常使用多个机构
+          每个机构都包含自己的仪表盘、数据源和配置，这些信息不能在机构之间共享,虽然用户可能属于多个机构,但在多租户部署中最常使用多个机构
         </p>
 
         <Form<CreateOrgFormDTO> onSubmit={createOrg}>

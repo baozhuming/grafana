@@ -195,12 +195,7 @@ export class QueryGroup extends PureComponent<Props, State> {
           {dataSource && (
             <>
               <div className={styles.dataSourceRowItem}>
-                <Button
-                  variant="secondary"
-                  icon="question-circle"
-                  title="Open data source help"
-                  onClick={this.onOpenHelp}
-                />
+                <Button variant="secondary" icon="question-circle" title="开放数据源帮助" onClick={this.onOpenHelp} />
               </div>
               <div className={styles.dataSourceRowItemOptions}>
                 <QueryGroupOptionsEditor
@@ -217,7 +212,7 @@ export class QueryGroup extends PureComponent<Props, State> {
                     onClick={onOpenQueryInspector}
                     aria-label={selectors.components.QueryTab.queryInspectorButton}
                   >
-                    Query inspector
+                    查询检查
                   </Button>
                 </div>
               )}

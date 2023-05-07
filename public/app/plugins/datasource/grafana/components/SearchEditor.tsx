@@ -48,16 +48,16 @@ export default function SearchEditor({ value, onChange }: Props) {
       onChange(searchQuery);
       setQuery(searchQuery.query ?? '');
     } catch (ex) {
-      console.log('UNABLE TO parse search', rawSearchJSON, ex);
+      console.log('无法解析搜索', rawSearchJSON, ex);
     }
   };
 
   return (
     <>
       <InlineFieldRow>
-        <InlineField label="Query" grow={true} labelWidth={12}>
+        <InlineField label="查询" grow={true} labelWidth={12}>
           <Input
-            placeholder="Everything"
+            placeholder="任意"
             value={query}
             onChange={(e) => setQuery(e.currentTarget.value)}
             onKeyDown={handleSearchEnterKey}

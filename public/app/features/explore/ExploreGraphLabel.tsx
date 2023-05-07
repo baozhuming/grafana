@@ -26,7 +26,7 @@ export function ExploreGraphLabel(props: Props) {
   const { graphStyle, onChangeGraphStyle } = props;
   return (
     <div className={spacing}>
-      Graph
+      图
       <RadioButtonGroup size="sm" options={ALL_GRAPH_STYLE_OPTIONS} value={graphStyle} onChange={onChangeGraphStyle} />
     </div>
   );

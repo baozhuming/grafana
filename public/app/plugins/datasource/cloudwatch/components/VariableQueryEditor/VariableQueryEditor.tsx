@@ -107,7 +107,7 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
         value={parsedQuery.queryType}
         options={queryTypes}
         onChange={(value: VariableQueryType) => onQueryChange({ ...parsedQuery, queryType: value })}
-        label="Query type"
+        label="查询类型"
         inputId={`variable-query-type-${query.refId}`}
       />
       {hasRegionField && (
@@ -115,7 +115,7 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
           value={region}
           options={regions}
           onChange={(value: string) => onRegionChange(value)}
-          label="Region"
+          label="地区"
           isLoading={regionIsLoading}
           inputId={`variable-query-region-${query.refId}`}
         />
@@ -125,7 +125,7 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
           value={namespace}
           options={namespaces}
           onChange={(value: string) => onNamespaceChange(value)}
-          label="Namespace"
+          label="命名空间"
           inputId={`variable-query-namespace-${query.refId}`}
           allowCustomValue
         />
@@ -136,7 +136,7 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
             value={metricName || null}
             options={metrics}
             onChange={(value: string) => onQueryChange({ ...parsedQuery, metricName: value })}
-            label="Metric"
+            label="进制"
             inputId={`variable-query-metric-${query.refId}`}
             allowCustomValue
           />
@@ -144,11 +144,11 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
             value={dimensionKey || null}
             options={dimensionKeys}
             onChange={(value: string) => onQueryChange({ ...parsedQuery, dimensionKey: value })}
-            label="Dimension key"
+            label="范围"
             inputId={`variable-query-dimension-key-${query.refId}`}
             allowCustomValue
           />
-          <InlineField label="Dimensions" labelWidth={20} tooltip="Dimensions to filter the returned values on">
+          <InlineField label="范围" labelWidth={20} tooltip="要过滤返回值的范围">
             <Dimensions
               metricStat={{ ...parsedQuery, dimensions: parsedQuery.dimensionFilters }}
               onChange={(dimensions) => {
@@ -166,7 +166,7 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
           value={query.instanceID}
           placeholder="i-XXXXXXXXXXXXXXXXX"
           onBlur={(value: string) => onQueryChange({ ...parsedQuery, instanceID: value })}
-          label="Instance ID"
+          label="实例 ID"
         />
       )}
       {parsedQuery.queryType === VariableQueryType.EC2InstanceAttributes && (
@@ -174,23 +174,23 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
           <VariableTextField
             value={parsedQuery.attributeName}
             onBlur={(value: string) => onQueryChange({ ...parsedQuery, attributeName: value })}
-            label="Attribute name"
+            label="属性名称"
             interactive={true}
             tooltip={
               <>
-                {'Attribute or tag to query on. Tags should be formatted "Tags.<name>". '}
+                {'要查询的属性或标记，标签应该被格式化 "Tags.<name>" '}
                 <a
                   href="https://grafana.com/docs/grafana/latest/datasources/aws-cloudwatch/template-queries-cloudwatch/#selecting-attributes"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  See the documentation for more details
+                  有关更多详细信息，请参阅文档
                 </a>
               </>
             }
           />
           <InlineField
-            label="Filters"
+            label="过滤器"
             labelWidth={20}
             tooltip={
               <>
@@ -199,9 +199,9 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Pre-defined ec2:DescribeInstances filters/tags
+                  预定义 ec2:DescribeInstances 过滤器/标签
                 </a>
-                {' and the values to filter on. Tags should be formatted tag:<name>.'}
+                {' 以及要过滤的值，标签应该被格式化 tag:<name>.'}
               </>
             }
           >
@@ -220,9 +220,9 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
           <VariableTextField
             value={parsedQuery.resourceType}
             onBlur={(value: string) => onQueryChange({ ...parsedQuery, resourceType: value })}
-            label="Resource type"
+            label="资源类型"
           />
-          <InlineField label="Tags" labelWidth={20} tooltip="Tags to filter the returned values on.">
+          <InlineField label="标签" labelWidth={20} tooltip="标记来过滤返回值">
             <MultiFilter
               filters={parsedQuery.tags}
               onChange={(filters) => {
@@ -237,7 +237,7 @@ export const VariableQueryEditor = ({ query, datasource, onChange }: Props) => {
         <VariableTextField
           value={query.logGroupPrefix ?? ''}
           onBlur={(value: string) => onQueryChange({ ...parsedQuery, logGroupPrefix: value })}
-          label="Log group prefix"
+          label="日志组前缀"
         />
       )}
     </>

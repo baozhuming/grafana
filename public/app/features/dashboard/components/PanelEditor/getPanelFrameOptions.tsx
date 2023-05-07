@@ -96,7 +96,7 @@ export function getPanelFrameCategory(props: OptionPaneRenderProps): OptionsPane
           new OptionsPaneItemDescriptor({
             title: '按变量重复',
             description:
-              '对所选变量中的每个值重复此面板，这在编辑模式下是不可见的，您需要回到仪表板，然后更新变量或重新加载仪表板',
+              '对所选变量中的每个值重复此面板，这在编辑模式下是不可见的，您需要回到仪表盘，然后更新变量或重新加载仪表盘',
             render: function renderRepeatOptions() {
               return (
                 <RepeatRowSelect

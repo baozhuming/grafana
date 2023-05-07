@@ -29,7 +29,7 @@ export enum PanelEditTableToggle {
 
 export const displayModes = [
   { value: DisplayMode.Fill, label: '填充', description: '使用所有可用空间' },
-  { value: DisplayMode.Exact, label: '收缩', description: '制作与仪表板相同的大小' },
+  { value: DisplayMode.Exact, label: '收缩', description: '制作与仪表盘相同的大小' },
 ];
 
 export const panelEditTableModes = [

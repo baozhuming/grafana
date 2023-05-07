@@ -453,14 +453,14 @@ class UnthemedLogs extends PureComponent<Props, State> {
                   disabled={isFlipping}
                   options={[
                     {
-                      label: 'Newest first',
+                      label: '最新一个',
                       value: LogsSortOrder.Descending,
-                      description: 'Show results newest to oldest',
+                      description: '显示最新到最老的结果',
                     },
                     {
-                      label: 'Oldest first',
+                      label: '最早一个',
                       value: LogsSortOrder.Ascending,
-                      description: 'Show results oldest to newest',
+                      description: '显示从最早到最新的结果',
                     },
                   ]}
                   value={logsSortOrder}

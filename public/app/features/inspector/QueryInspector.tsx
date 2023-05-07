@@ -262,10 +262,9 @@ export class QueryInspector extends PureComponent<Props, State> {
     return (
       <div className={styles.wrap}>
         <div aria-label={selectors.components.PanelInspector.Query.content}>
-          <h3 className="section-heading">Query inspector</h3>
+          <h3 className="section-heading">查询检查器</h3>
           <p className="small muted">
-            Query inspector allows you to view raw request and response. To collect this data Grafana needs to issue a
-            new query. Click refresh button below to trigger a new query.
+            查询检查器允许您查看原始请求和响应，为了收集这些数据，Grafana需要发出一个新的查询，单击下面的刷新按钮触发一个新的查询
           </p>
         </div>
         {this.renderExecutedQueries(executedQueries)}
@@ -275,17 +274,17 @@ export class QueryInspector extends PureComponent<Props, State> {
             onClick={onRefreshQuery}
             aria-label={selectors.components.PanelInspector.Query.refreshButton}
           >
-            Refresh
+            刷新
           </Button>
 
           {haveData && allNodesExpanded && (
             <Button icon="minus" variant="secondary" className={styles.toolbarItem} onClick={this.onToggleExpand}>
-              Collapse all
+              全部折叠
             </Button>
           )}
           {haveData && !allNodesExpanded && (
             <Button icon="plus" variant="secondary" className={styles.toolbarItem} onClick={this.onToggleExpand}>
-              Expand all
+              全部展开
             </Button>
           )}
 
@@ -296,19 +295,17 @@ export class QueryInspector extends PureComponent<Props, State> {
               icon="copy"
               variant="secondary"
             >
-              Copy to clipboard
+              复制到剪贴板
             </ClipboardButton>
           )}
           <div className="flex-grow-1" />
         </div>
         <div className={styles.content}>
-          {isLoading && <LoadingPlaceholder text="Loading query inspector..." />}
+          {isLoading && <LoadingPlaceholder text="加载查询检查器..." />}
           {!isLoading && haveData && (
             <JSONFormatter json={response} open={openNodes} onDidRender={this.setFormattedJson} />
           )}
-          {!isLoading && !haveData && (
-            <p className="muted">No request and response collected yet. Hit refresh button</p>
-          )}
+          {!isLoading && !haveData && <p className="muted">尚未收集到请求和响应，点击刷新按钮</p>}
         </div>
       </div>
     );

@@ -131,7 +131,7 @@ export class TeamList extends PureComponent<Props, State> {
         buttonLink="org/teams/new"
         buttonTitle=" 新建团队"
         buttonDisabled={!contextSrv.hasPermission(AccessControlAction.ActionTeamsCreate)}
-        proTip="将文件夹和仪表板权限分配给团队，而不是用户，以简化管理"
+        proTip="将文件夹和仪表盘权限分配给团队，而不是用户，以简化管理"
         proTipLink=""
         proTipLinkTitle=""
         proTipTarget="_blank"

@@ -77,7 +77,7 @@ export function ExploreGraph({
   const [showAllTimeSeries, setShowAllTimeSeries] = useState(false);
   const [structureRev, { inc: incrementStructureRev }] = useCounter(1);
   const fieldConfigRegistry = useMemo(
-    () => createFieldConfigRegistry(getGraphFieldConfig(defaultGraphConfig), 'Explore'),
+    () => createFieldConfigRegistry(getGraphFieldConfig(defaultGraphConfig), '查询器'),
     []
   );
 
@@ -167,13 +167,13 @@ export function ExploreGraph({
       {dataWithConfig.length > MAX_NUMBER_OF_TIME_SERIES && !showAllTimeSeries && (
         <div className={cx([style.timeSeriesDisclaimer])}>
           <Icon className={style.disclaimerIcon} name="exclamation-triangle" />
-          {`Showing only ${MAX_NUMBER_OF_TIME_SERIES} time series. `}
+          {`只显示 ${MAX_NUMBER_OF_TIME_SERIES} 时间序列 `}
           <span
             className={cx([style.showAllTimeSeries])}
             onClick={() => {
               setShowAllTimeSeries(true);
             }}
-          >{`Show all ${dataWithConfig.length}`}</span>
+          >{`显示所有 ${dataWithConfig.length}`}</span>
         </div>
       )}
       <PanelRenderer

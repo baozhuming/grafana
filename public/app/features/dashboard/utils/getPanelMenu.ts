@@ -130,7 +130,7 @@ export function getPanelMenu(
 
   if (contextSrv.hasAccessToExplore() && !(panel.plugin && panel.plugin.meta.skipDataQuery)) {
     menu.push({
-      text: '探查',
+      text: '查询器',
       iconClassName: 'compass',
       onClick: onNavigateToExplore,
       shortcut: 'x',
